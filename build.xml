@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="chess" default="deploy" basedir=".">
+  <description>
+    Buildfile for chess core library
+  </description>
+  
+	<property name="dirDevelop" value="."/>
+	<property name="dirDeploy" value="C:/proyectos/software/apache-tomcat-5.5.28/webapps/chess/"/>
+	<property name="src.dir" value="./src/main/java"/>
+	<property name="lib.dir" value="./lib"/>
+	<property name="build.path" value="./WEB-INF/lib"/>
+	<property name="jarFile" value="ChessCore.jar"/>
+	
+	
+	<path id="classpath.lib">
+		<fileset dir="${lib.dir}">
+		  <include name="*.jar"/>                          
+		</fileset>
+	</path>   
+
+  <target name="compile" description="compile project source code">
+  	<delete dir="${build.path}"/>
+	<mkdir dir="${build.path}"/>     
+		<javac destdir="${build.path}" 
+			encoding="ISO-8859-1" 
+			source="1.5" 
+			target="1.5" 
+			debug="true" 
+			deprecation="false" 
+			optimize="false" 
+			failonerror="true">
+			<src path="${src.dir}"/>
+			<classpath refid="classpath.lib" />
+		</javac> 
+  </target> 	
+ 
+
+	<target name="jar" depends="compile">
+		<jar destfile="${build.path}/${jarFile}" basedir="${build.path}"/>
+	</target>
+	
+  <target name="deploy" depends="jar">
+    
+  	<copy todir="${dirDeploy}/html">
+      <fileset dir="${dirDevelop}/html" includes="*"/>
+    </copy>
+    
+  	<copy todir="${dirDeploy}/css">
+      <fileset dir="${dirDevelop}/css" includes="*"/>
+    </copy>
+  	
+  	<copy todir="${dirDeploy}/images">
+      <fileset dir="${dirDevelop}/images" includes="*"/>
+    </copy>
+    
+  	<copy todir="${dirDeploy}/WEB-INF">
+        <fileset dir="${dirDevelop}/WEB-INF" includes="*"/>
+    </copy>
+  	
+  	<copy todir="${dirDeploy}/WEB-INF/lib">
+        <fileset dir="${dirDevelop}/WEB-INF/lib" includes="*.jar"/>
+    </copy>
+  	
+  </target>
+
+</project>
