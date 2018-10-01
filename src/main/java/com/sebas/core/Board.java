@@ -1,5 +1,10 @@
 package com.sebas.core;
 
+/**
+ * This is one of the most important class because it represents the board
+ * @author srevuelta
+ *
+ */
 public class Board {
 
 	private Square[][] squares;
