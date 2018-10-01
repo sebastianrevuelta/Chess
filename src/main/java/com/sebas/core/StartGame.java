@@ -7,8 +7,8 @@ public class StartGame {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Hola!");
-		//Match match = new Match("white");
-		//match.startGame();
+		Match match = new Match("white");
+		match.startGame();
 	}
 
 }

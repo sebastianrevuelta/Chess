@@ -36,7 +36,7 @@ public class Match {
 		Board board = new Board();
 		
 		while (!checkmate && movement != 6) {
-		  //board.print();
+		  board.print();
 		  Movement m = new Movement();
 		  boolean checkMate = false;
 		  while (!checkMate) {
