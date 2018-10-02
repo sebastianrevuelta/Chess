@@ -1,0 +1,17 @@
+stages:
+  - build
+  - analyze
+  
+maven-build:
+  stage: build
+  script: 
+    - mvn clean
+  tags:
+    - maven
+    
+kiuwan-bl-analysis:
+  stage: analyze
+  script: 
+    - agent -n %CI_PROJECT_NAME% -s %CI_PROJECT_DIR% -l "GitLab build %CI_JOB_ID%" -as completeDelivery --user %KIUWAN_USER% --pass %KIUWAN_PASSWD%
+  tags:
+    - kiuwan
