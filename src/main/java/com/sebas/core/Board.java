@@ -250,57 +250,58 @@ public class Board {
 	}
 	
 
-	
+	public void printLine(String content) {
+		System.out.flush();
+		System.out.println(content);
+	}
 
 	/**
 	 * print the board
 	 */
 	public void print() {
-		System.out.flush();
-		System.out.println("***********************");
+		printLine("***********************");
 		for(int i = 7; i >= 0; i--) {
-			if (i != 7) System.out.println();
+			if (i != 7) printLine("");
 			for(int j = 0; j < 8; j++) {
-				if (j == 0) System.out.print(" " + calculateVertical(i) + " ");
+				if (j == 0) printLine(" " + calculateVertical(i) + " ");
 				if (squares[i][j].isEmpty()) {
-					System.out.print("| ");
+					printLine("| ");
 				}
 				else {
 					Piece p = squares[i][j].getPieza();
 					String type = p.getType();
 					String color = p.getColor();
 					if ("tower".equals(type)) {
-						if ("white".equals(color)) System.err.print("|T");
-						else System.out.print("|T");
+						if ("white".equals(color)) printLine("|T");
+						else printLine("|T");
 					}
 					else if ("knight".equals(type)) {
-						if ("white".equals(color)) System.err.print("|C");
-						else System.out.print("|C");
+						if ("white".equals(color)) printLine("|C");
+						else printLine("|C");
 					}
 					else if ("bishop".equals(type)) {
-						if ("white".equals(color)) System.err.print("|A");
-						else System.out.print("|A");
+						if ("white".equals(color)) printLine("|A");
+						else printLine("|A");
 					}
 					else if ("king".equals(type)) {
-						if ("white".equals(color)) System.err.print("|R");
-						else System.out.print("|R");
+						if ("white".equals(color)) printLine("|R");
+						else printLine("|R");
 					}
 					else if ("queen".equals(type)) {
-						if ("white".equals(color)) System.err.print("|D");
-						else System.out.print("|D");
+						if ("white".equals(color)) printLine("|D");
+						else printLine("|D");
 					}
 					else if ("pawn".equals(type)) {
-						if ("white".equals(color)) System.err.print("|p");
-						else System.out.print("|p");
+						if ("white".equals(color)) printLine("|p");
+						else printLine("|p");
 					}
 				}
-				if (j == 7) System.out.print("|");
+				if (j == 7) printLine("|");
 			}
 		}
-		System.out.println();
-		System.out.print("   ");
+		printLine("   ");
 		for(int j = 0; j < 8; j++) {
-		  System.out.print(" " + calculateHorizontal(j));
+			printLine(" " + calculateHorizontal(j));
 		}
 	}
 
