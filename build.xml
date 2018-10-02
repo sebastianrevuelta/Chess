@@ -6,7 +6,7 @@
   </description>
   
 	<property name="dirDevelop" value="."/>
-	<property name="dirDeploy" value="C:/proyectos/software/apache-tomcat-5.5.28/webapps/chess/"/>
+	<property name="dirDeploy" value="C:/projects/apache-tomcat-6.0.35/webapps/chess/"/>
 	<property name="src.dir" value="./src/main/java"/>
 	<property name="lib.dir" value="./lib"/>
 	<property name="build.path" value="./WEB-INF/lib"/>

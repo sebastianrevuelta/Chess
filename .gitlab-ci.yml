@@ -1,6 +1,7 @@
 stages:
   - build
   - analyze
+  - deploy
   
 maven-build:
   stage: build
@@ -15,3 +16,10 @@ kiuwan-complete-delivery-analysis:
     - agent -n %CI_PROJECT_NAME% -s %CI_PROJECT_DIR% -l "GitLab build %CI_JOB_ID%" -as completeDelivery --user %KIUWAN_USER% --pass %KIUWAN_PASSWD% -cr "Fix Board"
   tags:
     - kiuwan
+    
+deploy-tomcat:
+  stage: deploy
+  script: 
+    - ant deploy
+  tags:
+    - tomcat
