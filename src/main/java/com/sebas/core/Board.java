@@ -25,11 +25,11 @@ public class Board {
 		Square[][] casillas = new Square[8][8];
 
 		//fill board
-		
+
 		//white pieces
 		Square squarea1 = createSquare("white","a","1","tower");
 		casillas[0][0] = squarea1;
-		
+
 		Square squareb1 = createSquare("white","b","1","knight");
 		casillas[1][0] = squareb1;
 
@@ -50,7 +50,7 @@ public class Board {
 
 		Square squareh1 = createSquare("white","h","1","tower");
 		casillas[7][0] = squareh1;
-		
+
 		//white pawns
 		Square squarea2 = createSquare("white","a","2","pawn");
 		casillas[0][1] = squarea2;
@@ -72,7 +72,7 @@ public class Board {
 		//white pieces
 		Square squarea8 = createSquare("black","a","8","tower");
 		casillas[0][7] = squarea8;
-		
+
 		Square squareb8 = createSquare("black","b","8","knight");
 		casillas[1][7] = squareb8;
 
@@ -111,8 +111,8 @@ public class Board {
 		casillas[6][6] = squareg7;
 		Square squareh7 = createSquare("black","h","7","pawn");
 		casillas[7][6] = squareh7;
-		
-		
+
+
 		//empty board
 		for(int i = 0; i < 8; i++) {
 			for(int j = 0; j < 8; j++) {
@@ -129,11 +129,11 @@ public class Board {
 			}
 		}
 
-		
+
 		return casillas;
 	}
-	
-	
+
+
 
 	/**
 	 * 
@@ -152,7 +152,7 @@ public class Board {
 		if ("queen".equals(type)) p = new Queen();
 		if ("king".equals(type)) p = new King();
 		if ("pawn".equals(type)) p = new Pawn();
-		
+
 		p.setColor(color);
 		square.setHorizontal(horizontal);
 		square.setVertical(vertical);
@@ -161,7 +161,7 @@ public class Board {
 		return square;
 	}
 
-	
+
 	/**
 	 * 
 	 * @param j
@@ -232,27 +232,27 @@ public class Board {
 	public void update(Movement m, String turn) {
 		String origin = m.getOrigin();
 		String destiny = m.getDestiny();
-		
+
 		int horOrigin = UtilChess.calculateHorizontal(origin); 
 		int verOrigin = UtilChess.calculateVertical(origin);
 		squares[horOrigin][verOrigin].setEmpty(true);
-		
+
 		int horDestiny = UtilChess.calculateHorizontal(destiny);
 		int verDestiny = UtilChess.calculateVertical(destiny);
-		
+
 		String horizontal = destiny.substring(0,1);
 		String vertical =  destiny.substring(1);
-		
+
 		Square square = createSquare(turn,horizontal,vertical, m.getPiece().getType());
 		squares[horDestiny][verDestiny] = square;
-		
-		
+
+
 	}
-	
+
 
 	public void printLine(String content) {
 		System.out.flush();
-		System.out.println(content);
+		System.out.print(content);
 	}
 
 	/**
@@ -263,7 +263,10 @@ public class Board {
 		for(int i = 7; i >= 0; i--) {
 			if (i != 7) printLine("");
 			for(int j = 0; j < 8; j++) {
-				if (j == 0) printLine(" " + calculateVertical(i) + " ");
+				if (j == 0) {
+					System.out.println();
+					printLine(" " + calculateVertical(i) + " ");
+				}
 				if (squares[i][j].isEmpty()) {
 					printLine("| ");
 				}
@@ -300,9 +303,12 @@ public class Board {
 			}
 		}
 		printLine("   ");
+		System.out.println();
+		System.out.print("   ");
 		for(int j = 0; j < 8; j++) {
 			printLine(" " + calculateHorizontal(j));
 		}
+		System.out.println();
 	}
 
 	public boolean checkMovement(Movement m) {

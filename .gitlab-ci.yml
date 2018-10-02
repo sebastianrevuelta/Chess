@@ -9,9 +9,9 @@ maven-build:
   tags:
     - maven
     
-kiuwan-bl-analysis:
+kiuwan-complete-delivery-analysis:
   stage: analyze
   script: 
-    - agent -n %CI_PROJECT_NAME% -s %CI_PROJECT_DIR% -l "GitLab build %CI_JOB_ID%" -as completeDelivery --user %KIUWAN_USER% --pass %KIUWAN_PASSWD%
+    - agent -n %CI_PROJECT_NAME% -s %CI_PROJECT_DIR% -l "GitLab build %CI_JOB_ID%" -as completeDelivery --user %KIUWAN_USER% --pass %KIUWAN_PASSWD% -cr "Fix Board"
   tags:
     - kiuwan
