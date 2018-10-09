@@ -30,6 +30,9 @@ public class Piece {
 		return null;
 	}
 	public boolean isRealMove(Movement move, Board board, String turn) {
-		return true;
+		String destiny = move.getDestiny();
+		Square square = board.getSquare(destiny);
+		return square.isEmpty();
+		
 	}
 }

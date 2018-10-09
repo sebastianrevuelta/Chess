@@ -245,74 +245,76 @@ public class Board {
 
 		Square square = createSquare(turn,horizontal,vertical, m.getPiece().getType());
 		squares[horDestiny][verDestiny] = square;
-
-
 	}
 
 
-	public void printLine(String content) {
+	public void printLine(String content, String color) {
 		System.out.flush();
-		System.out.print(content);
+		if ("black".equals(color)) {
+			System.out.print(content.toLowerCase());
+		}
+		else {
+			System.out.print(content.toUpperCase());
+		}
 	}
 
 	/**
 	 * print the board
 	 */
 	public void print() {
-		printLine("***********************");
+		printLine("***********************","");
 		for(int i = 7; i >= 0; i--) {
-			if (i != 7) printLine("");
+			if (i != 7) printLine("","");
 			for(int j = 0; j < 8; j++) {
 				if (j == 0) {
 					System.out.println();
-					printLine(" " + calculateVertical(i) + " ");
+					printLine(" " + calculateHorizontal(i) + " ","");
 				}
 				if (squares[i][j].isEmpty()) {
-					printLine("| ");
+					printLine("| ","");
 				}
 				else {
 					Piece p = squares[i][j].getPieza();
 					String type = p.getType();
 					String color = p.getColor();
 					if ("tower".equals(type)) {
-						if ("white".equals(color)) printLine("|T");
-						else printLine("|T");
+						printLine("|T",color);
 					}
 					else if ("knight".equals(type)) {
-						if ("white".equals(color)) printLine("|C");
-						else printLine("|C");
+						printLine("|C",color);
 					}
 					else if ("bishop".equals(type)) {
-						if ("white".equals(color)) printLine("|A");
-						else printLine("|A");
+						printLine("|A",color);
 					}
 					else if ("king".equals(type)) {
-						if ("white".equals(color)) printLine("|R");
-						else printLine("|R");
+						printLine("|R",color);
 					}
 					else if ("queen".equals(type)) {
-						if ("white".equals(color)) printLine("|D");
-						else printLine("|D");
+						printLine("|D",color);
 					}
 					else if ("pawn".equals(type)) {
-						if ("white".equals(color)) printLine("|p");
-						else printLine("|p");
+						printLine("|p",color);
 					}
 				}
-				if (j == 7) printLine("|");
+				if (j == 7) printLine("|","");
 			}
 		}
-		printLine("   ");
+		printLine("   ","");
 		System.out.println();
 		System.out.print("   ");
 		for(int j = 0; j < 8; j++) {
-			printLine(" " + calculateHorizontal(j));
+			printLine(" " + calculateVertical(j),"");
 		}
 		System.out.println();
 	}
 
 	public boolean checkMovement(Movement m) {
 		return true;	
+	}
+	public Square getSquare(String destiny) {
+		int v = UtilChess.calculateVertical(destiny);
+		int h = UtilChess.calculateHorizontal(destiny);
+		return this.getSquares()[v][h];
 	}
 
 }

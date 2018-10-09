@@ -1,16 +1,17 @@
 package com.sebas.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Tower extends Piece {
-	
+
 	Tower() {
 		super.setType("tower");
 		super.setValue(5);
 	}
-	
-	
+
+
 	/***
 	 * move the tower
 	 * @param turn
@@ -27,7 +28,7 @@ public class Tower extends Piece {
 
 		int valueColumn = UtilChess.calculateHorizontal(from);
 		int valueRow = UtilChess.calculateVertical(from);
-		
+
 		for (int i=1; i < 8; i++) {
 			if (valueRow+i < 8) {
 				int row = new Integer(valueRow+i).intValue();
@@ -38,7 +39,7 @@ public class Tower extends Piece {
 				Movement move1 = new Movement(this,from,to);
 				possibleMoves.add(move1);	
 			}
-			
+
 			if (valueRow-i >=0) {
 				int row = new Integer(valueRow+i).intValue();
 				rowdestiny = UtilChess.calculateVertical(row);
@@ -48,7 +49,7 @@ public class Tower extends Piece {
 				Movement move2 = new Movement(this,from,to);
 				possibleMoves.add(move2);
 			}
-			
+
 			if (valueColumn+i < 8) {
 				int row = new Integer(valueRow).intValue();
 				rowdestiny = UtilChess.calculateVertical(row);
@@ -70,23 +71,77 @@ public class Tower extends Piece {
 		}
 		return possibleMoves;
 	}
-	
+
 	/**
 	 * check if the move is possible
 	 */
 	public boolean isRealMove(Movement move, Board board, String turn) {
-		String to = move.getDestiny();
-		
-		int horizontalTo = UtilChess.calculateHorizontal(to);
-		int verticalTo = UtilChess.calculateVertical(to);
 
-		Square[][] squares = board.getSquares();
-		Square square = squares[horizontalTo][verticalTo];
-		if (!square.isEmpty()) {
-			if (turn.equals(square.getPieza().getColor())) return false;
+		List<Square> squares = getSquares(move);
+		Iterator<Square> i = squares.iterator();
+		while (i.hasNext()) {
+			Square square = i.next();
+			if (!square.isEmpty()) {
+				if (turn.equals(square.getPieza().getColor())) {
+					return false;
+				}
+			}
 		}
-		
+
 		return true;
 	}
 
+
+	private List<Square> getSquares(Movement move) {
+
+		List<Square> squares = new ArrayList<Square>();
+
+		String from = move.getOrigin();
+		String to = move.getDestiny();
+
+		int horizontalTo = UtilChess.calculateHorizontal(to);
+		int verticalTo = UtilChess.calculateVertical(to);
+
+		int horizontalFrom = UtilChess.calculateHorizontal(from);
+		int verticalFrom = UtilChess.calculateVertical(from);
+
+		if (horizontalTo == horizontalFrom) {
+			if (verticalFrom < verticalTo) {
+				for (int i = verticalFrom+1; i <= verticalTo; i++) {
+					Square square = new Square();
+					square.setHorizontal(UtilChess.calculateHorizontal(horizontalTo));
+					square.setVertical(UtilChess.calculateVertical(i));
+					squares.add(square);
+				}
+			}
+			else {
+				for (int i = verticalTo-1; i >= verticalFrom; i--) {
+					Square square = new Square();
+					square.setHorizontal(UtilChess.calculateHorizontal(horizontalTo));
+					square.setVertical(UtilChess.calculateVertical(i));
+					squares.add(square);
+				}
+			}
+		}
+		else if (verticalTo == verticalFrom) {
+			if (horizontalFrom < horizontalTo) {
+				for (int i = horizontalFrom+1; i <= horizontalTo; i++) {
+					Square square = new Square();
+					square.setVertical(UtilChess.calculateVertical(verticalTo));
+					square.setHorizontal(UtilChess.calculateHorizontal(i));
+					squares.add(square);
+				}
+			}
+			else {
+				for (int i = horizontalTo-1; i >= horizontalFrom; i--) {
+					Square square = new Square();
+					square.setVertical(UtilChess.calculateVertical(verticalTo));
+					square.setHorizontal(UtilChess.calculateHorizontal(i));
+					squares.add(square);
+				}
+			}
+		}
+		return squares;
+	}
+	
 }

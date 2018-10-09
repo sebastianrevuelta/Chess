@@ -6,7 +6,7 @@ public class StartGame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("Hola!");
+		System.out.println("Start!");
 		Match match = new Match("white");
 		match.startGame();
 	}

@@ -39,13 +39,13 @@ public class Movement {
 	public Movement makeMovement(Board board, String turn) {
 
 		List<Movement> possiblesMoves = getPossiblesMoves(board,turn);
-		System.out.println("choosing between ..." + possiblesMoves.size());
+		//System.out.println("choosing between ..." + possiblesMoves.size());
 		List<Movement> realMoves = filterMoves(board,turn,possiblesMoves);
 		Movement move = chooseBestMove(realMoves);
 		this.setPiece(move.getPiece());
 		this.setOrigin(move.getOrigin());
 		this.setDestiny(move.getDestiny());
-		
+		System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() + "-" + move.getDestiny());
 		return this;
 	}
 
@@ -69,7 +69,7 @@ public class Movement {
 						String from = square.getHorizontal()+square.getVertical();
 						List<Movement> moves = p.move(turn, from);
 						possiblesMoves.addAll(moves);
-						System.out.println("Adding " + moves.size() + " for " + p.getType() + " turn " + from); 
+						//System.out.println("Adding " + moves.size() + " for " + p.getType() + " turn " + from); 
 					}
 				}
 			}

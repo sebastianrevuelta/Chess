@@ -4,7 +4,7 @@ public class Match {
 	
 	private static final long TIME_OUT_THINKING = 2000;
 
-	private static final String EOL = System.getProperty("line.separator");
+	//private static final String EOL = System.getProperty("line.separator");
 	
 	private Board board;
 	private String turn;
