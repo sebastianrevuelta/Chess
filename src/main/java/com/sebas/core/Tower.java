@@ -77,13 +77,16 @@ public class Tower extends Piece {
 	 */
 	public boolean isRealMove(Movement move, Board board, String turn) {
 
-		List<Square> squares = getSquares(move);
+		List<Square> squares = getSquares(board, move);
 		Iterator<Square> i = squares.iterator();
 		while (i.hasNext()) {
 			Square square = i.next();
 			if (!square.isEmpty()) {
-				if (turn.equals(square.getPieza().getColor())) {
-					return false;
+				Piece p = square.getPieza();
+				if (p != null) {
+					if (turn.equals(square.getPieza().getColor())) {
+						return false;
+					}
 				}
 			}
 		}
@@ -92,7 +95,7 @@ public class Tower extends Piece {
 	}
 
 
-	private List<Square> getSquares(Movement move) {
+	private List<Square> getSquares(Board board, Movement move) {
 
 		List<Square> squares = new ArrayList<Square>();
 
@@ -108,17 +111,13 @@ public class Tower extends Piece {
 		if (horizontalTo == horizontalFrom) {
 			if (verticalFrom < verticalTo) {
 				for (int i = verticalFrom+1; i <= verticalTo; i++) {
-					Square square = new Square();
-					square.setHorizontal(UtilChess.calculateHorizontal(horizontalTo));
-					square.setVertical(UtilChess.calculateVertical(i));
+					Square square = board.getSquares()[horizontalTo][i];
 					squares.add(square);
 				}
 			}
 			else {
 				for (int i = verticalTo-1; i >= verticalFrom; i--) {
-					Square square = new Square();
-					square.setHorizontal(UtilChess.calculateHorizontal(horizontalTo));
-					square.setVertical(UtilChess.calculateVertical(i));
+					Square square = board.getSquares()[horizontalTo][i];
 					squares.add(square);
 				}
 			}
@@ -126,22 +125,18 @@ public class Tower extends Piece {
 		else if (verticalTo == verticalFrom) {
 			if (horizontalFrom < horizontalTo) {
 				for (int i = horizontalFrom+1; i <= horizontalTo; i++) {
-					Square square = new Square();
-					square.setVertical(UtilChess.calculateVertical(verticalTo));
-					square.setHorizontal(UtilChess.calculateHorizontal(i));
+					Square square = board.getSquares()[i][verticalTo];
 					squares.add(square);
 				}
 			}
 			else {
 				for (int i = horizontalTo-1; i >= horizontalFrom; i--) {
-					Square square = new Square();
-					square.setVertical(UtilChess.calculateVertical(verticalTo));
-					square.setHorizontal(UtilChess.calculateHorizontal(i));
+					Square square = board.getSquares()[i][verticalTo];
 					squares.add(square);
 				}
 			}
 		}
 		return squares;
 	}
-	
+
 }
