@@ -1,6 +1,7 @@
 package com.sebas.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class King extends Piece {
@@ -10,6 +11,24 @@ public class King extends Piece {
 		super.setValue(1000);
 	}
 
+	public boolean isRealMove(Movement move, Board board, String turn) {
+
+		String to = move.getDestiny();
+
+		int horizontalTo = UtilChess.calculateHorizontal(to);
+		int verticalTo = UtilChess.calculateVertical(to);
+		
+		Square[][] squares = board.getSquares();
+		Square square = squares[horizontalTo][verticalTo];
+		
+		if (!square.isEmpty()) {
+			if (turn.equals(square.getPieza().getColor())) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 	/***
 	 * move the king

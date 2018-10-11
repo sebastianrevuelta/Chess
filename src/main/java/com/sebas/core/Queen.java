@@ -107,7 +107,7 @@ public class Queen extends Piece {
 	}
 	
 	/**
-	 * check if the move is possible
+	 * TODO: check if the move is possible
 	 */
 	public boolean isRealMove(Movement move, Board board, String turn) {
 		String to = move.getDestiny();

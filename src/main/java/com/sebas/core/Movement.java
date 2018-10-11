@@ -93,8 +93,12 @@ public class Movement {
 		while (i.hasNext()) {
 			Movement move = i.next();
 			Piece p = move.getPiece();
-			if (p.isRealMove(move,board,turn)) {
-				realMoves.add(move);
+			String type = p.getType();
+			if ("pawn".equals(type) || "king".equals(type) 
+					|| "tower".equals(type) || "knight".equals(type)) {
+				if (p.isRealMove(move,board,turn)) {
+					realMoves.add(move);
+				}
 			}
 		}
 		
