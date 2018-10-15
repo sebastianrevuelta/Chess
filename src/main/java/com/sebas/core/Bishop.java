@@ -1,6 +1,7 @@
 package com.sebas.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Bishop extends Piece {
@@ -63,23 +64,41 @@ public class Bishop extends Piece {
 		return possibleMoves;
 	}
 	
-	/**
-	 * TODO: check if the move is possible
-	 */
 	public boolean isRealMove(Movement move, Board board, String turn) {
+
+		List<Square> squares = getSquares(board, move);
+		Iterator<Square> i = squares.iterator();
+		while (i.hasNext()) {
+			Square square = i.next();
+			if (!square.isEmpty()) {
+				Piece p = square.getPieza();
+				if (p != null) {
+					if (turn.equals(square.getPieza().getColor())) {
+						return false;
+					}
+				}
+			}
+		}
+
+		return true;
+	}
+
+	private List<Square> getSquares(Board board, Movement move) {
+		List<Square> squares = new ArrayList<Square>();
+
+		String from = move.getOrigin();
 		String to = move.getDestiny();
-		
+
 		int horizontalTo = UtilChess.calculateHorizontal(to);
 		int verticalTo = UtilChess.calculateVertical(to);
 
-		Square[][] squares = board.getSquares();
-		Square square = squares[horizontalTo][verticalTo];
-		if (!square.isEmpty()) {
-			if (turn.equals(square.getPieza().getColor())) return false;
-		}
+		int horizontalFrom = UtilChess.calculateHorizontal(from);
+		int verticalFrom = UtilChess.calculateVertical(from);
 		
-		return true;
-
+		
+		
+		return squares;
+		
 	}
 
 }

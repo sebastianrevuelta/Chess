@@ -116,7 +116,7 @@ public class Tower extends Piece {
 				}
 			}
 			else {
-				for (int i = verticalTo-1; i >= verticalFrom; i--) {
+				for (int i = verticalFrom-1; i >= verticalTo; i--) {
 					Square square = board.getSquares()[horizontalTo][i];
 					squares.add(square);
 				}
@@ -130,7 +130,7 @@ public class Tower extends Piece {
 				}
 			}
 			else {
-				for (int i = horizontalTo-1; i >= horizontalFrom; i--) {
+				for (int i = horizontalFrom-1; i >= horizontalTo; i--) {
 					Square square = board.getSquares()[i][verticalTo];
 					squares.add(square);
 				}
