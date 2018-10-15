@@ -64,9 +64,9 @@ public class Bishop extends Piece {
 		return possibleMoves;
 	}
 	
-	public boolean isRealMove(Movement move, Board board, String turn) {
+	public boolean isRealMove(Movement movement, Board board, String turn) {
 
-		List<Square> squares = getSquares(board, move);
+		List<Square> squares = getSquares(board, movement);
 		Iterator<Square> i = squares.iterator();
 		while (i.hasNext()) {
 			Square square = i.next();
@@ -83,11 +83,11 @@ public class Bishop extends Piece {
 		return true;
 	}
 
-	private List<Square> getSquares(Board board, Movement move) {
+	private List<Square> getSquares(Board board, Movement movement) {
 		List<Square> squares = new ArrayList<Square>();
 
-		String from = move.getOrigin();
-		String to = move.getDestiny();
+		String from = movement.getOrigin();
+		String to = movement.getDestiny();
 
 		int horizontalTo = UtilChess.calculateHorizontal(to);
 		int verticalTo = UtilChess.calculateVertical(to);
