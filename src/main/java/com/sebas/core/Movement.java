@@ -95,7 +95,8 @@ public class Movement {
 			Piece p = move.getPiece();
 			String type = p.getType();
 			if ("pawn".equals(type) || "king".equals(type) 
-					|| "tower".equals(type) || "knight".equals(type)) {
+					|| "tower".equals(type) || "knight".equals(type) 
+					|| "bishop".equals(type)) {
 				if (p.isRealMove(move,board,turn)) {
 					realMoves.add(move);
 				}

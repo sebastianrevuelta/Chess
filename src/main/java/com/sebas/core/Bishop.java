@@ -63,7 +63,7 @@ public class Bishop extends Piece {
 		}
 		return possibleMoves;
 	}
-	
+
 	public boolean isRealMove(Movement movement, Board board, String turn) {
 
 		List<Square> squares = getSquares(board, movement);
@@ -94,11 +94,46 @@ public class Bishop extends Piece {
 
 		int horizontalFrom = UtilChess.calculateHorizontal(from);
 		int verticalFrom = UtilChess.calculateVertical(from);
-		
-		
-		
+
+		if (horizontalFrom < horizontalTo) {
+			if (verticalFrom < verticalTo) {
+				int j = verticalFrom+1;
+				for (int i = horizontalFrom+1; i <= horizontalTo; i++) {
+					Square square = board.getSquares()[i][j];
+					squares.add(square);
+					j++;
+				}
+			}
+			else {
+				int j = verticalFrom-1;
+				for (int i = horizontalFrom+1;i <= horizontalTo; i++) {
+					Square square = board.getSquares()[i][j];
+					squares.add(square);
+					j--;
+				}
+			}
+		}
+		else {
+			if (verticalFrom < verticalTo) {
+				int j = verticalFrom+1;
+				for (int i = horizontalFrom-1; i >= horizontalTo; i--) {
+					Square square = board.getSquares()[i][j];
+					squares.add(square);
+					j++;
+				}
+			}
+			else {
+				int j = verticalFrom-1;
+				for (int i = horizontalFrom-1; i >= horizontalTo; i--) {
+					Square square = board.getSquares()[i][j];
+					squares.add(square);
+					j--;
+				}
+			}
+		}
+
 		return squares;
-		
+
 	}
 
 }
