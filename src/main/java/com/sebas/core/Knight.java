@@ -15,7 +15,7 @@ public class Knight extends Piece {
 	 * @param turn
 	 * @return
 	 */
-	public List<Movement> move(String turn, String from) {
+	public List<Movement> move(String from) {
 
 		List<Movement> possiblesMoves = new ArrayList<Movement>();
 
@@ -98,9 +98,9 @@ public class Knight extends Piece {
 	/**
 	 * check if the move is possible
 	 */
-	public boolean isRealMove(Movement move, Board board, String turn) {
+	public boolean isRealMove(Movement movement, Board board, String turn) {
 		
-		String to = move.getDestiny();
+		String to = movement.getDestiny();
 		
 		int horizontalTo = UtilChess.calculateHorizontal(to);
 		int verticalTo = UtilChess.calculateVertical(to);

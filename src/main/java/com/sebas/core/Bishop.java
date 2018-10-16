@@ -16,7 +16,7 @@ public class Bishop extends Piece {
 	 * @param turn
 	 * @return
 	 */
-	public List<Movement> move(String turn, String from) {
+	public List<Movement> move(String from) {
 
 		List<Movement> possibleMoves = new ArrayList<Movement>();
 

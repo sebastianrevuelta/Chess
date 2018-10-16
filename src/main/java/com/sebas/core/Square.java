@@ -10,8 +10,8 @@ public class Square {
 	public boolean isEmpty() {
 		return isEmpty;
 	}
-	public void setEmpty(boolean isEmpty) {
-		this.isEmpty = isEmpty;
+	public void setEmpty(boolean empty) {
+		this.isEmpty = empty;
 	}
 	public Piece getPieza() {
 		return pieza;

@@ -2,16 +2,20 @@ package core.sebas.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 
 public class HolaMundo extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private final static Logger log = Logger.getLogger(HolaMundo.class);
 
 	@Override
 	protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +30,9 @@ public class HolaMundo extends HttpServlet {
 			out.println("</body>");
 			out.println("</html>");
 		} 
-		catch(Exception e) {System.err.println(e.getMessage());}
+		catch(Exception e) {
+			log.error("Error to write servlet" + this.getClass().getName());
+		}
 		finally {out.close();}
 	}
 }

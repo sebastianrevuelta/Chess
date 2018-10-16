@@ -26,11 +26,11 @@ public class Piece {
 	public String getVertical() { return vertical; }
 	public void setVertical(String vertical) { this.vertical = vertical; }
 
-	public List<Movement> move(String turn, String from) {
+	public List<Movement> move(String from) {
 		return null;
 	}
-	public boolean isRealMove(Movement move, Board board, String turn) {
-		String destiny = move.getDestiny();
+	public boolean isRealMove(Movement movement, Board board) {
+		String destiny = movement.getDestiny();
 		Square square = board.getSquare(destiny);
 		return square.isEmpty();
 		

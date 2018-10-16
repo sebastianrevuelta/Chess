@@ -309,7 +309,10 @@ public class Board {
 	}
 
 	public boolean checkMovement(Movement m) {
-		return true;	
+		if (m.getPiece() != null) {
+			return true;	
+		}
+		return false;
 	}
 	public Square getSquare(String destiny) {
 		int v = UtilChess.calculateVertical(destiny);

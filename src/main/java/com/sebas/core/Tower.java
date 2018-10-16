@@ -17,7 +17,7 @@ public class Tower extends Piece {
 	 * @param turn
 	 * @return
 	 */
-	public List<Movement> move(String turn, String from) {
+	public List<Movement> move(String from) {
 
 		List<Movement> possibleMoves = new ArrayList<Movement>();
 
@@ -75,9 +75,9 @@ public class Tower extends Piece {
 	/**
 	 * check if the move is possible
 	 */
-	public boolean isRealMove(Movement move, Board board, String turn) {
+	public boolean isRealMove(Movement movement, Board board, String turn) {
 
-		List<Square> squares = getSquares(board, move);
+		List<Square> squares = getSquares(board, movement);
 		Iterator<Square> i = squares.iterator();
 		while (i.hasNext()) {
 			Square square = i.next();
@@ -95,12 +95,12 @@ public class Tower extends Piece {
 	}
 
 
-	private List<Square> getSquares(Board board, Movement move) {
+	private List<Square> getSquares(Board board, Movement movement) {
 
 		List<Square> squares = new ArrayList<Square>();
 
-		String from = move.getOrigin();
-		String to = move.getDestiny();
+		String from = movement.getOrigin();
+		String to = movement.getDestiny();
 
 		int horizontalTo = UtilChess.calculateHorizontal(to);
 		int verticalTo = UtilChess.calculateVertical(to);

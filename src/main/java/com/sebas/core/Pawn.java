@@ -62,12 +62,12 @@ public class Pawn extends Piece {
 	/**
 	 * check if the move is possible
 	 */
-	public boolean isRealMove(Movement move, Board board, String turn) {
+	public boolean isRealMove(Movement movement, Board board) {
 		
 		Square[][] squares = board.getSquares();
 
-		String from = move.getOrigin();
-		String to = move.getDestiny();
+		String from = movement.getOrigin();
+		String to = movement.getDestiny();
 		
 		int verticalFrom = UtilChess.calculateVertical(from);
 

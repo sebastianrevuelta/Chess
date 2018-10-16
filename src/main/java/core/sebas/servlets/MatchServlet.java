@@ -7,13 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.sebas.core.Board;
 import com.sebas.core.Match;
 import com.sebas.core.Square;
 
 public class MatchServlet extends HttpServlet {
 	
-	
+	private final static Logger log = Logger.getLogger(MatchServlet.class);
 	private Match match;
 	public Match getMatch() { return match; }
 	public void setMatch(Match match) { this.match = match; }
@@ -66,7 +68,9 @@ public class MatchServlet extends HttpServlet {
 		    out.println("</body>");
 		    out.println("</html>");
 		}
-		catch(Exception e) {System.err.println(e.getMessage());}
+		catch(Exception e) {
+			log.error("Error in the servlet" + this.getClass().getName());
+		}
 		finally {out.close();}
 	}
 }

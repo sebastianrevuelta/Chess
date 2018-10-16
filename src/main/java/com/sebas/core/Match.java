@@ -1,9 +1,12 @@
 package com.sebas.core;
 
+import org.apache.log4j.Logger;
+
 public class Match {
 	
 	private static final long TIME_OUT_THINKING = 2000;
-
+	private final static Logger log = Logger.getLogger(Match.class);
+	
 	//private static final String EOL = System.getProperty("line.separator");
 	
 	private Board board;
@@ -49,8 +52,9 @@ public class Match {
 		  else setTurno("white");
 		  
 		  try { Thread.sleep(TIME_OUT_THINKING); } 
-		  catch (InterruptedException e) { e.printStackTrace(); }
-		  
+		  catch (InterruptedException e) { 
+			  log.error("Error in the thread of the match");
+		  }
 		}
 	}
 	
