@@ -1,5 +1,10 @@
 package com.sebas.core;
 
+/**
+ * Utility class
+ * @author srevuelta
+ *
+ */
 public class UtilChess {
 
 	/**
@@ -29,7 +34,10 @@ public class UtilChess {
 		break;
 		case 'h': value = 7;
 		break;
-		default: value = 0;
+		default: {
+			value = 0;
+			break;
+		}
 		}
 		return value;		
 
@@ -57,7 +65,10 @@ public class UtilChess {
 		break;
 		case 7: value = "h";
 		break;
-		default: value = "a";
+		default: {
+			value = "a";
+			break;
+		}
 		}
 		return value;		
 
@@ -90,7 +101,10 @@ public class UtilChess {
 		break;
 		case '8': value = 7;
 		break;
-		default: value = 0;
+		default: {
+			value = 0;
+			break;
+		}
 		}
 		return value;		
 
@@ -117,7 +131,10 @@ public class UtilChess {
 		break;
 		case 7: row = "8";
 		break;
-		default: row = "1";
+		default: {
+			row = "1";
+			break;
+		}
 		}
 		return row;		
 

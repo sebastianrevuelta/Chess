@@ -1,5 +1,10 @@
 package com.sebas.core;
 
+/**
+ * This is the Square class 
+ * @author srevuelta
+ *
+ */
 public class Square {
 	
 	private boolean isEmpty;

@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
+/**
+ * Movement class.
+ * It propose a movement for the piece from origin to destiny
+ * @author srevuelta
+ *
+ */
 public class Movement {
 
 	private Piece piece;

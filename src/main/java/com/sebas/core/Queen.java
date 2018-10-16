@@ -2,7 +2,11 @@ package com.sebas.core;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * This is the Queen class 
+ * @author srevuelta
+ *
+ */
 public class Queen extends Piece {
 	
 	public Queen() {

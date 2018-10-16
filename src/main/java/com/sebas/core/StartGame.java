@@ -1,5 +1,10 @@
 package com.sebas.core;
 
+/**
+ * All starts here
+ * @author srevuelta
+ *
+ */
 public class StartGame {
 
 	/**

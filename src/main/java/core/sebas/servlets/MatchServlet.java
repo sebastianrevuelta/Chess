@@ -13,6 +13,11 @@ import com.sebas.core.Board;
 import com.sebas.core.Match;
 import com.sebas.core.Square;
 
+/**
+ * Servlet class
+ * @author srevuelta
+ *
+ */
 public class MatchServlet extends HttpServlet {
 	
 	private final static Logger log = Logger.getLogger(MatchServlet.class);

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * This is the bishop class
+ * @author srevuelta
+ *
+ */
 public class Bishop extends Piece {
 
 	public Bishop() {

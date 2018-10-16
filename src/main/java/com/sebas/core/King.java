@@ -2,7 +2,11 @@ package com.sebas.core;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * This is the King class
+ * @author srevuelta
+ *
+ */
 public class King extends Piece {
 
 	public King() {

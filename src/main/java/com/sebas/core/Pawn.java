@@ -3,6 +3,11 @@ package com.sebas.core;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the Pawn class 
+ * @author srevuelta
+ *
+ */
 public class Pawn extends Piece {
 
 	public Pawn() {

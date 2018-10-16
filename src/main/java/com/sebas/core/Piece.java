@@ -1,7 +1,11 @@
 package com.sebas.core;
 
 import java.util.List;
-
+/**
+ * This is the Piece class 
+ * @author srevuelta
+ *
+ */
 public class Piece {
 
 	private String color;

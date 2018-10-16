@@ -1,13 +1,15 @@
 package com.sebas.core;
 
 import org.apache.log4j.Logger;
-
+/**
+ * This is the Match class
+ * @author srevuelta
+ *
+ */
 public class Match {
 	
 	private static final long TIME_OUT_THINKING = 2000;
 	private final static Logger log = Logger.getLogger(Match.class);
-	
-	//private static final String EOL = System.getProperty("line.separator");
 	
 	private Board board;
 	private String turn;

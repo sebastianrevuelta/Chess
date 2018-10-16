@@ -187,7 +187,10 @@ public class Board {
 		break;
 		case 7: value = "8";
 		break;
-		default: value = "1";
+		default: {
+			value = "1";
+			break;
+		}
 		}
 		return value;
 	}
@@ -218,7 +221,10 @@ public class Board {
 		break;
 		case 7: value = "h";
 		break;
-		default: value = "a";
+		default: {
+			value = "a";
+			break;
+		}
 		}
 		return value;
 	}

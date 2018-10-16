@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Test class
+ * @author srevuelta
+ *
+ */
 public class HolaMundo extends HttpServlet {
 	/**
 	 * 
