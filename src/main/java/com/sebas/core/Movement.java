@@ -45,7 +45,7 @@ public class Movement {
 
 		List<Movement> possiblesMoves = getPossiblesMoves(board,turn);
 		//System.out.println("choosing between ..." + possiblesMoves.size());
-		List<Movement> realMoves = filterMoves(board,turn,possiblesMoves);
+		List<Movement> realMoves = filterMoves(board,possiblesMoves);
 		Movement move = chooseBestMove(realMoves);
 		this.setPiece(move.getPiece());
 		this.setOrigin(move.getOrigin());
