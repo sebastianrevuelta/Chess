@@ -88,8 +88,7 @@ public class Movement {
 	 * @param possiblesMoves
 	 * @return
 	 */
-	private List<Movement> filterMoves(Board board, String turn,
-			List<Movement> possiblesMoves) {
+	private List<Movement> filterMoves(Board board,	List<Movement> possiblesMoves) {
 
 		List<Movement> realMoves = new ArrayList<Movement>();
 
