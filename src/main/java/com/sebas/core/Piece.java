@@ -1,5 +1,6 @@
 package com.sebas.core;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  * This is the Piece class 
@@ -31,7 +32,8 @@ public class Piece {
 	public void setVertical(String vertical) { this.vertical = vertical; }
 
 	public List<Movement> move(String from) {
-		return null;
+		if (from == null) return null;
+		return new ArrayList<Movement>();
 	}
 	public boolean isRealMove(Movement movement, Board board) {
 		String destiny = movement.getDestiny();
