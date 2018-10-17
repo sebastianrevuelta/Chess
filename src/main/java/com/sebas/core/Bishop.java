@@ -88,7 +88,7 @@ public class Bishop extends Piece {
 		return true;
 	}
 
-	private List<Square> getSquares(Board board, Movement movement) {
+	public List<Square> getSquares(Board board, Movement movement) {
 		List<Square> squares = new ArrayList<Square>();
 
 		String from = movement.getOrigin();

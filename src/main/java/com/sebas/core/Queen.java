@@ -1,6 +1,7 @@
 package com.sebas.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /**
  * This is the Queen class 
@@ -114,18 +115,32 @@ public class Queen extends Piece {
 	 * TODO: check if the move is possible
 	 */
 	public boolean isRealMove(Movement movement, Board board, String turn) {
-		String to = movement.getDestiny();
 		
-		int horizontalTo = UtilChess.calculateHorizontal(to);
-		int verticalTo = UtilChess.calculateVertical(to);
-
-		Square[][] squares = board.getSquares();
-		Square square = squares[horizontalTo][verticalTo];
-		if (!square.isEmpty()) {
-			if (turn.equals(square.getPieza().getColor())) return false;
+		List<Square> squares = getSquares(board, movement);
+		Iterator<Square> i = squares.iterator();
+		while (i.hasNext()) {
+			Square square = i.next();
+			if (!square.isEmpty()) {
+				Piece p = square.getPieza();
+				if (p != null) {
+					if (turn.equals(square.getPieza().getColor())) {
+						return false;
+					}
+				}
+			}
 		}
-		
-		return true;
 
+		return true;
+	}
+
+	private List<Square> getSquares(Board board, Movement movement) {
+		List<Square> squares = new ArrayList<Square>();
+		Tower tower = new Tower();
+		Bishop bishop = new Bishop();
+		List<Square> squaresT = tower.getSquares(board, movement);
+		List<Square> squaresB = bishop.getSquares(board, movement);
+		squares.addAll(squaresB);
+		squares.addAll(squaresT);
+		return squares;
 	}
 }

@@ -61,9 +61,9 @@ public class Movement {
 	 * @return
 	 */
 	private List<Movement> getPossiblesMoves(Board board, String turn) {
-		
+
 		List<Movement> possiblesMoves = new ArrayList<Movement>();
-		
+
 		Square[][] squares = board.getSquares();
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
@@ -72,16 +72,15 @@ public class Movement {
 					Piece p = square.getPieza();
 					if (p.getColor().equals(turn)) {
 						String from = square.getHorizontal()+square.getVertical();
-						List<Movement> moves = p.move(turn, from);
+						List<Movement> moves = p.move(from);
 						possiblesMoves.addAll(moves);
-						//System.out.println("Adding " + moves.size() + " for " + p.getType() + " turn " + from); 
 					}
 				}
 			}
 		}
 		return possiblesMoves;
 	}
-	
+
 	/**
 	 * filterMoves
 	 * @param board
@@ -91,24 +90,18 @@ public class Movement {
 	 */
 	private List<Movement> filterMoves(Board board, String turn,
 			List<Movement> possiblesMoves) {
-		
+
 		List<Movement> realMoves = new ArrayList<Movement>();
-		
+
 		Iterator<Movement> i = possiblesMoves.iterator();
 		while (i.hasNext()) {
 			Movement move = i.next();
 			Piece p = move.getPiece();
-			String type = p.getType();
-			if ("pawn".equals(type) || "king".equals(type) 
-					|| "tower".equals(type) || "knight".equals(type) 
-					|| "bishop".equals(type)) {
-				if (p.isRealMove(move,board,turn)) {
-					realMoves.add(move);
-				}
+			if (p.isRealMove(move,board)) {
+				realMoves.add(move);
 			}
 		}
-		
-		return realMoves; //TODO
+		return realMoves; 
 	}
 
 	/**
