@@ -269,12 +269,12 @@ public class Board {
 	 */
 	public void print() {
 		printLine("***********************","");
-		for(int i = 7; i >= 0; i--) {
-			if (i != 7) printLine("","");
-			for(int j = 0; j < 8; j++) {
-				if (j == 0) {
+		for(int j = 7; j >= 0; j--) {
+			if (j != 7) printLine("","");
+			for(int i= 0; i < 8; i++) {
+				if (i == 0) {
 					System.out.println();
-					printLine(" " + calculateHorizontal(i) + " ","");
+					printLine(" " + calculateHorizontal(j) + " ","");
 				}
 				if (squares[i][j].isEmpty()) {
 					printLine("| ","");
@@ -302,7 +302,7 @@ public class Board {
 						printLine("|p",color);
 					}
 				}
-				if (j == 7) printLine("|","");
+				if (i== 7) printLine("|","");
 			}
 		}
 		printLine("   ","");
