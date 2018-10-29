@@ -22,7 +22,7 @@ public class Tower extends Piece {
 	 * @param turn
 	 * @return
 	 */
-	public List<Movement> move(String from) {
+	public List<Movement> move(String from, String turn) {
 
 		List<Movement> possibleMoves = new ArrayList<Movement>();
 
@@ -143,5 +143,4 @@ public class Tower extends Piece {
 		}
 		return squares;
 	}
-
 }

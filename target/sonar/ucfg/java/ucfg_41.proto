@@ -1,0 +1,99 @@
+
+[com.sebas.core.Movement#filterMoves(Lcom/sebas/core/Board;Ljava/util/List;)Ljava/util/List;
+__unknown_file (boardpossiblesMoves"5*÷
+1_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javag	 g("p
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javag g(
+
+	realMoves*ò
+2_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javad d(¨
+©
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javad d(
+%7"'java.util.List#add(Ljava/lang/Object;)Z*
+
+	realMoves*
+
+move*
+4*ç
+3_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaa a(û
+õ
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaa a(
+%4"+java.util.Iterator#next()Ljava/lang/Object;*
+
+iy
+w
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaa a(
+move"__id*
+
+%4Æ
+´
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javab b(
+%5"8com.sebas.core.Movement#getPiece()Lcom/sebas/core/Piece;*
+
+movev
+t
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javab b(
+p"__id*
+
+%5Ÿ
+÷
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javac c(
+%6"Qcom.sebas.core.Piece#isRealMove(Lcom/sebas/core/Movement;Lcom/sebas/core/Board;)Z*
+
+p*
+
+move*	
+
+board*
+2
+4*ˇ
+4_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.java`	 `(
+ê
+ç
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.java`	 `(
+%3"java.util.Iterator#hasNext()Z*
+
+i*
+3
+1*•
+5_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.java] ](6~|
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.java]! ](4
+%0"java.util.ArrayListë
+é
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.java] ](6
+%1"java.util.ArrayList#<init>()V*
+
+%0~
+|
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.java] ](7
+	realMoves"__id*
+
+%0≠
+™
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.java_ _(2
+%2"-java.util.List#iterator()Ljava/util/Iterator;*
+
+possiblesMovesv
+t
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.java_ _(3
+i"__id*
+
+%2*
+4

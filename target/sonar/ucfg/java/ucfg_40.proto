@@ -1,0 +1,158 @@
+
+ccom.sebas.core.Movement#getPossiblesMoves(Lcom/sebas/core/Board;Ljava/lang/String;)Ljava/util/List;
+__unknown_file (boardturn"10*€
+1_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaQ	 Q("u
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaQ Q(
+
+possiblesMoves*Ã	
+4_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaJ J(Ø
+¨
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaJ J(*
+%9"7com.sebas.core.Square#getHorizontal()Ljava/lang/String;*
+
+
+squareÆ
+´
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaJ+ J(?
+%10"5com.sebas.core.Square#getVertical()Ljava/lang/String;*
+
+
+squareÜ
+É
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaJ J(?
+%11"__concat*
+
+%9*
+
+%10z
+x
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaJ J(@
+from"__id*
+
+%11ª
+∏
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaK K()
+%12"=com.sebas.core.Piece#move(Ljava/lang/String;)Ljava/util/List;*
+
+p*
+
+from{
+y
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaK K(*
+moves"__id*
+
+%12∫
+∑
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaL L("
+%13".java.util.List#addAll(Ljava/util/Collection;)Z*
+
+possiblesMoves*	
+
+moves*
+6
+1*Ï
+5_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaH H(Æ
+´
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaH H( 
+%6"6com.sebas.core.Square#getPieza()Lcom/sebas/core/Piece;*
+
+
+squarev
+t
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaH H(!
+p"__id*
+
+%6§
+°
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaI	 I(
+%7"1com.sebas.core.Piece#getColor()Ljava/lang/String;*
+
+p™
+ß
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaI	 I("
+%8",java.lang.String#equals(Ljava/lang/Object;)Z*
+
+%7*
+
+turn*	
+4
+6
+1*å
+6_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaF F(É
+Ä
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaF F(
+%3"
+__arrayGet*
+	
+squares}
+{
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaF F(!
+%4"
+__arrayGet*
+
+%3{
+y
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaF F("
+square"__id*
+
+%4ò
+ï
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaG	 G(
+%5" com.sebas.core.Square#isEmpty()Z*
+
+
+square*	
+5
+6
+1*∫
+10_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaA" A(;~|
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaA& A(9
+%0"java.util.ArrayListë
+é
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaA" A(;
+%1"java.util.ArrayList#<init>()V*
+
+%0Ñ
+Å
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaA A(<
+possiblesMoves"__id*
+
+%0±
+Æ
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaC C()
+%2":com.sebas.core.Board#getSquares()[[Lcom/sebas/core/Square;*	
+
+board|
+z
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaC C(*	
+squares"__id*
+
+%2*
+6
+1

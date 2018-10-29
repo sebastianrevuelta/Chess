@@ -21,7 +21,7 @@ public class Bishop extends Piece {
 	 * @param turn
 	 * @return
 	 */
-	public List<Movement> move(String from) {
+	public List<Movement> move(String from, String turn) {
 
 		List<Movement> possibleMoves = new ArrayList<Movement>();
 
@@ -111,7 +111,7 @@ public class Bishop extends Piece {
 			}
 			else {
 				int j = verticalFrom-1;
-				for (int i = horizontalFrom+1;i <= horizontalTo; i++) {
+				for (int i = horizontalFrom+1;i <= horizontalTo && j >= 0; i++) {
 					Square square = board.getSquares()[i][j];
 					squares.add(square);
 					j--;
@@ -129,7 +129,7 @@ public class Bishop extends Piece {
 			}
 			else {
 				int j = verticalFrom-1;
-				for (int i = horizontalFrom-1; i >= horizontalTo; i--) {
+				for (int i = horizontalFrom-1; i >= horizontalTo && j >=0; i--) {
 					Square square = board.getSquares()[i][j];
 					squares.add(square);
 					j--;

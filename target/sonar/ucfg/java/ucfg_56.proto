@@ -1,0 +1,23 @@
+
+=com.sebas.core.Piece#move(Ljava/lang/String;)Ljava/util/List;
+__unknown_file (from"2"1*×
+1\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java$	 $("{y
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java$ $( 
+%0"java.util.ArrayListŽ
+‹
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java$	 $("
+%1"java.util.ArrayList#<init>()V*
+
+%0"f
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java$ $(#
+
+%0*É
+2\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java# #("f
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java# #( 
+""

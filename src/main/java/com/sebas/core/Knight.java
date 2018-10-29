@@ -20,7 +20,7 @@ public class Knight extends Piece {
 	 * @param turn
 	 * @return
 	 */
-	public List<Movement> move(String from) {
+	public List<Movement> move(String from, String turn) {
 
 		List<Movement> possiblesMoves = new ArrayList<Movement>();
 

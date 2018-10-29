@@ -1,0 +1,35 @@
+
+Qcom.sebas.core.Movement#chooseBestMove(Ljava/util/List;)Lcom/sebas/core/Movement;
+__unknown_file (possiblesMoves"1*×
+1_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javap p(!–
+“
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javap p((
+%0"java.util.List#size()I*
+
+possiblesMoves½
+º
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaq% q(I
+%1"+com.sebas.core.UtilChess#getRandomValue(I)I*"
+com.sebas.core.UtilChess*
+""¯
+¬
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaq q(J
+%2"'java.util.List#get(I)Ljava/lang/Object;*
+
+possiblesMoves*
+
+%1y
+w
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaq q(K
+move"__id*
+
+%2"k
+_
+UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javar r(
+
+move

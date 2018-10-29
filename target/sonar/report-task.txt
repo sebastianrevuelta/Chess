@@ -1,0 +1,7 @@
+organization=sebastianrevuelta-github
+projectKey=sebastianrevuelta_Chess
+serverUrl=https://sonarcloud.io
+serverVersion=7.4.0.18616
+dashboardUrl=https://sonarcloud.io/dashboard?id=sebastianrevuelta_Chess
+ceTaskId=AWaMUM088skk8kHpw90G
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWaMUM088skk8kHpw90G

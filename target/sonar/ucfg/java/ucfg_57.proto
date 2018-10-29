@@ -1,0 +1,42 @@
+
+Qcom.sebas.core.Piece#isRealMove(Lcom/sebas/core/Movement;Lcom/sebas/core/Board;)Z
+__unknown_file (movementboard"1*Ó
+1\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java' '(­
+ª
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java' '((
+%0"6com.sebas.core.Movement#getDestiny()Ljava/lang/String;*
+
+
+movementy
+w
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java' '()	
+destiny"__id*
+
+%0Ê
+Ç
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java( ((*
+%1"Icom.sebas.core.Board#getSquare(Ljava/lang/String;)Lcom/sebas/core/Square;*	
+
+board*
+	
+destinyx
+v
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java( ((+
+square"__id*
+
+%1•
+’
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java)	 )(
+%2" com.sebas.core.Square#isEmpty()Z*
+
+
+square"f
+\
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Piece.java) )(
+""

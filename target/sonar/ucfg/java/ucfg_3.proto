@@ -1,0 +1,241 @@
+
+acom.sebas.core.Bishop#getSquares(Lcom/sebas/core/Board;Lcom/sebas/core/Movement;)Ljava/util/List;
+__unknown_file (boardmovement"20*«
+12]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javas s(∞
+≠
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javas s('
+%12":com.sebas.core.Board#getSquares()[[Lcom/sebas/core/Square;*	
+
+board}
+{
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javas s(*
+%13"
+__arrayGet*
+
+%12}
+{
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javas s(-
+%14"
+__arrayGet*
+
+%13z
+x
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javas s(.
+square"__id*
+
+%14´
+®
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javat t(
+%15"'java.util.List#add(Ljava/lang/Object;)Z*
+	
+squares*
+
+
+square*
+12
+1*‘
+1_
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaå	 å("n
+_
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaå å(
+	
+squares*—
+3_
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaÖ Ö(≤
+Ø
+_
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaÖ Ö('
+%20":com.sebas.core.Board#getSquares()[[Lcom/sebas/core/Square;*	
+
+board
+}
+_
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaÖ Ö(*
+%21"
+__arrayGet*
+
+%20
+}
+_
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaÖ Ö(-
+%22"
+__arrayGet*
+
+%21|
+z
+_
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaÖ Ö(.
+square"__id*
+
+%22≠
+™
+_
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaÜ Ü(
+%23"'java.util.List#add(Ljava/lang/Object;)Z*
+	
+squares*
+
+
+square*
+3
+1*√
+16]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javak k(Ø
+¨
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javak k('
+%8":com.sebas.core.Board#getSquares()[[Lcom/sebas/core/Square;*	
+
+board{
+y
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javak k(*
+%9"
+__arrayGet*
+
+%8|
+z
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javak k(-
+%10"
+__arrayGet*
+
+%9z
+x
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javak k(.
+square"__id*
+
+%10´
+®
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javal l(
+%11"'java.util.List#add(Ljava/lang/Object;)Z*
+	
+squares*
+
+
+square*
+16
+1*≈
+7]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java} }(∞
+≠
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java} }('
+%16":com.sebas.core.Board#getSquares()[[Lcom/sebas/core/Square;*	
+
+board}
+{
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java} }(*
+%17"
+__arrayGet*
+
+%16}
+{
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java} }(-
+%18"
+__arrayGet*
+
+%17z
+x
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java} }(.
+square"__id*
+
+%18´
+®
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java~ ~(
+%19"'java.util.List#add(Ljava/lang/Object;)Z*
+	
+squares*
+
+
+square*
+7
+1*£
+20]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java\ \(0|z
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java\ \(.
+%0"java.util.ArrayListè
+å
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java\ \(0
+%1"java.util.ArrayList#<init>()V*
+
+%0z
+x
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java\ \(1	
+squares"__id*
+
+%0≠
+™
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java^ ^($
+%2"5com.sebas.core.Movement#getOrigin()Ljava/lang/String;*
+
+
+movementw
+u
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java^ ^(%
+from"__id*
+
+%2Æ
+´
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java_ _(#
+%3"6com.sebas.core.Movement#getDestiny()Ljava/lang/String;*
+
+
+movementu
+s
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.java_ _($
+to"__id*
+
+%3—
+Œ
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javaa a(6
+%4"Acom.sebas.core.UtilChess#calculateHorizontal(Ljava/lang/String;)I*"
+com.sebas.core.UtilChess*
+
+toœ
+Ã
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javab b(2
+%5"?com.sebas.core.UtilChess#calculateVertical(Ljava/lang/String;)I*"
+com.sebas.core.UtilChess*
+
+to”
+–
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javad d(:
+%6"Acom.sebas.core.UtilChess#calculateHorizontal(Ljava/lang/String;)I*"
+com.sebas.core.UtilChess*
+
+from—
+Œ
+]
+SC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Bishop.javae e(6
+%7"?com.sebas.core.UtilChess#calculateVertical(Ljava/lang/String;)I*"
+com.sebas.core.UtilChess*
+
+from*
+3
+16
+7
+12
+1

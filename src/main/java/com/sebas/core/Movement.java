@@ -45,7 +45,7 @@ public class Movement {
 
 		List<Movement> possiblesMoves = getPossiblesMoves(board,turn);
 		//System.out.println("choosing between ..." + possiblesMoves.size());
-		List<Movement> realMoves = filterMoves(board,possiblesMoves);
+		List<Movement> realMoves = filterMoves(board,possiblesMoves,turn);
 		Movement move = chooseBestMove(realMoves);
 		this.setPiece(move.getPiece());
 		this.setOrigin(move.getOrigin());
@@ -72,7 +72,7 @@ public class Movement {
 					Piece p = square.getPieza();
 					if (p.getColor().equals(turn)) {
 						String from = square.getHorizontal()+square.getVertical();
-						List<Movement> moves = p.move(from);
+						List<Movement> moves = p.move(from,turn);
 						possiblesMoves.addAll(moves);
 					}
 				}
@@ -88,7 +88,7 @@ public class Movement {
 	 * @param possiblesMoves
 	 * @return
 	 */
-	private List<Movement> filterMoves(Board board,	List<Movement> possiblesMoves) {
+	private List<Movement> filterMoves(Board board,	List<Movement> possiblesMoves, String turn) {
 
 		List<Movement> realMoves = new ArrayList<Movement>();
 
@@ -96,7 +96,7 @@ public class Movement {
 		while (i.hasNext()) {
 			Movement move = i.next();
 			Piece p = move.getPiece();
-			if (p.isRealMove(move,board)) {
+			if (p.isRealMove(move,board,turn)) {
 				realMoves.add(move);
 			}
 		}
