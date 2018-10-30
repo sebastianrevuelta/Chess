@@ -16,12 +16,13 @@ public class Queen extends Piece {
 	}
 	
 	/***
-	 * move the bishop
+	 * move the queen
 	 * @param turn
 	 * @return
 	 */
 	public List<Movement> move(String from, String turn) {
 
+		log.info(turn + " " + this.getType() + " is going to move from: " + from);
 		List<Movement> possibleMoves = new ArrayList<Movement>();
 
 		String to;

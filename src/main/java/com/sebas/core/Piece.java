@@ -1,6 +1,8 @@
 package com.sebas.core;
 
 import java.util.List;
+
+import org.apache.log4j.Logger;
 /**
  * This is the Piece class 
  * @author srevuelta
@@ -14,6 +16,7 @@ public abstract class Piece {
 	private String type;
 	private int value;
 	
+	protected final static Logger log = Logger.getLogger(Piece.class);
 	
 	public int getValue() { return value; }
 	public void setValue(int value) { this.value = value; }

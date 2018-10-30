@@ -23,7 +23,7 @@ public class Tower extends Piece {
 	 * @return
 	 */
 	public List<Movement> move(String from, String turn) {
-
+		log.info(turn + " " + this.getType() + " is going to move from: " + from);
 		List<Movement> possibleMoves = new ArrayList<Movement>();
 
 		String to;

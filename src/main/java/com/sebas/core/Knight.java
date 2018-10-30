@@ -22,6 +22,7 @@ public class Knight extends Piece {
 	 */
 	public List<Movement> move(String from, String turn) {
 
+		log.info(turn + " " + this.getType() + " is going to move from: " + from);
 		List<Movement> possiblesMoves = new ArrayList<Movement>();
 
 		String to;

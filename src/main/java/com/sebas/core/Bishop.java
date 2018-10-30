@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 /**
  * This is the bishop class
  * @author srevuelta
  *
  */
 public class Bishop extends Piece {
-
+	
 	public Bishop() {
 		super.setType("bishop");
 		super.setValue(3);
@@ -23,6 +25,7 @@ public class Bishop extends Piece {
 	 */
 	public List<Movement> move(String from, String turn) {
 
+		log.info(turn + " " + this.getType() + " is going to move from: " + from);
 		List<Movement> possibleMoves = new ArrayList<Movement>();
 
 		String to;
