@@ -1,5 +1,5 @@
+Chess.properties
+diff.txt
 src/main/java/com/sebas/core/Bishop.java
-src/main/java/com/sebas/core/Knight.java
-src/main/java/com/sebas/core/Piece.java
-src/main/java/com/sebas/core/Queen.java
-src/main/java/com/sebas/core/Tower.java
+src/main/java/com/sebas/core/King.java
+src/main/java/com/sebas/core/Pawn.java

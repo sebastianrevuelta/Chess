@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 /**
  * This is the bishop class
  * @author srevuelta
@@ -38,14 +36,14 @@ public class Bishop extends Piece {
 
 		for (int i=1; i < 8; i++) {
 			if (valueRow+i < 8) {
-				int row = new Integer(valueRow+i).intValue();
+				int row = valueRow+i;
 				rowdestiny = UtilChess.calculateVertical(row);
 				if (valueColumn+i < 8) {
-					int column = new Integer(valueColumn+i).intValue();
+					int column = valueColumn+i;
 					columndestiny = UtilChess.calculateHorizontal(column);
 				}
 				else if (valueColumn-i >= 0) {
-					int column = new Integer(valueColumn-i).intValue();
+					int column = valueColumn-i;
 					columndestiny = UtilChess.calculateHorizontal(column);
 				}
 				to = columndestiny + rowdestiny;	
@@ -54,14 +52,14 @@ public class Bishop extends Piece {
 			}
 
 			if (valueRow-i >=0) {
-				int row = new Integer(valueRow-i).intValue();
+				int row = valueRow-i;
 				rowdestiny = UtilChess.calculateVertical(row);
 				if (valueColumn+i < 8) {
-					int column = new Integer(valueColumn+i).intValue();
+					int column = valueColumn+i;
 					columndestiny = UtilChess.calculateHorizontal(column);
 				}
 				else if (valueColumn-i >= 0) {
-					int column = new Integer(valueColumn-i).intValue();
+					int column = valueColumn-i;
 					columndestiny = UtilChess.calculateHorizontal(column);
 				}
 				to = columndestiny + rowdestiny;	
@@ -83,6 +81,14 @@ public class Bishop extends Piece {
 				if (p != null) {
 					if (turn.equals(square.getPieza().getColor())) {
 						return false;
+					}
+					else { //it it different color
+						if ((square.getHorizontal()+square.getVertical()).equals(movement.getDestiny())) {
+							return true;
+						}
+						else {
+							return false;
+						}
 					}
 				}
 			}
