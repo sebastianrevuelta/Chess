@@ -14,14 +14,14 @@ maven-build:
 kiuwan-complete-delivery-analysis:
   stage: analyze
   script: 
-    - agent -n %CI_PROJECT_NAME% -s %CI_PROJECT_DIR% -l "GitLab build %CI_JOB_ID%" -as completeDelivery --user %KIUWAN_USER% --pass %KIUWAN_PASSWD% -cr "Fix Board" -wr
+    - agent -n %CI_PROJECT_NAME% -s %CI_PROJECT_DIR% -l "GitLab build" -as completeDelivery --user %KIUWAN_USER% --pass %KIUWAN_PASSWD% -cr "Fix Board" -wr
   tags:
     - kiuwan_delivery
 
 kiuwan-promote-to-baseline:
   stage: promote
   script: 
-    - agent --promote-to-baseline -n %CI_PROJECT_NAME% -l "GitLab build %CI_JOB_ID%" -pbl "v3.%CI_JOB_ID%" --user %KIUWAN_USER% --pass %KIUWAN_PASSWD% -cr "Fix Board" 
+    - agent --promote-to-baseline -n %CI_PROJECT_NAME% -l "GitLab build" -pbl "v3.%CI_JOB_ID%" --user %KIUWAN_USER% --pass %KIUWAN_PASSWD% -cr "Fix Board" 
   tags:
     - kiuwan_promote
     
