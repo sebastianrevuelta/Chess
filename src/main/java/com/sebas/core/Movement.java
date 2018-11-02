@@ -72,7 +72,7 @@ public class Movement {
 					Piece p = square.getPieza();
 					if (p.getColor().equals(turn)) {
 						String from = square.getHorizontal()+square.getVertical();
-						List<Movement> moves = p.move(from,turn);
+						List<Movement> moves = p.move(from,turn,p.getType());
 						possiblesMoves.addAll(moves);
 					}
 				}

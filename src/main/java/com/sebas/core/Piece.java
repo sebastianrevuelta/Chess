@@ -33,16 +33,7 @@ public abstract class Piece {
 	public String getVertical() { return vertical; }
 	public void setVertical(String vertical) { this.vertical = vertical; }
 
-	public abstract List<Movement> move(String from, String turn);
-	//{
-	//	if (from == null) return null;
-	//	return new ArrayList<Movement>();
-	//}
+	public abstract List<Movement> move(String from, String turn, String type);
+
 	public abstract boolean isRealMove(Movement movement, Board board, String turn);
-	//{
-	//	String destiny = movement.getDestiny();
-	//	Square square = board.getSquare(destiny);
-	//	return square.isEmpty();
-	//	
-	//}
 }

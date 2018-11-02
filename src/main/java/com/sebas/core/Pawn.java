@@ -19,8 +19,9 @@ public class Pawn extends Piece {
 	 * move Pawn
 	 * @return
 	 */
-	public List<Movement> move(String from, String turn) {
+	public List<Movement> move(String from, String turn, String type) {
 
+		log.info(turn + " " + type + " is going to move from: " + from);
 		List<Movement> possiblesMoves = new ArrayList<Movement>();
 		String to;
 
@@ -75,7 +76,6 @@ public class Pawn extends Piece {
 
 		String from = movement.getOrigin();
 		String to = movement.getDestiny();
-		log.info(turn + " " + this.getType() + " is going to move from: " + from);
 
 		int verticalFrom = UtilChess.calculateVertical(from);
 

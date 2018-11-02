@@ -21,9 +21,9 @@ public class Bishop extends Piece {
 	 * @param turn
 	 * @return
 	 */
-	public List<Movement> move(String from, String turn) {
+	public List<Movement> move(String from, String turn, String type) {
 
-		log.info(turn + " " + this.getType() + " is going to move from: " + from);
+		log.info(turn + " " + type + " is going to move from: " + from);
 		List<Movement> possibleMoves = new ArrayList<Movement>();
 
 		String to;
@@ -41,14 +41,18 @@ public class Bishop extends Piece {
 				if (valueColumn+i < 8) {
 					int column = valueColumn+i;
 					columndestiny = UtilChess.calculateHorizontal(column);
+					to = columndestiny + rowdestiny;	
+					Movement move1 = new Movement(this,from,to);
+					possibleMoves.add(move1);	
 				}
 				else if (valueColumn-i >= 0) {
 					int column = valueColumn-i;
 					columndestiny = UtilChess.calculateHorizontal(column);
+					to = columndestiny + rowdestiny;	
+					Movement move1 = new Movement(this,from,to);
+					possibleMoves.add(move1);	
 				}
-				to = columndestiny + rowdestiny;	
-				Movement move1 = new Movement(this,from,to);
-				possibleMoves.add(move1);	
+
 			}
 
 			if (valueRow-i >=0) {
@@ -57,14 +61,18 @@ public class Bishop extends Piece {
 				if (valueColumn+i < 8) {
 					int column = valueColumn+i;
 					columndestiny = UtilChess.calculateHorizontal(column);
+					to = columndestiny + rowdestiny;	
+					Movement move2 = new Movement(this,from,to);
+					possibleMoves.add(move2);	
 				}
 				else if (valueColumn-i >= 0) {
 					int column = valueColumn-i;
 					columndestiny = UtilChess.calculateHorizontal(column);
+					to = columndestiny + rowdestiny;	
+					Movement move2 = new Movement(this,from,to);
+					possibleMoves.add(move2);	
 				}
-				to = columndestiny + rowdestiny;	
-				Movement move2 = new Movement(this,from,to);
-				possibleMoves.add(move2);	
+				
 			}
 		}
 		return possibleMoves;
