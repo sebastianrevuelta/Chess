@@ -84,11 +84,11 @@ public class Pawn extends Piece {
 
 		int steps = verticalTo - verticalFrom;
 		if (steps == 2) { //it means two steps from the original white square
-			Square square = squares[horizontalTo][verticalTo+1];
+			Square square = squares[horizontalTo][verticalTo];
 			if (!square.isEmpty()) return false;
 		}
 		if (steps == -2) { //it means two steps from the original black square
-			Square square = squares[horizontalTo][verticalTo-1];
+			Square square = squares[horizontalTo][verticalTo];
 			if (!square.isEmpty()) return false;
 		}		
 
