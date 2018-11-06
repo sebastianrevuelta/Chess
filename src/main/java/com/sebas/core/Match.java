@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
  */
 public class Match {
 
-	private static final long TIME_OUT_THINKING = 2000;
+	private static final long TIME_OUT_THINKING = 100;
 	private final static Logger log = Logger.getLogger(Match.class);
 
 	private Board board;

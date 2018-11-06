@@ -1,3 +1,4 @@
+Chess.properties
 diff.txt
-src/main/java/com/sebas/core/Knight.java
+src/main/java/com/sebas/core/Match.java
 src/main/java/com/sebas/core/Pawn.java
