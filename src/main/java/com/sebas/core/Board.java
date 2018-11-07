@@ -1,5 +1,7 @@
 package com.sebas.core;
 
+import org.apache.log4j.Logger;
+
 /**
  * This is one of the most important class because it represents the board
  * @author srevuelta
@@ -7,6 +9,7 @@ package com.sebas.core;
  */
 public class Board {
 
+	protected final static Logger log = Logger.getLogger(Board.class);
 	private Square[][] squares;
 
 	public Square[][] getSquares() { return squares; }
@@ -257,10 +260,10 @@ public class Board {
 	public void printLine(String content, String color) {
 		System.out.flush();
 		if ("black".equals(color)) {
-			System.out.print(content.toLowerCase());
+			log.info(content.toLowerCase());
 		}
 		else {
-			System.out.print(content.toUpperCase());
+			log.info(content.toUpperCase());
 		}
 	}
 
@@ -273,7 +276,7 @@ public class Board {
 			if (j != 7) printLine("","");
 			for(int i= 0; i < 8; i++) {
 				if (i == 0) {
-					System.out.println();
+					log.info("");
 					printLine(" " + calculateHorizontal(j) + " ","");
 				}
 				if (squares[i][j].isEmpty()) {
@@ -306,8 +309,8 @@ public class Board {
 			}
 		}
 		printLine("   ","");
-		System.out.println();
-		System.out.print("   ");
+		log.info("");
+		log.info("   ");
 		for(int j = 0; j < 8; j++) {
 			printLine(" " + calculateVertical(j),"");
 		}
