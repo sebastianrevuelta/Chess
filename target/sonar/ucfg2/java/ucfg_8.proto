@@ -1,0 +1,252 @@
+
+Çcom.sebas.core.Board#createSquare(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sebas/core/Square;
+__unknown_file (color
+horizontalverticaltype"13*ı
+12^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaï  ï(+~|
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaï$ ï()
+%3"com.sebas.core.Towerë
+é
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaï  ï(+
+%4"com.sebas.core.Tower#<init>()V*
+
+%3u
+s
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaï ï(+
+p"__id*
+
+%3*
+11*‰
+1^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaú ú(∞
+≠
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaú ú(
+%20"2com.sebas.core.Piece#setColor(Ljava/lang/String;)V*
+
+p*	
+
+color¿
+Ω
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaù ù("
+%21"8com.sebas.core.Square#setHorizontal(Ljava/lang/String;)V*
+
+
+square*
+
+
+horizontalº
+π
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaû û(
+%22"6com.sebas.core.Square#setVertical(Ljava/lang/String;)V*
+
+
+square*
+
+
+vertical∂
+≥
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaü ü(
+%23"7com.sebas.core.Square#setPieza(Lcom/sebas/core/Piece;)V*
+
+
+square*
+
+p¢
+ü
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.java† †(
+%24""com.sebas.core.Square#setEmpty(Z)V*
+
+
+square*
+"""l
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.java° °(
+
+
+square*ı
+2^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaö ö()~|
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaö# ö('
+%18"com.sebas.core.Pawní
+è
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaö ö()
+%19"com.sebas.core.Pawn#<init>()V*
+
+%18v
+t
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaö ö()
+p"__id*
+
+%18*
+1*¶
+13^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaì ì(}
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaì ì(
+%0"com.sebas.core.Squareí
+è
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaì ì(
+%1"com.sebas.core.Square#<init>()V*
+
+%0z
+x
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaì ì(
+square"__id*
+
+%0u
+s
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaî î(
+p"__id*
+""¨
+©
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaï ï(
+%2",java.lang.String#equals(Ljava/lang/Object;)Z*	
+tower*
+
+type*
+11
+12*ö
+3^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaö ö(¨
+©
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaö ö(
+%17",java.lang.String#equals(Ljava/lang/Object;)Z*
+pawn*
+
+type*
+2
+1*ı
+4^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaô ô()~|
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaô# ô('
+%15"com.sebas.core.Kingí
+è
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaô ô()
+%16"com.sebas.core.King#<init>()V*
+
+%15v
+t
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaô ô()
+p"__id*
+
+%15*
+3*ö
+5^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaô ô(¨
+©
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaô ô(
+%14",java.lang.String#equals(Ljava/lang/Object;)Z*
+king*
+
+type*
+3
+4*˜
+6^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaò  ò(+}
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaò$ ò()
+%12"com.sebas.core.Queenì
+ê
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaò  ò(+
+%13"com.sebas.core.Queen#<init>()V*
+
+%12v
+t
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaò ò(+
+p"__id*
+
+%12*
+5*õ
+7^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaò ò(≠
+™
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaò ò(
+%11",java.lang.String#equals(Ljava/lang/Object;)Z*	
+queen*
+
+type*
+5
+6*ˆ
+8^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaó! ó(-}
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaó% ó(+
+%9"com.sebas.core.Bishopì
+ê
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaó! ó(-
+%10"com.sebas.core.Bishop#<init>()V*
+
+%9u
+s
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaó ó(-
+p"__id*
+
+%9*
+7*õ
+9^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaó ó(≠
+™
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javaó ó(
+%8",java.lang.String#equals(Ljava/lang/Object;)Z*
+
+bishop*
+
+type*
+7
+8*ˆ
+10^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javañ! ñ(-}
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javañ% ñ(+
+%6"com.sebas.core.Knightí
+è
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javañ! ñ(-
+%7"com.sebas.core.Knight#<init>()V*
+
+%6u
+s
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javañ ñ(-
+p"__id*
+
+%6*
+9*ù
+11^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javañ ñ(≠
+™
+^
+RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Board.javañ ñ(
+%5",java.lang.String#equals(Ljava/lang/Object;)Z*
+
+knight*
+
+type*
+9
+10

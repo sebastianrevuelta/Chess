@@ -4,6 +4,7 @@ com\sebas\core\Knight.class
 com\sebas\core\StartGame.class
 com\sebas\core\Queen.class
 com\sebas\core\Piece.class
+com\sebas\core\Movement$1.class
 com\sebas\core\Movement.class
 com\sebas\core\Pawn.class
 com\sebas\core\Match.class

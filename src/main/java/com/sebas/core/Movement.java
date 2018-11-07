@@ -1,6 +1,8 @@
 package com.sebas.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class Movement {
 	private Piece piece;
 	private String origin;
 	private String destiny;
-
+	private int value;
 
 	public Piece getPiece() { return piece; }
 	public void setPiece(Piece piece) {this.piece = piece;}
@@ -25,7 +27,10 @@ public class Movement {
 
 	public String getDestiny() { return destiny; }
 	public void setDestiny(String destiny) { this.destiny = destiny; }
-
+	
+	public int getValue() { return value; }
+	public void setValue(int value) { this.value = value; }
+	
 	Movement() {}
 
 	Movement(Piece piece, String origin, String destiny) {
@@ -97,27 +102,49 @@ public class Movement {
 			Movement move = i.next();
 			Piece p = move.getPiece();
 			if (p.isRealMove(move,board,turn)) {
-				move.setValue(board, turn);
+				
+				Board boardcopy = copy(board);
+				
+				move.evaluate(boardcopy, turn);
 				realMoves.add(move);
 			}
+			
 		}
 		return realMoves; 
 	}
 
+	private Board copy(Board board) {
+		Board b = new Board();
+		b.setSquares(board.getSquares());
+		return b;
+		
+	}
 	/**
 	 * setValue
 	 * @param b
 	 * @param turn
 	 */
-	private void setValue(Board b, String turn) {
-		b.update(this,turn);
+	private void evaluate(Board b, String turn) {
+		int value = 0;
+
+		b.update(this, turn);
 		Square[][] squares = b.getSquares();
+		
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				squares[i][j].getPieza();
+				Square s = squares[i][j];
+				if (!s.isEmpty()) {
+					if (s.getPieza().getColor().equals(turn)) {
+						value += s.getPieza().getValue();
+					}
+					else {
+						value -= s.getPieza().getValue();
+					}
+				}
 			}
 			
 		}
+		this.setValue(value);
 	}
 	
 	
@@ -127,8 +154,14 @@ public class Movement {
 	 * @return
 	 */
 	private Movement chooseBestMove(List<Movement> possiblesMoves) {
-		int totalMoves = possiblesMoves.size();
-		Movement move = possiblesMoves.get(UtilChess.getRandomValue(totalMoves));
-		return move; //TODO
+		
+		Collections.sort(possiblesMoves, new Comparator<Movement>() {
+		    @Override
+		    public int compare(Movement o1, Movement o2) {
+		        return new Integer(o1.getValue()).compareTo(new Integer(o2.getValue()));
+		    }
+		});
+		
+		return possiblesMoves.get(0); //TODO
 	}
 }
