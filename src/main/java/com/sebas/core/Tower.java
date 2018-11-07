@@ -93,6 +93,14 @@ public class Tower extends Piece {
 					if (turn.equals(square.getPieza().getColor())) {
 						return false;
 					}
+					else { //it is different color
+						if ((square.getHorizontal()+square.getVertical()).equals(movement.getDestiny())) {
+							return true;
+						}
+						else {
+							return false;
+						}
+					}
 				}
 			}
 		}

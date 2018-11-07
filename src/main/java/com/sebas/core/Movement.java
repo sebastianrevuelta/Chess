@@ -97,12 +97,30 @@ public class Movement {
 			Movement move = i.next();
 			Piece p = move.getPiece();
 			if (p.isRealMove(move,board,turn)) {
+				move.setValue(board, turn);
 				realMoves.add(move);
 			}
 		}
 		return realMoves; 
 	}
 
+	/**
+	 * setValue
+	 * @param b
+	 * @param turn
+	 */
+	private void setValue(Board b, String turn) {
+		b.update(this,turn);
+		Square[][] squares = b.getSquares();
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				squares[i][j].getPieza();
+			}
+			
+		}
+	}
+	
+	
 	/**
 	 * chooseBestMove
 	 * @param possiblesMoves
