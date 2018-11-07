@@ -52,10 +52,21 @@ public class Movement {
 		//System.out.println("choosing between ..." + possiblesMoves.size());
 		List<Movement> realMoves = filterMoves(board,possiblesMoves,turn);
 		Movement move = chooseBestMove(realMoves);
-		this.setPiece(move.getPiece());
-		this.setOrigin(move.getOrigin());
-		this.setDestiny(move.getDestiny());
-		System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() + "-" + move.getDestiny());
+		if (move != null) {
+			this.setPiece(move.getPiece());
+			this.setOrigin(move.getOrigin());
+			this.setDestiny(move.getDestiny());
+			System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() + "-" + move.getDestiny());
+		}
+		else {
+			System.out.println("No more possible moves to do");
+			if ("black".equals(turn)) {
+				System.out.println("White wins");
+			}
+			else {
+				System.out.println("Black wins");
+			}
+		}
 		return this;
 	}
 
@@ -115,7 +126,20 @@ public class Movement {
 
 	private Board copy(Board board) {
 		Board b = new Board();
-		b.setSquares(board.getSquares());
+		Square[][] squares = board.getSquares();
+		Square[][] newSquares = new Square[8][8];
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				Square square = squares[i][j];
+				Square newSquare = new Square();
+				newSquare.setEmpty(square.isEmpty());
+				newSquare.setPieza(square.getPieza());
+				newSquare.setHorizontal(square.getHorizontal());
+				newSquare.setVertical(square.getVertical());
+				newSquares[i][j] = newSquare;
+			}
+		}
+		b.setSquares(newSquares);
 		return b;
 		
 	}
@@ -162,6 +186,9 @@ public class Movement {
 		    }
 		});
 		
-		return possiblesMoves.get(0); //TODO
+		if (possiblesMoves.size() > 0) {
+		  return possiblesMoves.get(possiblesMoves.size()-1);
+		}
+		return null;
 	}
 }
