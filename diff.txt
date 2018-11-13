@@ -1,5 +1,1 @@
-Chess.properties
 diff.txt
-html/greeter.html
-js/greeter.js
-js/greeter.ts
