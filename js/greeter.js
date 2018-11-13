@@ -19,6 +19,7 @@ for (var _i = 0, horizontal_1 = horizontal; _i < horizontal_1.length; _i++) {
         var j = vertical_1[_a];
         var square = i + j;
         var color = "w";
+        var pathImage = "";
         //Choose color
         if (square.charAt(1) === '8' || square.charAt(1) === '7') {
             color = "b";
@@ -28,27 +29,27 @@ for (var _i = 0, horizontal_1 = horizontal; _i < horizontal_1.length; _i++) {
         }
         //paint squares
         if (square === "a8" || square === "h8" || square === "a1" || square === "h1") {
-            var pathImage = "../images/tower" + color + ".png";
+            pathImage = "../images/tower" + color + ".png";
             paintSquare(document, square, true, pathImage);
         }
         else if (square === "b8" || square === "g8" || square === "b1" || square === "g1") {
-            var pathImage = "../images/knight" + color + ".png";
+            pathImage = "../images/knight" + color + ".png";
             paintSquare(document, square, true, pathImage);
         }
         else if (square === "c8" || square === "f8" || square === "c1" || square === "f1") {
-            var pathImage = "../images/bishop" + color + ".png";
+            pathImage = "../images/bishop" + color + ".png";
             paintSquare(document, square, true, pathImage);
         }
         else if (square === "d8" || square === "d1") {
-            var pathImage = "../images/queen" + color + ".png";
+            pathImage = "../images/queen" + color + ".png";
             paintSquare(document, square, true, pathImage);
         }
         else if (square === "e8" || square === "e1") {
-            var pathImage = "../images/king" + color + ".png";
+            pathImage = "../images/king" + color + ".png";
             paintSquare(document, square, true, pathImage);
         }
         else if (square.charAt(1) === "7" || square.charAt(1) === "2") {
-            var pathImage = "../images/pawn" + color + ".png";
+            pathImage = "../images/pawn" + color + ".png";
             paintSquare(document, square, true, pathImage);
         }
         else {

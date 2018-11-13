@@ -4,7 +4,7 @@ function paintSquare(document,square,hasImage,pathImage) {
     element.setAttribute("id", square);
     
     if (hasImage) {
-        var myloc = new Image();
+        var myloc:HTMLImageElement = new Image();
         myloc.useMap = pathImage;
         var img:HTMLElement = document.createElement('img')
         img.setAttribute('src', myloc.useMap);
@@ -14,14 +14,14 @@ function paintSquare(document,square,hasImage,pathImage) {
 }
 
 document.title = "VulnChess";
-let vertical = ["1","2","3","4","5","6","7","8"];
-let horizontal = ["a","b","c","d","e","f","g","h"];
+let vertical:string[] = ["1","2","3","4","5","6","7","8"];
+let horizontal:string[] = ["a","b","c","d","e","f","g","h"];
 
 for (let i of horizontal) {
     for (let j of vertical) {
         let square:string = i+j;
-        let color:string = "w";
-        var pathImage:string = "";
+        let color = "w";
+        let pathImage = "";
 
         //Choose color
         if (square.charAt(1) === '8' || square.charAt(1)  === '7') {
