@@ -1,3 +1,10 @@
+/**
+ * paintSquare
+ * @param document
+ * @param square
+ * @param hasImage
+ * @param pathImage
+ */
 function paintSquare(document, square, hasImage, pathImage) {
     var element = document.createElement("div");
     element.setAttribute("id", square);

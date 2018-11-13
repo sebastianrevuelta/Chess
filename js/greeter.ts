@@ -1,4 +1,11 @@
-function paintSquare(document,square,hasImage,pathImage)  {
+/**
+ * paintSquare
+ * @param document 
+ * @param square 
+ * @param hasImage 
+ * @param pathImage 
+ */
+function paintSquare(document:HTMLDocument,square:string,hasImage:boolean,pathImage:string)  {
 
     var element:HTMLElement = document.createElement("div");
     element.setAttribute("id", square);
