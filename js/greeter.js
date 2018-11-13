@@ -20,7 +20,7 @@ function paintSquare(document, square, piece, hasImage, pathImage) {
     document.body.appendChild(element);
 }
 function printPiece(sender, event) {
-    alert(sender.getAttribute("name"));
+    alert(sender.getAttribute("id"));
 }
 document.title = "VulnChess";
 document.body.innerHTML = "VulnChess";
