@@ -1,4 +1,4 @@
-function paintSquare(document,square,hasImage,pathImage) {
+function paintSquare(document,square,hasImage,pathImage):HTMLElement   {
 
     var element:HTMLElement = document.createElement("div");
     element.setAttribute("id", square);
@@ -11,14 +11,17 @@ function paintSquare(document,square,hasImage,pathImage) {
         element.appendChild(img);
     }
     document.body.appendChild(element);
+    return element;
 }
 
 document.title = "VulnChess";
 let vertical:string[] = ["1","2","3","4","5","6","7","8"];
 let horizontal:string[] = ["a","b","c","d","e","f","g","h"];
 
-for (let i of horizontal) {
-    for (let j of vertical) {
+let i:string;
+let j:string;
+for (i of horizontal) {
+    for (j of vertical) {
         let square:string = i+j;
         let color = "w";
         let pathImage = "";

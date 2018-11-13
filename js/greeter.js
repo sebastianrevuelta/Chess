@@ -9,14 +9,17 @@ function paintSquare(document, square, hasImage, pathImage) {
         element.appendChild(img);
     }
     document.body.appendChild(element);
+    return element;
 }
 document.title = "VulnChess";
 var vertical = ["1", "2", "3", "4", "5", "6", "7", "8"];
 var horizontal = ["a", "b", "c", "d", "e", "f", "g", "h"];
+var i;
+var j;
 for (var _i = 0, horizontal_1 = horizontal; _i < horizontal_1.length; _i++) {
-    var i = horizontal_1[_i];
+    i = horizontal_1[_i];
     for (var _a = 0, vertical_1 = vertical; _a < vertical_1.length; _a++) {
-        var j = vertical_1[_a];
+        j = vertical_1[_a];
         var square = i + j;
         var color = "w";
         var pathImage = "";
