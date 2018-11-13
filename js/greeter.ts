@@ -1,12 +1,12 @@
 function paintSquare(document,square,hasImage,pathImage) {
 
-    var element = document.createElement("div");
+    var element:HTMLElement = document.createElement("div");
     element.setAttribute("id", square);
     
     if (hasImage) {
         var myloc = new Image();
         myloc.useMap = pathImage;
-        var img = document.createElement('img')
+        var img:HTMLElement = document.createElement('img')
         img.setAttribute('src', myloc.useMap);
         element.appendChild(img);
     }
@@ -21,6 +21,7 @@ for (let i of horizontal) {
     for (let j of vertical) {
         let square:string = i+j;
         let color:string = "w";
+        var pathImage:string = "";
 
         //Choose color
         if (square.charAt(1) === '8' || square.charAt(1)  === '7') {
@@ -32,27 +33,27 @@ for (let i of horizontal) {
 
         //paint squares
         if (square==="a8" || square==="h8" || square==="a1" || square==="h1") {
-          var pathImage = "../images/tower"+color+".png";
+          pathImage = "../images/tower"+color+".png";
           paintSquare(document,square,true,pathImage);
         }
         else if (square==="b8" || square==="g8" || square==="b1" || square==="g1") {
-          var pathImage = "../images/knight"+color+".png";
+          pathImage = "../images/knight"+color+".png";
           paintSquare(document,square,true,pathImage);
         }
         else if (square==="c8" || square==="f8" || square==="c1" || square==="f1") {
-          var pathImage = "../images/bishop"+color+".png";
+          pathImage = "../images/bishop"+color+".png";
           paintSquare(document,square,true,pathImage);
         }        
         else if (square==="d8" || square==="d1") {
-          var pathImage = "../images/queen"+color+".png";
+          pathImage = "../images/queen"+color+".png";
           paintSquare(document,square,true,pathImage);
         }
         else if (square==="e8" || square==="e1") {
-          var pathImage = "../images/king"+color+".png";
+          pathImage = "../images/king"+color+".png";
           paintSquare(document,square,true,pathImage);
         }     
         else if (square.charAt(1) === "7" || square.charAt(1) === "2") {
-          var pathImage = "../images/pawn"+color+".png";
+          pathImage = "../images/pawn"+color+".png";
           paintSquare(document,square,true,pathImage);
         }        
      
