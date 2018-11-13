@@ -21,7 +21,7 @@ function paintSquare(document:HTMLDocument,square:string,piece:string,hasImage:b
     document.body.appendChild(element);
 }
 
-function printPiece(sender: HTMLElement, event: MouseEvent): any { 
+function printPiece(sender: HTMLElement, event: MouseEvent) { 
     alert(sender.getAttribute("name"));
 }
 

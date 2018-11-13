@@ -1,3 +1,2 @@
 diff.txt
-js/greeter.js
 js/greeter.ts
