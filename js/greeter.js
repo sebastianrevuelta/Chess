@@ -9,7 +9,6 @@ function paintSquare(document, square, hasImage, pathImage) {
         element.appendChild(img);
     }
     document.body.appendChild(element);
-    return element;
 }
 document.title = "VulnChess";
 var vertical = ["1", "2", "3", "4", "5", "6", "7", "8"];

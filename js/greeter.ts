@@ -1,4 +1,4 @@
-function paintSquare(document,square,hasImage,pathImage):HTMLElement   {
+function paintSquare(document,square,hasImage,pathImage)  {
 
     var element:HTMLElement = document.createElement("div");
     element.setAttribute("id", square);
@@ -11,7 +11,6 @@ function paintSquare(document,square,hasImage,pathImage):HTMLElement   {
         element.appendChild(img);
     }
     document.body.appendChild(element);
-    return element;
 }
 
 document.title = "VulnChess";
