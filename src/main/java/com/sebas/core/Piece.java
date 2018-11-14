@@ -19,10 +19,10 @@ public abstract class Piece {
 	protected final static Logger log = Logger.getLogger(Piece.class);
 	
 	public int getValue() { return value; }
-	public void setValue(int value) { this.value = value; }
+	public final void setValue(int value) { this.value = value; }
 	
 	public String getType() { return type; }
-	public void setType(String type) { this.type = type; }
+	public final void setType(String type) { this.type = type; }
 	
 	public String getColor() { return color; }
 	public void setColor(String color) { this.color = color; }

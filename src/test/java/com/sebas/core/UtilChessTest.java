@@ -9,12 +9,4 @@ public class UtilChessTest extends TestCase {
 		
 	}
 	
-	public void testGetRandomValue() {
-		boolean flag = false;
-		int value = UtilChess.getRandomValue(4);
-		System.out.println(value);
-		if (value < 4 && value >= 0) flag = true;
-		assertEquals(true, flag);
-	}
-
 }

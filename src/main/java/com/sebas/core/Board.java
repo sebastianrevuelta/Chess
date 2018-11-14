@@ -13,7 +13,7 @@ public class Board {
 	private Square[][] squares;
 
 	public Square[][] getSquares() { return squares; }
-	public void setSquares(Square[][] casillas) { this.squares = casillas; }
+	public final void setSquares(Square[][] casillas) { this.squares = casillas; }
 
 	public Board() { 
 		setSquares(buildInitialPosition());

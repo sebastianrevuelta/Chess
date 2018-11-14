@@ -18,13 +18,13 @@ public class Match {
 	private String historyMatch;
 
 	public Board getBoard() { return board; }
-	public void setBoard(Board board) { this.board = board; }
+	public final void setBoard(Board board) { this.board = board; }
 
 	public String getTurno() { return turn; }
-	public void setTurno(String turno) { this.turn = turno; }
+	public final void setTurno(String turno) { this.turn = turno; }
 
 	public String getHistoryMatch() { return historyMatch; }
-	public void setHistoryMatch(String historyMatch) { this.historyMatch = historyMatch; }
+	public final void setHistoryMatch(String historyMatch) { this.historyMatch = historyMatch; }
 
 	public Match(String turno) {
 		setBoard(new Board());

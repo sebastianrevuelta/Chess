@@ -172,17 +172,4 @@ public class UtilChess {
 		}
 		return piece;
 	}
-
-
-	/**
-	 * 
-	 * @param totalMoves
-	 * @return
-	 */
-	public static int getRandomValue(int totalMoves) {
-		double d = Math.random();
-		float fragment = (float)1/totalMoves;
-		return (int) Math.floor((float)d/fragment);
-	}
-
 }
