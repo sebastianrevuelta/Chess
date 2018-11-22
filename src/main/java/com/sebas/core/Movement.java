@@ -56,15 +56,15 @@ public class Movement {
 			this.setPiece(move.getPiece());
 			this.setOrigin(move.getOrigin());
 			this.setDestiny(move.getDestiny());
-			System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() + "-" + move.getDestiny());
+			//System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() + "-" + move.getDestiny());
 		}
 		else {
-			System.out.println("No more possible moves to do");
+			//System.out.println("No more possible moves to do");
 			if ("black".equals(turn)) {
-				System.out.println("White wins");
+				//System.out.println("White wins");
 			}
 			else {
-				System.out.println("Black wins");
+				//System.out.println("Black wins");
 			}
 		}
 		return this;
