@@ -12,7 +12,7 @@ import java.util.List;
  * @author srevuelta
  *
  */
-public class Movement {
+public class Movement { 
 
 	private Piece piece;
 	private String origin;
