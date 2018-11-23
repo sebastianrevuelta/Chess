@@ -142,8 +142,14 @@ public class Movement {
 			Movement move = i.next();
 			move.evaluateMaterial(boardcopy, turn);
 			move.evaluateNumberSquares(boardcopy, turn);
-			double finalValue = (double)move.getValue() + (double)100/(double)move.getSquaresControlled();
-			move.setHeuristicValue(finalValue);
+			if (move.getSquaresControlled() > 0) {
+				double finalValue = (double)move.getValue() + (double)100/(double)move.getSquaresControlled();
+				move.setHeuristicValue(finalValue);
+			}
+			else {
+				move.setHeuristicValue(0);
+			}
+			
 			evaluatedMoves.add(move);
 		}
 		
