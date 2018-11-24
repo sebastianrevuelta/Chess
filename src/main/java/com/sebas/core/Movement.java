@@ -20,8 +20,8 @@ public class Movement {
 	private int materialValue;
 	private int squaresControlled;
 	private double heuristicValue;
-	
-	
+
+
 	public Piece getPiece() { return piece; }
 	public void setPiece(Piece piece) {this.piece = piece;}
 
@@ -30,16 +30,16 @@ public class Movement {
 
 	public String getDestiny() { return destiny; }
 	public void setDestiny(String destiny) { this.destiny = destiny; }
-	
+
 	public int getValue() { return materialValue; }
 	public void setValue(int value) { this.materialValue = value; }
-	
+
 	public int getSquaresControlled() { return squaresControlled; }
 	public void setSquaresControlled(int squaresControlled) { this.squaresControlled = squaresControlled; }
-	
+
 	public double getHeuristicValue() { return heuristicValue; }
 	public void setHeuristicValue(double heuristicValue) { this.heuristicValue = heuristicValue; }
-	
+
 	Movement() {}
 
 	Movement(Piece piece, String origin, String destiny) {
@@ -113,7 +113,7 @@ public class Movement {
 	private List<Movement> filterMoves(Board board,	List<Movement> possiblesMoves, String turn) {
 
 		List<Movement> realMoves = new ArrayList<Movement>();
-		
+
 		Iterator<Movement> i = possiblesMoves.iterator();
 		while (i.hasNext()) {
 			Movement move = i.next();
@@ -136,17 +136,22 @@ public class Movement {
 
 		List<Movement> evaluatedMoves = new ArrayList<Movement>();
 		Board boardcopy = copy(board);
-		
+
 		Iterator<Movement> i = realMoves.iterator();
 		while (i.hasNext()) {
 			Movement move = i.next();
 			move.evaluateMaterial(boardcopy, turn);
 			move.evaluateNumberSquares(boardcopy, turn);
-			double finalValue = (double)move.getValue() + (double)100/(double)move.getSquaresControlled();
-			move.setHeuristicValue(finalValue);
+			if (move.getSquaresControlled() > 0) {
+				double finalValue = (double)move.getValue() + (double)100/(double)move.getSquaresControlled();
+				move.setHeuristicValue(finalValue);
+			}
+			else {
+				move.setHeuristicValue(0);
+			}
 			evaluatedMoves.add(move);
 		}
-		
+
 		return evaluatedMoves; 
 	}
 
@@ -167,7 +172,7 @@ public class Movement {
 		}
 		b.setSquares(newSquares);
 		return b;
-		
+
 	}
 	/**
 	 * setValue
@@ -179,7 +184,7 @@ public class Movement {
 
 		b.update(this, turn);
 		Square[][] squares = b.getSquares();
-		
+
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				Square s = squares[i][j];
@@ -192,28 +197,28 @@ public class Movement {
 					}
 				}
 			}
-			
+
 		}
 		this.setValue(value);
 	}
-	
-	
+
+
 	/**
 	 * chooseBestMove
 	 * @param possiblesMoves
 	 * @return
 	 */
 	private Movement chooseBestMoveMaterial(List<Movement> possiblesMoves) {
-		
+
 		Collections.sort(possiblesMoves, new Comparator<Movement>() {
-		    @Override
-		    public int compare(Movement o1, Movement o2) {
-		        return new Double(o1.getHeuristicValue()).compareTo(new Double(o2.getHeuristicValue()));
-		    }
+			@Override
+			public int compare(Movement o1, Movement o2) {
+				return new Double(o1.getHeuristicValue()).compareTo(new Double(o2.getHeuristicValue()));
+			}
 		});
-		
+
 		if (possiblesMoves.size() > 0) {
-		  return possiblesMoves.get(possiblesMoves.size()-1);
+			return possiblesMoves.get(possiblesMoves.size()-1);
 		}
 		return null;
 	}
