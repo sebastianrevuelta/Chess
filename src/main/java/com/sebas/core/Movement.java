@@ -72,13 +72,15 @@ public class Movement {
 			if (turn.equals("white")) nextTurn = "black";
 			else nextTurn = "white";
 			
-			List<Movement> possiblesNextOpMoves = getPossiblesMoves(nextBoard,turn);
-			List<Movement> realNextOpMoves = filterMoves(nextBoard,possiblesNextOpMoves,turn);
-			List<Movement> realNextOpEvaluatedMoves = evaluatedMoves(nextBoard,realNextOpMoves,turn);
+			List<Movement> possiblesNextOpMoves = getPossiblesMoves(nextBoard,nextTurn);
+			List<Movement> realNextOpMoves = filterMoves(nextBoard,possiblesNextOpMoves,nextTurn);
+			List<Movement> realNextOpEvaluatedMoves = evaluatedMoves(nextBoard,realNextOpMoves,nextTurn);
 			Movement moveNextOpponent = chooseBestMove(realNextOpEvaluatedMoves);
 			
 			moveNext.setHeuristicValue(moveNext.getHeuristicValue()-moveNextOpponent.getHeuristicValue());
 			realNextEvaluatedMoves.add(moveNext);
+			
+			turn = nextTurn;
 		}
 		
 		move = chooseBestMove(realNextEvaluatedMoves);
