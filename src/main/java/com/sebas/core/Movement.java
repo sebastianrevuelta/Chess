@@ -21,7 +21,6 @@ public class Movement {
 	private int squaresControlled;
 	private double heuristicValue;
 
-
 	public Piece getPiece() { return piece; }
 	public void setPiece(Piece piece) {this.piece = piece;}
 
@@ -55,17 +54,52 @@ public class Movement {
 	 * @param turn
 	 * @return
 	 */
-	public Movement makeMovement(Board board, String turn) {
+	public Movement makeMovement(Board board, String turn, int depth) {
 
+		Movement move;
 		List<Movement> possiblesMoves = getPossiblesMoves(board,turn);
 		List<Movement> realMoves = filterMoves(board,possiblesMoves,turn);
 		List<Movement> realEvaluatedMoves = evaluatedMoves(board,realMoves,turn);
-		Movement move = chooseBestMoveMaterial(realEvaluatedMoves);
+		List<Movement> realNextEvaluatedMoves = new ArrayList<Movement>();
+		
+		Iterator<Movement> i = realEvaluatedMoves.iterator();
+		while (i.hasNext()) {
+			Movement moveNext = i.next();
+			Board nextBoard = copy(board);
+			nextBoard.update(moveNext, turn);
+			
+			String nextTurn;
+			if (turn.equals("white")) nextTurn = "black";
+			else nextTurn = "white";
+			
+			List<Movement> possiblesNextOpMoves = getPossiblesMoves(nextBoard,turn);
+			List<Movement> realNextOpMoves = filterMoves(nextBoard,possiblesNextOpMoves,turn);
+			List<Movement> realNextOpEvaluatedMoves = evaluatedMoves(nextBoard,realNextOpMoves,turn);
+			Movement moveNextOpponent = chooseBestMove(realNextOpEvaluatedMoves);
+			
+			moveNext.setHeuristicValue(moveNext.getHeuristicValue()-moveNextOpponent.getHeuristicValue());
+			realNextEvaluatedMoves.add(moveNext);
+		}
+		
+		move = chooseBestMove(realNextEvaluatedMoves);
 		if (move != null) {
 			this.setPiece(move.getPiece());
+			if (move.getPiece().getType().equals("pawn")) {
+				Queen queen = new Queen(); //TODO: User can choose what they want
+				queen.setColor(turn);
+				queen.setValue(9);
+				if (move.getDestiny().contains("8") && "white".equals(turn)) {
+					this.setPiece(queen);		
+				}
+				else if (move.getDestiny().contains("1") && "black".equals(turn)) {
+					this.setPiece(queen);		
+				}
+			}
+
 			this.setOrigin(move.getOrigin());
 			this.setDestiny(move.getDestiny());
-			System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() + "-" + move.getDestiny());
+			this.setHeuristicValue(move.getHeuristicValue());
+			System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() + "-" + move.getDestiny() + "(" + move.getHeuristicValue() + ")");
 		}
 		return this;
 	}
@@ -73,7 +107,8 @@ public class Movement {
 	private Movement evaluateNumberSquares(Board copyBoard, String turn) {
 		copyBoard.update(this, turn);
 		List<Movement> list = getPossiblesMoves(copyBoard,turn);
-		this.setSquaresControlled(list.size());
+		List<Movement> listFiltered = filterMoves(copyBoard, list, turn);
+		this.setSquaresControlled(listFiltered.size());
 		return this;
 	}
 	/**
@@ -135,15 +170,15 @@ public class Movement {
 	private List<Movement> evaluatedMoves(Board board,	List<Movement> realMoves, String turn) {
 
 		List<Movement> evaluatedMoves = new ArrayList<Movement>();
-		Board boardcopy = copy(board);
 
 		Iterator<Movement> i = realMoves.iterator();
 		while (i.hasNext()) {
 			Movement move = i.next();
+			Board boardcopy = copy(board);
 			move.evaluateMaterial(boardcopy, turn);
 			move.evaluateNumberSquares(boardcopy, turn);
 			if (move.getSquaresControlled() > 0) {
-				double finalValue = (double)move.getValue() + (double)100/(double)move.getSquaresControlled();
+				double finalValue = (double)move.getValue() + (double)move.getSquaresControlled()/(double)100;
 				move.setHeuristicValue(finalValue);
 			}
 			else {
@@ -208,7 +243,7 @@ public class Movement {
 	 * @param possiblesMoves
 	 * @return
 	 */
-	private Movement chooseBestMoveMaterial(List<Movement> possiblesMoves) {
+	private Movement chooseBestMove(List<Movement> possiblesMoves) {
 
 		Collections.sort(possiblesMoves, new Comparator<Movement>() {
 			@Override

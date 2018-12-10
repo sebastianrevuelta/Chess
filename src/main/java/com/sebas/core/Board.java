@@ -317,8 +317,8 @@ public class Board {
 		System.out.println();
 	}
 
-	public boolean checkMovement(Movement m) {
-		if (m.getPiece() != null) {
+	public boolean checkMate(Movement m) {
+		if (m.getHeuristicValue() > (double)500) {
 			return true;	
 		}
 		return false;

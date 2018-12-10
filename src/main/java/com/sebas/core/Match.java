@@ -40,14 +40,11 @@ public class Match {
 
 		Board board = new Board();
 		try { 
-			while (!checkmate && movement != 6) {
+			while (!checkmate) {
 				board.print();
 				Movement m = new Movement();
-				boolean checkMate = false;
-				while (!checkMate) {
-					m = m.makeMovement(board,turn);
-					checkMate = board.checkMovement(m);
-				}
+				m = m.makeMovement(board,turn,1);
+				checkmate = board.checkMate(m);
 				board.update(m,turn);
 
 				if ("white".equals(turn)) setTurno("black");
@@ -69,7 +66,10 @@ public class Match {
 	public String getMove() {
 
 		Movement m = new Movement();
-		m = m.makeMovement(board,turn);
+		
+		m = m.makeMovement(board,turn,1);
+
+		checkmate = board.checkMate(m);
 		String descriptionMove;
 
 		//boolean checkMate = board.checkMovement(m);
@@ -77,24 +77,26 @@ public class Match {
 
 		if ("white".equals(turn)) { 
 			setTurno("black"); 
-			if ("pawn".equals(m.getPiece())) {
-				descriptionMove = getHistoryMatch() + "\n" + movement + "." + m.getDestiny();
+			if ("pawn".equals(m.getPiece().getType())) {
+				descriptionMove = getHistoryMatch() + "\n" + movement + "." + m.getDestiny() + " ("+ m.getHeuristicValue() + ")";
 			}
 			else {
-				descriptionMove = getHistoryMatch() + "			" + movement + "." + m.getPiece().getType().toUpperCase().charAt(0) + m.getDestiny();
+				descriptionMove = getHistoryMatch() + "			" + movement + "." + m.getPiece().getType().toUpperCase().charAt(0) + m.getDestiny() + " ("+ m.getHeuristicValue() + ")";
 			}
-			setHistoryMatch(descriptionMove);
 		}
 		else { 
 			setTurno("white");
-			if ("pawn".equals(m.getPiece())) {
-				descriptionMove = getHistoryMatch() + " | " + m.getDestiny();
+			if ("pawn".equals(m.getPiece().getType())) {
+				descriptionMove = getHistoryMatch() + " | " + m.getDestiny() + " ("+ m.getHeuristicValue() + ")";
 			}
 			else {
-				descriptionMove = getHistoryMatch() + " | " + m.getPiece().getType().toUpperCase().charAt(0) + m.getDestiny();
+				descriptionMove = getHistoryMatch() + " | " + m.getPiece().getType().toUpperCase().charAt(0) + m.getDestiny() + " ("+ m.getHeuristicValue() + ")";
 			}
-			setHistoryMatch(descriptionMove);
 			movement++;
+		}
+		setHistoryMatch(descriptionMove);
+		if (checkmate) {
+			descriptionMove += "++";
 		}
 
 		return getHistoryMatch();

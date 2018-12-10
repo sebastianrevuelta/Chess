@@ -37,19 +37,18 @@ public class MatchServlet extends HttpServlet {
 
 		if (match == null) { match = new Match("white"); }
 		String move = match.getMove();
-		
 		Board board = match.getBoard();
 		Square[][] squares = board.getSquares();
 
 		try {
 			out.println("<head>");
 			out.println("<meta http-equiv='content-type' content='text/html; charset=utf-8' />");
-			out.println("<title>MayorMente Ajedrez</title>");
+			out.println("<title>Vuln Chess</title>");
 			out.println("<script src='./js/ajax.js' language='JavaScript'></script>");
 			out.println("<link rel='stylesheet' type='text/css' href='./css/squares.css' media='screen' />");
 			out.println("</head>");
 			out.println("<body>");
-			out.println("<h4>MayorMente Ajedrez</h4>");
+			out.println("<h4>Vuln Chess</h4>");
 
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
@@ -72,6 +71,10 @@ public class MatchServlet extends HttpServlet {
 		    out.println("<div id='new'> <a href='./New'>New</a></div>");
 		    out.println("</body>");
 		    out.println("</html>");
+		    
+		    if (move.endsWith("++")) { //checkmate
+		      System.exit(0);
+		    }
 		}
 		catch(Exception e) {
 			log.error("Error in the servlet" + this.getClass().getName());
