@@ -101,7 +101,8 @@ public class Movement {
 			this.setOrigin(move.getOrigin());
 			this.setDestiny(move.getDestiny());
 			this.setHeuristicValue(move.getHeuristicValue());
-			System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() + "-" + move.getDestiny() + "(" + move.getHeuristicValue() + ")");
+			System.out.println("Moving..." + turn + ":" + move.getPiece().getType() + " " + move.getOrigin() 
+			+ "-" + move.getDestiny() + "(" + move.getHeuristicValue() + ")" + " Depth: " + depth);
 		}
 		return this;
 	}
