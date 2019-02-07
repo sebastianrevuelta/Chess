@@ -86,7 +86,7 @@ public class Movement {
 		move = chooseBestMove(realNextEvaluatedMoves);
 		if (move != null) {
 			this.setPiece(move.getPiece());
-			if (move.getPiece().getType().equals("pawn")) {
+			if ("pawn".equals(move.getPiece().getType())) {
 				Queen queen = new Queen(); //TODO: User can choose what they want
 				queen.setColor(turn);
 				queen.setValue(9);
