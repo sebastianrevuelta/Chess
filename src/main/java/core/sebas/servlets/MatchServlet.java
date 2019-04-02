@@ -73,7 +73,9 @@ public class MatchServlet extends HttpServlet {
 		    out.println("</html>");
 		    
 		    if (move.endsWith("++")) { //checkmate
-		      System.exit(0);
+		    	System.out.print("End of the game");
+		    	return;
+		      //System.exit(0);
 		    }
 		}
 		catch(Exception e) {

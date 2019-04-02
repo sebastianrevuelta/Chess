@@ -47,7 +47,7 @@ public class Match {
 				checkmate = board.checkMate(m);
 				board.update(m,turn);
 
-				if ("white".equals(turn)) setTurno("black");
+				if (turn.equals("white")) setTurno("black");
 				else setTurno("white");
 
 				Thread.sleep(TIME_OUT_THINKING);  
