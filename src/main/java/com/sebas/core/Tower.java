@@ -43,7 +43,7 @@ public class Tower extends Piece {
 				columndestiny = UtilChess.calculateHorizontal(column);
 				to = columndestiny + rowdestiny;	
 				Movement move1 = new Movement(this,from,to);
-				possibleMoves.add(move1);	
+				possibleMoves.add(move1);	//TODO
 			}
 
 			if (valueRow-i >=0) {

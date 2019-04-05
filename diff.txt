@@ -1,4 +1,4 @@
 Chess.properties
 diff.txt
-src/main/java/com/sebas/core/Match.java
+src/main/java/com/sebas/core/Tower.java
 src/main/java/core/sebas/servlets/MatchServlet.java
