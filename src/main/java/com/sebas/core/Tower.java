@@ -66,6 +66,7 @@ public class Tower extends Piece {
 				possibleMoves.add(move3);
 			}
 			if (valueColumn-i >=0) {
+				
 				int row = new Integer(valueRow).intValue();
 				rowdestiny = UtilChess.calculateVertical(row);
 				int column = new Integer(valueColumn-i).intValue();
@@ -104,11 +105,20 @@ public class Tower extends Piece {
 				}
 			}
 		}
-
+		System.out.print("Hola");
 		return true;
 	}
 
 
+	
+	
+	/**
+	 * 
+	 * @param board
+	 * @param movement
+	 * @return
+	 */
+	
 	public List<Square> getSquares(Board board, Movement movement) {
 
 		List<Square> squares = new ArrayList<Square>();
