@@ -147,6 +147,7 @@ public class Board {
 	 * @return
 	 */
 	public static Square createSquare(String color, String horizontal, String vertical, String type) {
+		
 		Square square = new Square();
 		Piece p = null;
 		if ("tower".equals(type)) p = new Tower();
