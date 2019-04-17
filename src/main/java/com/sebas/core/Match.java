@@ -37,7 +37,7 @@ public class Match {
 	 * start the game
 	 */
 	public void startGame() {
-
+		String result = "";
 		Board board = new Board();
 		try { 
 			while (!checkmate) {
@@ -46,13 +46,15 @@ public class Match {
 				m = m.makeMovement(board,turn,1);
 				checkmate = board.checkMate(m);
 				board.update(m,turn);
-
+				
+				result += m.getPiece();
+				
 				if (turn.equals("white")) setTurno("black");
 				else setTurno("white");
 
 				Thread.sleep(TIME_OUT_THINKING);  
-
 			}
+			System.out.println("Match: " + result);
 		}
 		catch (InterruptedException e) { 
 			log.error("Error in the thread of the match");
