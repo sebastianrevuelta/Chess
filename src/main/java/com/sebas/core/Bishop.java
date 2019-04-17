@@ -128,7 +128,8 @@ public class Bishop extends Piece {
 			}
 			else {
 				int j = verticalFrom-1;
-				for (int i = horizontalFrom+1;i <= horizontalTo && j >= 0; i++) {
+				for (int i = horizontalFrom+1;i <= horizontalTo; i++) {
+					if (j < 0) break;
 					Square square = board.getSquares()[i][j];
 					squares.add(square);
 					j--;
