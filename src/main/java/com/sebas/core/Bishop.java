@@ -123,7 +123,6 @@ public class Bishop extends Piece {
 				for (int i = horizontalFrom+1; i <= horizontalTo; i++) {
 					Square square = board.getSquares()[i][j];
 					squares.add(square);
-					Piece() p = new Piece();
 					j++;
 				}
 			}
