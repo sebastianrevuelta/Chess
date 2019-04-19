@@ -1,4 +1,3 @@
 Chess.properties
 diff.txt
-src/main/java/com/sebas/core/Bishop.java
-src/main/java/com/sebas/core/Board.java
+src/main/java/com/sebas/core/Tower.java

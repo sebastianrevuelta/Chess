@@ -105,7 +105,6 @@ public class Tower extends Piece {
 				}
 			}
 		}
-		System.out.print("Hola");
 		return true;
 	}
 
