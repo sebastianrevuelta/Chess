@@ -1,3 +1,2 @@
-Chess.properties
 diff.txt
-src/main/java/core/sebas/servlets/HolaMundo.java
+src/main/java/com/sebas/core/Board.java
