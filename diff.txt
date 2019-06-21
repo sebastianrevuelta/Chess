@@ -1,2 +1,3 @@
+.classpath
 diff.txt
 src/main/java/com/sebas/core/Board.java

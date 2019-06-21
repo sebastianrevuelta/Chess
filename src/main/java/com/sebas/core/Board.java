@@ -18,10 +18,7 @@ public class Board {
 	public Board() { 
 		setSquares(buildInitialPosition());
 	}
-    
-	
-	public String history;
-	
+
 
 	/**
 	 * build the start position
