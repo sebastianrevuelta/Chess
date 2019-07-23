@@ -1,3 +1,3 @@
-.classpath
+Chess.properties
 diff.txt
-src/main/java/com/sebas/core/Board.java
+src/main/java/com/sebas/core/Match.java

@@ -44,8 +44,8 @@ public class Match {
 	 * start the game
 	 */
 	public void startGame() {
-		//String result = "";
-		StringBuilder sb = new StringBuilder();
+		String result = "";
+		//StringBuilder sb = new StringBuilder();
 		Board board = new Board();
 		try { 
 			while (!checkmate) {
@@ -55,16 +55,16 @@ public class Match {
 				checkmate = board.checkMate(m);
 				board.update(m,turn);
 				
-				//result += m.getPiece();
-				sb.append(m.getPiece());
+				result += m.getPiece();
+				//sb.append(m.getPiece());
 				
 				if (turn.equals("white")) setTurno("black");
 				else setTurno("white");
 
 				Thread.sleep(TIME_OUT_THINKING);  
 			}
-			//System.out.println("Match: " + result);
-			System.out.println("Match: " + sb.toString());
+			System.out.println("Match: " + result);
+			//System.out.println("Match: " + sb.toString());
 		}
 		catch (InterruptedException e) { 
 			log.error("Error in the thread of the match");
