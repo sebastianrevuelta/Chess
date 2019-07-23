@@ -1,3 +1,2 @@
-Chess.properties
 diff.txt
 src/main/java/com/sebas/core/Match.java

@@ -42,7 +42,7 @@ public class Match {
 
 	/**
 	 * start the game
-	 */
+	 */   
 	public void startGame() {
 		String result = "";
 		//StringBuilder sb = new StringBuilder();
