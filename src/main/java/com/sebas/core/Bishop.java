@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * This is the bishop class
- * @author srevuelta
+ * @author srevuelta August 2019
  *
  */
 public class Bishop extends Piece {
@@ -14,7 +14,7 @@ public class Bishop extends Piece {
 	public Bishop() {
 		super.setType("bishop");
 		super.setValue(3);
-	}
+	}  
 
 	/***
 	 * move the bishop
