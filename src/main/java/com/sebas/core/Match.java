@@ -42,6 +42,7 @@ public class Match {
 
 	/**
 	 * start the game
+	 * @date August 2019
 	 */     
 	public void startGame() {
 		String result = "";
