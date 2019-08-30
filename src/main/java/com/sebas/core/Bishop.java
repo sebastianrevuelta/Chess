@@ -21,6 +21,7 @@ public class Bishop extends Piece {
 	 * @param turn
 	 * @return
 	 */
+	@Override
 	public List<Movement> move(String from, String turn, String type) {
 
 		log.info(turn + " " + type + " is going to move from: " + from);
