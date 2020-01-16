@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * This is the bishop class
  * @author srevuelta August 2019
- *   
+ *
  */
 public class Bishop extends Piece {
 	
