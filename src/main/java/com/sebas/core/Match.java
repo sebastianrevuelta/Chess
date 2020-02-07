@@ -65,10 +65,11 @@ public class Match {
 				Thread.sleep(TIME_OUT_THINKING);  
 			}
 			System.out.println("Match: " + result);
-			//System.out.println("Match: " + sb.toString());
+			System.out.println("Match: " + result);
 		}
 		catch (InterruptedException e) { 
 			log.error("Error in the thread of the match");
+			 System.exit(0);
 		}
 	}
 
