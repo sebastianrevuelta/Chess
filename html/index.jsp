@@ -4,7 +4,7 @@
     <head> 
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>MayorMente Ajedrez</title>
-        <script src="./js/ajax.js" language="JavaScript"></script>
+        <script src="./js/ajax.js" language="JavaScript"></script>  
 		<link rel="stylesheet" type="text/css" href="./css/squares.css" media="screen" />
     </head>
     <body>
