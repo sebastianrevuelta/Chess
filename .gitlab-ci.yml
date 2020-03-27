@@ -21,7 +21,7 @@ kiuwan-complete-delivery-analysis:
 kiuwan-promote-to-baseline:
   stage: promote
   script: 
-    - agent --promote-to-baseline -n %CI_PROJECT_NAME% -l "GitLab build" -pbl "v3.%CI_JOB_ID%" --user %KIUWAN_USER% --pass %KIUWAN_PASSWD% -cr "Fix Board" 
+    - agent --promote-to-baseline -n %CI_PROJECT_NAME% -l "GitLab build" -pbl "v3.%CI_JOB_ID%" -cr "Fix Board" 
   tags:
     - kiuwan_promote
     
