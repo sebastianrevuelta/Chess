@@ -67,6 +67,7 @@
     </copy>
   	
   	<copy todir="${dirDeploy}/WEB-INF/lib" overwrite="true">
+		<fileset file="${build.path}/${jarFile}"/>
 		<fileset dir="${mavenRepo}/log4j/log4j/1.2.12/" includes="*.jar"/>
 		<fileset dir="${mavenRepo}/javax/servlet/servlet-api/2.4/" includes="*.jar"/>
 		<fileset dir="${mavenRepo}/junit/junit/3.8.1/" includes="*.jar"/>
