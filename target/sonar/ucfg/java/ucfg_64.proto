@@ -1,109 +1,0 @@
-
-`com.sebas.core.Queen#getSquares(Lcom/sebas/core/Board;Lcom/sebas/core/Movement;)Ljava/util/List;
-__unknown_file (boardmovement"1*∞
-1\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaA A(0{y
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaA A(.
-%0"java.util.ArrayListé
-ã
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaA A(0
-%1"java.util.ArrayList#<init>()V*
-
-%0y
-w
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaA A(1	
-squares"__id*
-
-%0|z
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaB B(
-%2"com.sebas.core.Towerè
-å
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaB B(
-%3"com.sebas.core.Tower#<init>()V*
-
-%2w
-u
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaB B(
-tower"__id*
-
-%2}{
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaC C(
-%4"com.sebas.core.Bishopê
-ç
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaC C(
-%5"com.sebas.core.Bishop#<init>()V*
-
-%4x
-v
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaC C(
-bishop"__id*
-
-%4Ì
-Í
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaD D(;
-%6"`com.sebas.core.Tower#getSquares(Lcom/sebas/core/Board;Lcom/sebas/core/Movement;)Ljava/util/List;*	
-
-tower*	
-
-board*
-
-
-movementz
-x
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaD D(<
-
-squaresT"__id*
-
-%6Ô
-Ï
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaE E(<
-%7"acom.sebas.core.Bishop#getSquares(Lcom/sebas/core/Board;Lcom/sebas/core/Movement;)Ljava/util/List;*
-
-
-bishop*	
-
-board*
-
-
-movementz
-x
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaE E(=
-
-squaresB"__id*
-
-%7≤
-Ø
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaF F(
-%8".java.util.List#addAll(Ljava/util/Collection;)Z*
-	
-squares*
-
-
-squaresB≤
-Ø
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaG G(
-%9".java.util.List#addAll(Ljava/util/Collection;)Z*
-	
-squares*
-
-
-squaresT"k
-\
-RC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Queen.javaH H(
-	
-squares

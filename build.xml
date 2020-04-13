@@ -6,15 +6,23 @@
   </description>
   
 	<property name="dirDevelop" value="."/>
+	<property name="mavenRepo" value="C:/Users/srevuelta/.m2/repository"/>
 	<property name="dirDeploy" value="C:/projects/apache-tomcat-6.0.35/webapps/chess/"/>
 	<property name="src.dir" value="./src/main/java"/>
 	<property name="lib.dir" value="./lib"/>
 	<property name="build.path" value="./WEB-INF/lib"/>
-	<property name="jarFile" value="ChessCore.jar"/>
+	<property name="jarFile" value="Chess-1.0.jar"/>
+	
 	
 	
 	<path id="classpath.lib">
-		<fileset dir="${lib.dir}">
+		<fileset dir="${mavenRepo}/log4j/log4j/1.2.12/">
+		  <include name="*.jar"/>                          
+		</fileset>
+		<fileset dir="${mavenRepo}/javax/servlet/servlet-api/2.4/">
+		  <include name="*.jar"/>                          
+		</fileset>
+		<fileset dir="${mavenRepo}/junit/junit/3.8.1/">
 		  <include name="*.jar"/>                          
 		</fileset>
 	</path>   
@@ -24,8 +32,8 @@
 	<mkdir dir="${build.path}"/>     
 		<javac destdir="${build.path}" 
 			encoding="ISO-8859-1" 
-			source="1.5" 
-			target="1.5" 
+			source="1.8" 
+			target="1.8" 
 			debug="true" 
 			deprecation="false" 
 			optimize="false" 
@@ -42,24 +50,26 @@
 	
   <target name="deploy" depends="jar">
     
-  	<copy todir="${dirDeploy}/html">
+  	<copy todir="${dirDeploy}/html" overwrite="true">
       <fileset dir="${dirDevelop}/html" includes="*"/>
     </copy>
     
-  	<copy todir="${dirDeploy}/css">
+  	<copy todir="${dirDeploy}/css" overwrite="true">
       <fileset dir="${dirDevelop}/css" includes="*"/>
     </copy>
   	
-  	<copy todir="${dirDeploy}/images">
+  	<copy todir="${dirDeploy}/images" overwrite="true">
       <fileset dir="${dirDevelop}/images" includes="*"/>
     </copy>
     
-  	<copy todir="${dirDeploy}/WEB-INF">
+  	<copy todir="${dirDeploy}/WEB-INF" overwrite="true">
         <fileset dir="${dirDevelop}/WEB-INF" includes="*"/>
     </copy>
   	
-  	<copy todir="${dirDeploy}/WEB-INF/lib">
-        <fileset dir="${dirDevelop}/WEB-INF/lib" includes="*.jar"/>
+  	<copy todir="${dirDeploy}/WEB-INF/lib" overwrite="true">
+		<fileset dir="${mavenRepo}/log4j/log4j/1.2.12/" includes="*.jar"/>
+		<fileset dir="${mavenRepo}/javax/servlet/servlet-api/2.4/" includes="*.jar"/>
+		<fileset dir="${mavenRepo}/junit/junit/3.8.1/" includes="*.jar"/>
     </copy>
   	
   </target>

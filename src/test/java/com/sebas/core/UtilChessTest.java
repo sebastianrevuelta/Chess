@@ -9,4 +9,9 @@ public class UtilChessTest extends TestCase {
 		
 	}
 	
+    public void testRandomPiece()
+    {
+        assertTrue( true );
+    }
+	
 }

@@ -249,7 +249,6 @@ public class Movement {
 	private Movement chooseBestMove(List<Movement> possiblesMoves) {
 
 		Collections.sort(possiblesMoves, new Comparator<Movement>() {
-			@Override
 			public int compare(Movement o1, Movement o2) {
 				return new Double(o1.getHeuristicValue()).compareTo(new Double(o2.getHeuristicValue()));
 			}

@@ -1,19 +1,0 @@
-
-+com.sebas.core.UtilChess#getRandomValue(I)I
-__unknown_file ("""1*™
-1b
-VC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\UtilChess.java· ·(›
-˜
-b
-VC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\UtilChess.java· ·(
-%0"java.lang.Math#random()D*"
-java.lang.Math£
- 
-b
-VC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\UtilChess.java¹ ¹(,
-%1"java.lang.Math#floor(D)D*"
-java.lang.Math*
-"""l
-b
-VC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\UtilChess.java¹ ¹(-
-""

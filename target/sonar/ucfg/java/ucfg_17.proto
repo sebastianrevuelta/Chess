@@ -1,108 +1,0 @@
-
-bcom.sebas.core.King#isRealMove(Lcom/sebas/core/Movement;Lcom/sebas/core/Board;Ljava/lang/String;)Z
-__unknown_file (movementboardturn"4*Ç
-1[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java!	 !("e
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java! !(
-""*Ç
-2[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java ("e
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (
-""*â
-3[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (ª
-§
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java ($
-%7"6com.sebas.core.Square#getPieza()Lcom/sebas/core/Piece;*
-
-
-square¡
-ž
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (/
-%8"1com.sebas.core.Piece#getColor()Ljava/lang/String;*
-
-%7¦
-£
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (0
-%9",java.lang.String#equals(Ljava/lang/Object;)Z*
-
-turn*
-
-%8*
-2
-1*ã
-4[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (¬
-©
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (#
-%0"6com.sebas.core.Movement#getDestiny()Ljava/lang/String;*
-
-
-movements
-q
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java ($
-to"__id*
-
-%0Ï
-Ì
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (6
-%1"Acom.sebas.core.UtilChess#calculateHorizontal(Ljava/lang/String;)I*"
-com.sebas.core.UtilChess*
-
-toÍ
-Ê
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (2
-%2"?com.sebas.core.UtilChess#calculateVertical(Ljava/lang/String;)I*"
-com.sebas.core.UtilChess*
-
-to­
-ª
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java ()
-%3":com.sebas.core.Board#getSquares()[[Lcom/sebas/core/Square;*	
-
-boardx
-v
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (*	
-squares"__id*
-
-%3~
-|
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java ('
-%4"
-__arrayGet*
-	
-squaresy
-w
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (3
-%5"
-__arrayGet*
-
-%4w
-u
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (4
-square"__id*
-
-%5”
-‘
-[
-QC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\King.java (
-%6" com.sebas.core.Square#isEmpty()Z*
-
-
-square*
-3
-1

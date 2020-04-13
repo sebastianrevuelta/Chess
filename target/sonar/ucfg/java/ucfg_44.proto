@@ -1,38 +1,0 @@
-
-Jcom.sebas.core.Movement#copy(Lcom/sebas/core/Board;)Lcom/sebas/core/Board;
-__unknown_file (board"1*…
-1_
-UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javau u(}
-_
-UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javau u(
-%0"com.sebas.core.Boardí
-è
-_
-UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javau u(
-%1"com.sebas.core.Board#<init>()V*
-
-%0v
-t
-_
-UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javau u(
-b"__id*
-
-%0±
-Æ
-_
-UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javav v(!
-%2":com.sebas.core.Board#getSquares()[[Lcom/sebas/core/Square;*	
-
-board∂
-≥
-_
-UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javav v("
-%3";com.sebas.core.Board#setSquares([[Lcom/sebas/core/Square;)V*
-
-b*
-
-%2"h
-_
-UC:\Users\srevuelta\eclipse-workspace\Chess\src\main\java\com\sebas\core\Movement.javaw w(
-
-b
