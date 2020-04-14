@@ -78,7 +78,7 @@ span.psw {
 </head>
 <body>
 
-<h2>Login Form</h2>
+<h2>Login VulnChess</h2>
 
 <form action="./Login" method="post">
   <div class="imgcontainer">
