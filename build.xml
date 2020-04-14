@@ -25,6 +25,9 @@
 		<fileset dir="${mavenRepo}/junit/junit/3.8.1/">
 		  <include name="*.jar"/>                          
 		</fileset>
+		<fileset dir="${mavenRepo}/mysql/mysql-connector-java/8.0.19/">
+			<include name="*.jar"/>                          
+		</fileset>
 	</path>   
 
   <target name="compile" description="compile project source code">
@@ -71,6 +74,7 @@
 		<fileset dir="${mavenRepo}/log4j/log4j/1.2.12/" includes="*.jar"/>
 		<fileset dir="${mavenRepo}/javax/servlet/servlet-api/2.4/" includes="*.jar"/>
 		<fileset dir="${mavenRepo}/junit/junit/3.8.1/" includes="*.jar"/>
+		<fileset dir="${mavenRepo}/mysql/mysql-connector-java/8.0.19/" includes="*.jar"/>
     </copy>
   	
   </target>

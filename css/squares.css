@@ -13,6 +13,19 @@
                 top: 100px;
                 left: 570px;
 						}
+						#table {
+                margin: 50px;
+                border: 5px solid #F0F0F0;
+                padding: 10px;
+                background-color:white;
+                position: fixed;
+                
+                width: auto;
+                height: auto;
+                
+                top: 70px;
+                left: 850px;
+						}
 						#play {
                 margin: 20px;
                 border: 5px solid #F0F0F0;

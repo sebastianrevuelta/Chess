@@ -13,7 +13,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 </session-config>
 <!-- Lista de archivos de bienvenida -->
 <welcome-file-list>
-<welcome-file>html/index.jsp</welcome-file>
+<welcome-file>html/login.jsp</welcome-file>
 </welcome-file-list>
 
 <servlet>
@@ -32,6 +32,15 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 <servlet-mapping>
 <servlet-name>MatchServlet</servlet-name>
 <url-pattern>/Play</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>Authentication</servlet-name>
+<servlet-class>core.sebas.servlets.Authentication</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Authentication</servlet-name>
+<url-pattern>/Login</url-pattern>
 </servlet-mapping>
 
 </web-app>
