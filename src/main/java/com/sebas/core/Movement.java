@@ -76,8 +76,9 @@ public class Movement {
 			List<Movement> realNextOpMoves = filterMoves(nextBoard,possiblesNextOpMoves,nextTurn);
 			List<Movement> realNextOpEvaluatedMoves = evaluatedMoves(nextBoard,realNextOpMoves,nextTurn);
 			Movement moveNextOpponent = chooseBestMove(realNextOpEvaluatedMoves);
-			
-			moveNext.setHeuristicValue(moveNext.getHeuristicValue()-moveNextOpponent.getHeuristicValue());
+			double value = moveNext.getHeuristicValue()-moveNextOpponent.getHeuristicValue();
+			value = UtilChess.round(value,3);
+			moveNext.setHeuristicValue(value);
 			realNextEvaluatedMoves.add(moveNext);
 			
 			turn = nextTurn;
@@ -182,6 +183,7 @@ public class Movement {
 			move.evaluateNumberSquares(boardcopy, turn);
 			if (move.getSquaresControlled() > 0) {
 				double finalValue = (double)move.getValue() + (double)move.getSquaresControlled()/(double)100;
+				finalValue = Math.round(finalValue * 100.0) / 100.0; 
 				move.setHeuristicValue(finalValue);
 			}
 			else {
@@ -216,11 +218,12 @@ public class Movement {
 	 * setValue
 	 * @param b
 	 * @param turn
+	 * TODO
 	 */
 	private void evaluateMaterial(Board b, String turn) {
 		int value = 0;
 
-		b.update(this, turn);
+/*		b.update(this, turn);
 		Square[][] squares = b.getSquares();
 
 		for (int i = 0; i < 8; i++) {
@@ -236,7 +239,7 @@ public class Movement {
 				}
 			}
 
-		}
+		}*/
 		this.setValue(value);
 	}
 

@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="./css/squares.css" media="screen" />
     </head>
     <body>
-        <h4>VulnChess</h4>
+        <h4>Vulnerable Chess Game</h4>
         
         <div id="a8"><img src="./images/towerb.png"/></div>
         <div id="b8"><img src="./images/knightb.png"/></div>
