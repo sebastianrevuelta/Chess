@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<!--%@page import="java.sql.Connection"%-->      
+<!--%@page import="java.sql.Connection"%-->  
+<%@ page import="java.util.List" %>    
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
     <head>   
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -77,6 +78,15 @@
         <div id="match"> <% out.println("Partida"); %></div>
         <div id="play"> <a href="./Play">Play</a></div>
         <div id="new"> <a href="./Play">New</a></div>
-
+		<table id="table">
+			<tr><th>Username</th><th>Password</th></tr>
+			<%List<String> user = (List<String>) request.getSession().getAttribute("user");
+				for (int i = 0; i < user.size(); i = i + 2) { %>
+					<tr>
+						<td><%=user.get(i)%></td>
+						<td><%=user.get(i+1)%></td>
+					</tr>
+					<% } %>
+		</table>
     </body>
 </html>
