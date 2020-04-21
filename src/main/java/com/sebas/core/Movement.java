@@ -61,7 +61,7 @@ public class Movement {
 		List<Movement> realMoves = filterMoves(board,possiblesMoves,turn);
 		List<Movement> realEvaluatedMoves = evaluatedMoves(board,realMoves,turn);
 		List<Movement> realNextEvaluatedMoves = new ArrayList<Movement>();
-		
+
 		Iterator<Movement> i = realEvaluatedMoves.iterator();
 		while (i.hasNext()) {
 			Movement moveNext = i.next();
@@ -239,8 +239,8 @@ public class Movement {
 				}
 			}
 
-		}*/
-		this.setValue(value);
+		}
+*/		this.setValue(value);
 	}
 
 

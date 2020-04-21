@@ -3,6 +3,7 @@ package core.sebas.servlets;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -43,7 +44,16 @@ public class Authentication extends HttpServlet {
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/chess?serverTimezone=UTC", "root", "root");
 			stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			
+			//SQL injection. No validation of malicious input
+			//ResultSet rs = stmt.executeQuery(query);
+
+			//Fix SQLi with Prepared Statement
+		    PreparedStatement sqlStatement = conn.prepareStatement("select * from user where username=? and password=?");
+		    sqlStatement.setString(1, username);
+		    sqlStatement.setString(2, password);
+		    ResultSet rs = sqlStatement.executeQuery();
+			
 			List<String> list = new ArrayList<String>();							
 			while (rs.next()) {
 				// Login Successful if match is found
