@@ -52,8 +52,8 @@ public class Authentication extends HttpServlet {
 /*		    PreparedStatement sqlStatement = conn.prepareStatement("select * from user where username=? and password=?");
 		    sqlStatement.setString(1, username);
 		    sqlStatement.setString(2, password);
-		    ResultSet rsFix = sqlStatement.executeQuery();*/
-			
+		    ResultSet rsFix = sqlStatement.executeQuery();
+			*/
 			List<String> list = new ArrayList<String>();							
 			while (rs.next()) {
 				// Login Successful if match is found
