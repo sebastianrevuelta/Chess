@@ -49,6 +49,7 @@ public class Authentication extends HttpServlet {
 			ResultSet rs = stmt.executeQuery(query);  
 
 			//Fix SQLi with Prepared Statement
+			
 /*		    PreparedStatement sqlStatement = conn.prepareStatement("select * from user where username=? and password=?");
 		    sqlStatement.setString(1, username);
 		    sqlStatement.setString(2, password);

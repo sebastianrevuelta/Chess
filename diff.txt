@@ -1,2 +1,3 @@
+Chess.properties
 diff.txt
 src/main/java/core/sebas/servlets/Authentication.java
