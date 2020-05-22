@@ -22,6 +22,7 @@ public class Authentication extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 
 	static {
 		try {
@@ -41,8 +42,9 @@ public class Authentication extends HttpServlet {
 		String query = "select * from user where username='" + username + "' and password = '" + password + "'";
 		Connection conn = null;
 		Statement stmt = null;
+
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/chess?serverTimezone=UTC", "root", "root");
+			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/chess?serverTimezone=UTC", "root", "platas$79");
 			stmt = conn.createStatement();
 			
 			//SQL injection. No validation of malicious input
