@@ -6,7 +6,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
 <!-- Nombre de nuestra aplicacion Web -->
-<display-name>MayorMenteAjedrez</display-name>
+<display-name>Vulnerable Chess Game</display-name>
 <!-- Tiempo en minutos de duracion de una sesion -->
 <session-config>
 <session-timeout>30</session-timeout>

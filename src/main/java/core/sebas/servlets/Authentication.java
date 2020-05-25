@@ -1,12 +1,16 @@
 package core.sebas.servlets;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +25,7 @@ public class Authentication extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 
 	static {
 		try {
@@ -40,10 +45,36 @@ public class Authentication extends HttpServlet {
 		String query = "select * from user where username='" + username + "' and password = '" + password + "'";
 		Connection conn = null;
 		Statement stmt = null;
+		Properties prop = new Properties();
+
+		InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
+		if (inputStream != null) {
+			prop.load(inputStream);
+		}
+		else {   
+			throw new FileNotFoundException("property file config.properties not found in the classpath");
+		}
+		
+		String userDB = prop.getProperty("userDB");
+		String pwdDB = prop.getProperty("pwdDB");
+		String hostDB = prop.getProperty("hostDB");
+		String portDB = prop.getProperty("portDB");
+		
+		String connectionChain = "jdbc:mysql://" + hostDB + ":" + portDB + "/chess?serverTimezone=UTC";
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/chess?serverTimezone=UTC", "root", "root");
+			conn = DriverManager.getConnection(connectionChain, userDB, pwdDB);
 			stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			
+			//SQL injection. No validation of malicious input
+			ResultSet rs = stmt.executeQuery(query);  
+
+			//Fix SQLi with Prepared Statement
+			
+/*		    PreparedStatement sqlStatement = conn.prepareStatement("select * from user where username=? and password=?");
+		    sqlStatement.setString(1, username);
+		    sqlStatement.setString(2, password);
+		    ResultSet rsFix = sqlStatement.executeQuery();
+			*/
 			List<String> list = new ArrayList<String>();							
 			while (rs.next()) {
 				// Login Successful if match is found

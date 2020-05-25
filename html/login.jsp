@@ -78,8 +78,8 @@ span.psw {
 </head>
 <body>
 
-<h2>Login VulnChess</h2>
-
+<h2>Login Vulnerable Chess Game</h2>
+<h5>Develped by Eduardo Boronat and Sebastian Revuelta</h5>
 <form action="./Login" method="post">
   <div class="imgcontainer">
     <img src="./images/profileimg.jpg" alt="Avatar" class="avatar">

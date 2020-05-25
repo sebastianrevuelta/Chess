@@ -40,6 +40,10 @@ public class Match {
 		setHistoryMatch("");
 	}
 
+	public static void main(String[] args) {
+		Match match = new Match("white");
+		match.startGame();
+	}
 	/**
 	 * start the game
 	 * @date August 2019
