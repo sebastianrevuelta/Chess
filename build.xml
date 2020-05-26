@@ -68,7 +68,7 @@
 	
     <target name="updateWebContent" depends="jar">
     
-  	<copy todir="${dirDevelop}/WebContent/WEB-INF/html" overwrite="true">
+  	<!--copy todir="${dirDevelop}/WebContent/WEB-INF/html" overwrite="true">
       <fileset dir="${dirDevelop}/html" includes="*"/>
     </copy>
     
@@ -82,7 +82,7 @@
 	
 	 <copy todir="${dirDevelop}/WebContent/WEB-INF/js" overwrite="true">
       <fileset dir="${dirDevelop}/js" includes="*"/>
-	 </copy>
+	 </copy-->
  	
   	<copy todir="${dirDevelop}/WebContent/WEB-INF/lib" overwrite="true">
 		<fileset file="${build.path}/${jarFile}"/>
