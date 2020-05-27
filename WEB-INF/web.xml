@@ -20,6 +20,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 <servlet-name>HolaMundo</servlet-name>
 <servlet-class>core.sebas.servlets.HolaMundo</servlet-class>
 </servlet>
+
 <servlet-mapping>
 <servlet-name>HolaMundo</servlet-name>
 <url-pattern>/HolaMundo</url-pattern>
@@ -29,6 +30,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 <servlet-name>MatchServlet</servlet-name>
 <servlet-class>core.sebas.servlets.MatchServlet</servlet-class>
 </servlet>
+
 <servlet-mapping>
 <servlet-name>MatchServlet</servlet-name>
 <url-pattern>/Play</url-pattern>
@@ -38,9 +40,11 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 <servlet-name>Authentication</servlet-name>
 <servlet-class>core.sebas.servlets.Authentication</servlet-class>
 </servlet>
+
 <servlet-mapping>
 <servlet-name>Authentication</servlet-name>
 <url-pattern>/Login</url-pattern>
 </servlet-mapping>
+
 
 </web-app>
