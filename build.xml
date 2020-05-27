@@ -10,10 +10,11 @@
 	<property name="dirDeploy" value="C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/chess/"/>
 	<!-- <property name="mavenRepo" value="C:/Users/srevuelta/.m2/repository"/>
 	<property name="dirDeploy" value="C:/projects/apache-tomcat-6.0.35/webapps/chess/"/> -->
+
 	<property name="src.dir" value="./src/main/java"/>
 	<property name="lib.dir" value="./lib"/>
-	<property name="build.path" value="./WEB-INF/lib"/>
-	<property name="jarFile" value="Chess-1.0.jar"/>
+	<property name="build.path" value="./build/classes"/>
+	<property name="jarFile" value="Chess-1.1.jar"/>
 	
 	
 	
@@ -31,10 +32,18 @@
 			<include name="*.jar"/>                          
 		</fileset>
 	</path>   
-
-  <target name="compile" description="compile project source code">
+	
+   <target name="clean" description="clean folders">
   	<delete dir="${build.path}"/>
-	<mkdir dir="${build.path}"/>     
+    <mkdir dir="${build.path}"/>  
+	<delete file="chess.war"/> 
+	<delete dir="${dirDevelop}/WebContent/WEB-INF/lib"/>
+	<mkdir dir="${dirDevelop}/WebContent/WEB-INF/lib"/>
+   </target>
+
+
+  <target name="compile" depends="clean" description="compile project source code">
+   
 		<javac destdir="${build.path}" 
 			encoding="ISO-8859-1" 
 			source="1.8" 
@@ -50,28 +59,32 @@
  
 
 	<target name="jar" depends="compile">
-		<jar destfile="${build.path}/${jarFile}" basedir="${build.path}"/>
+		<jar destfile="${build.path}/${jarFile}" basedir="${build.path}">
+		   <fileset dir="${src.dir}">
+           <include name="*.properties"/>
+		   </fileset>
+	    </jar>
 	</target>
 	
-  <target name="deploy" depends="jar">
+    <target name="updateWebContent" depends="jar">
     
-  	<copy todir="${dirDeploy}/html" overwrite="true">
+  	<!--copy todir="${dirDevelop}/WebContent/WEB-INF/html" overwrite="true">
       <fileset dir="${dirDevelop}/html" includes="*"/>
     </copy>
     
-  	<copy todir="${dirDeploy}/css" overwrite="true">
+  	<copy todir="${dirDevelop}/WebContent/WEB-INF/css" overwrite="true">
       <fileset dir="${dirDevelop}/css" includes="*"/>
     </copy>
   	
-  	<copy todir="${dirDeploy}/images" overwrite="true">
+  	<copy todir="${dirDevelop}/WebContent/WEB-INF/images" overwrite="true">
       <fileset dir="${dirDevelop}/images" includes="*"/>
     </copy>
-    
-  	<copy todir="${dirDeploy}/WEB-INF" overwrite="true">
-        <fileset dir="${dirDevelop}/WEB-INF" includes="*"/>
-    </copy>
-  	
-  	<copy todir="${dirDeploy}/WEB-INF/lib" overwrite="true">
+	
+	 <copy todir="${dirDevelop}/WebContent/WEB-INF/js" overwrite="true">
+      <fileset dir="${dirDevelop}/js" includes="*"/>
+	 </copy-->
+ 	
+  	<copy todir="${dirDevelop}/WebContent/WEB-INF/lib" overwrite="true">
 		<fileset file="${build.path}/${jarFile}"/>
 		<fileset dir="${mavenRepo}/log4j/log4j/1.2.12/" includes="*.jar"/>
 		<fileset dir="${mavenRepo}/javax/servlet/servlet-api/2.4/" includes="*.jar"/>
@@ -79,6 +92,14 @@
 		<fileset dir="${mavenRepo}/mysql/mysql-connector-java/8.0.19/" includes="*.jar"/>
     </copy>
   	
-  </target>
+    </target>
+  
+    <target name="war" depends="updateWebContent">
+        <war destfile="chess.war" webxml="WebContent/WEB-INF/web.xml">
+            <fileset dir="WebContent"/>
+            <!--lib dir="WebContent/WEB-INF/lib"/>
+            <classes dir="${build.path}"/-->
+        </war>
+    </target>
 
 </project>

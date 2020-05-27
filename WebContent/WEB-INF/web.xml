@@ -1,12 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name>Chess</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+
+<web-app version="2.5"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+<!-- Nombre de nuestra aplicacion Web -->
+<display-name>Vulnerable Chess Game</display-name>
+<!-- Tiempo en minutos de duracion de una sesion -->
+<session-config>
+<session-timeout>30</session-timeout>
+</session-config>
+<!-- Lista de archivos de bienvenida -->
+<welcome-file-list>
+<welcome-file>html/login.jsp</welcome-file>
+</welcome-file-list>
+
+<servlet>
+<servlet-name>HolaMundo</servlet-name>
+<servlet-class>core.sebas.servlets.HolaMundo</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>HolaMundo</servlet-name>
+<url-pattern>/HolaMundo</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>MatchServlet</servlet-name>
+<servlet-class>core.sebas.servlets.MatchServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>MatchServlet</servlet-name>
+<url-pattern>/Play</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>Authentication</servlet-name>
+<servlet-class>core.sebas.servlets.Authentication</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Authentication</servlet-name>
+<url-pattern>/Login</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>Timer</servlet-name>
+<servlet-class>core.sebas.servlets.Timer</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Timer</servlet-name>
+<url-pattern>/Timer</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>Game</servlet-name>
+<servlet-class>core.sebas.servlets.Game</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Game</servlet-name>
+<url-pattern>/Game</url-pattern>
+</servlet-mapping>
+
 </web-app>
