@@ -68,22 +68,6 @@
 	
     <target name="updateWebContent" depends="jar">
     
-  	<!--copy todir="${dirDevelop}/WebContent/WEB-INF/html" overwrite="true">
-      <fileset dir="${dirDevelop}/html" includes="*"/>
-    </copy>
-    
-  	<copy todir="${dirDevelop}/WebContent/WEB-INF/css" overwrite="true">
-      <fileset dir="${dirDevelop}/css" includes="*"/>
-    </copy>
-  	
-  	<copy todir="${dirDevelop}/WebContent/WEB-INF/images" overwrite="true">
-      <fileset dir="${dirDevelop}/images" includes="*"/>
-    </copy>
-	
-	 <copy todir="${dirDevelop}/WebContent/WEB-INF/js" overwrite="true">
-      <fileset dir="${dirDevelop}/js" includes="*"/>
-	 </copy-->
- 	
   	<copy todir="${dirDevelop}/WebContent/WEB-INF/lib" overwrite="true">
 		<fileset file="${build.path}/${jarFile}"/>
 		<fileset dir="${mavenRepo}/log4j/log4j/1.2.12/" includes="*.jar"/>
@@ -97,8 +81,6 @@
     <target name="war" depends="updateWebContent">
         <war destfile="chess.war" webxml="WebContent/WEB-INF/web.xml">
             <fileset dir="WebContent"/>
-            <!--lib dir="WebContent/WEB-INF/lib"/>
-            <classes dir="${build.path}"/-->
         </war>
     </target>
 
