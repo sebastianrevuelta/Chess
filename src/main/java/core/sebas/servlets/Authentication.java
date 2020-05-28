@@ -96,7 +96,7 @@ public class Authentication extends HttpServlet {
 		RequestDispatcher requestDispatcher = null;
 
 		if (success) {
-			requestDispatcher = request.getRequestDispatcher("/html/index.jsp");
+			requestDispatcher = request.getRequestDispatcher("/html/timer.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
 			session.setAttribute("error", "Username or Password incorrect");
@@ -104,4 +104,5 @@ public class Authentication extends HttpServlet {
 			requestDispatcher.forward(request, response);
 		}
 	}
+	
 }
