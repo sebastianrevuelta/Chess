@@ -27,8 +27,8 @@ jobs:
           # Name of Kiuwan project
           project: Chess
           # Label for the analysis
-          label: 6.1
+          label: '6.1'
           # Username for kiuwan platform
-          userid: sebastian.revuelta@kiuwan.com
+          userid: ${{ secrets.KIUWAN_USER }}
           # Password for kiuwan platform
-          password: platas$79
+          password: ${{ secrets.KIUWAN_PASSWORD }}
