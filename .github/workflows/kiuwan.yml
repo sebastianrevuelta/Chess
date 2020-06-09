@@ -30,6 +30,6 @@ jobs:
           # Label for the analysis
           label: '6.2'
           # Username for kiuwan platform
-          userid: ${{ secrets.KIUWAN_USER }}
+          userid: ${{ secrets.KIUWAN_AZURE_USER }}
           # Password for kiuwan platform
-          password: ${{ secrets.KIUWAN_PASSWORD }}
+          password: ${{ secrets.KIUWAN_AZURE_PASSWORD }}
