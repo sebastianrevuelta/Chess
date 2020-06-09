@@ -66,15 +66,15 @@ public class Authentication extends HttpServlet {
 			stmt = conn.createStatement();
 			
 			//SQL injection. No validation of malicious input
-			ResultSet rs = stmt.executeQuery(query);  
+			//ResultSet rs = stmt.executeQuery(query);  
 
 			//Fix SQLi with Prepared Statement
 			
-/*		    PreparedStatement sqlStatement = conn.prepareStatement("select * from user where username=? and password=?");
+		    PreparedStatement sqlStatement = conn.prepareStatement("select * from user where username=? and password=?");
 		    sqlStatement.setString(1, username);
 		    sqlStatement.setString(2, password);
-		    ResultSet rsFix = sqlStatement.executeQuery();
-			*/
+		    ResultSet rs = sqlStatement.executeQuery();
+			
 			List<String> list = new ArrayList<String>();							
 			while (rs.next()) {
 				// Login Successful if match is found
