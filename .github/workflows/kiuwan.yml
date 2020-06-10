@@ -28,7 +28,7 @@ jobs:
           # Name of Kiuwan project
           project: Chess
           # Label for the analysis
-          label: '6.2'
+          label: '6.3'
           # Username for kiuwan platform
           userid: ${{ secrets.KIUWAN_USER }}
           # Password for kiuwan platform
