@@ -33,4 +33,5 @@ jobs:
           userid: ${{ secrets.KIUWAN_AZURE_USER }}
           # Password for kiuwan platform
           password: ${{ secrets.KIUWAN_AZURE_PASSWORD }}
-          advancedparams: '--domain-id 6845caef1bccaec3361efc9d5d40aa52b76d677d2ffd45327fa5e5d7aba601'
+          # Domain ID for SSO accounts  
+          advancedparams: '--domain-id ${{ secrets.KIUWAN_AZURE_DOMAIN_ID }}'
