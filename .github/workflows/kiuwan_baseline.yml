@@ -22,7 +22,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     - name: Kiuwan Baseline Analysis
-      uses: lsacera/KiuwanBaselineAction@v0.7
+      uses: lsacera/KiuwanBaselineAction@v1.0
       with:
           #kiuwanbaseurl: https://www.kiuwan.com/saas/web/login.html?domain=6845caef1bccaec3361efc9d5d40aa52b76d677d2ffd45327fa5e5d7aba601&sso=off
           # Name of Kiuwan project
