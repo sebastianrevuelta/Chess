@@ -66,4 +66,14 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 <url-pattern>/Game</url-pattern>
 </servlet-mapping>
 
+<servlet>
+<servlet-name>Serialization</servlet-name>
+<servlet-class>core.sebas.servlets.Serialization</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>Serialization</servlet-name>
+<url-pattern>/Serialization</url-pattern>
+</servlet-mapping>
+
 </web-app>
