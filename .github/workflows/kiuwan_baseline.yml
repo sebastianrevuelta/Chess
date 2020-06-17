@@ -30,8 +30,8 @@ jobs:
           # Label for the analysis
           label: '6.3'
           # Username for kiuwan platform
-          userid: ${{ secrets.KIUWAN_USER }}
+          userid: ${{ secrets.USER_EDU }}
           # Password for kiuwan platform
-          password: ${{ secrets.KIUWAN_PASSWORD }}
+          password: ${{ secrets.PASSWORD_EDU }}
           # Domain ID for SSO accounts  
           #advancedparams: '--domain-id ${{ secrets.KIUWAN_AZURE_DOMAIN }}'
