@@ -37,6 +37,26 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 </servlet-mapping>
 
 <servlet>
+<servlet-name>LoadGame</servlet-name>
+<servlet-class>core.sebas.servlets.LoadGame</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>LoadGame</servlet-name>
+<url-pattern>/Load</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>SaveGame</servlet-name>
+<servlet-class>core.sebas.servlets.SaveGame</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>SaveGame</servlet-name>
+<url-pattern>/Save</url-pattern>
+</servlet-mapping>
+
+<servlet>
 <servlet-name>Authentication</servlet-name>
 <servlet-class>core.sebas.servlets.Authentication</servlet-class>
 </servlet>

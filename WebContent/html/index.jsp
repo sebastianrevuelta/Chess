@@ -148,7 +148,13 @@
 		<a href="./Play">Play</a>
 	</div>
 	<div id="new">
-		<a href="./Play">New</a>
+		<a href="./New">New</a>
+	</div>
+	<div id="load">
+		<a href="./Load">Load</a>
+	</div>
+	<div id="save">
+		<a href="./Save">Save</a>
 	</div>
 	<table id="table">
 		<tr>

@@ -1,6 +1,6 @@
 @CHARSET "ISO-8859-1";
 
-			#match {
+		 #match {
                 margin: 20px;
                 border: 5px solid #F0F0F0;
                 padding: 10px;
@@ -12,8 +12,9 @@
                 
                 top: 100px;
                 left: 570px;
-						}
-						#table {
+		  }
+		  
+		  #table {
                 margin: 50px;
                 border: 5px solid #F0F0F0;
                 padding: 10px;
@@ -25,8 +26,9 @@
                 
                 top: 70px;
                 left: 850px;
-						}
-						#play {
+		 }
+						
+		  #play {
                 margin: 20px;
                 border: 5px solid #F0F0F0;
                 padding: 10px;
@@ -38,9 +40,9 @@
                 
                 top: 460px;
                 left: 570px;
-						}
+		  }
 						
-						#new {
+		  #new {
                 margin: 20px;
                 border: 5px solid #F0F0F0;
                 padding: 10px;
@@ -52,12 +54,41 @@
                 
                 top: 460px;
                 left: 620px;
-						}
+			}
+			
+			#load {
+                margin: 20px;
+                border: 5px solid #F0F0F0;
+                padding: 10px;
+                background-color:white;
+                position: fixed;
+                
+                width: 150px;
+                height: 20px;
+                
+                top: 460px;
+                left: 670px;
+			}
+			
+			#save {
+                margin: 20px;
+                border: 5px solid #F0F0F0;
+                padding: 10px;
+                background-color:white;
+                position: fixed;
+                
+                width: 150px;
+                height: 20px;
+                
+                top: 460px;
+                left: 720px;
+			}
+            
             #a8 {
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
                 
                 width: 30px;
@@ -85,7 +116,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -111,7 +142,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -137,7 +168,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -176,7 +207,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -202,7 +233,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -228,7 +259,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -254,7 +285,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -267,7 +298,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -293,7 +324,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -319,7 +350,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -345,7 +376,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -384,7 +415,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -410,7 +441,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -436,7 +467,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -462,7 +493,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -475,7 +506,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -501,7 +532,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -527,7 +558,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -553,7 +584,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -592,7 +623,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -618,7 +649,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -644,7 +675,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -670,7 +701,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -683,7 +714,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -709,7 +740,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -735,7 +766,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -761,7 +792,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -800,7 +831,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -826,7 +857,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -852,7 +883,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
@@ -878,7 +909,7 @@
                 margin: 20px;
                 border: 1px solid #F0F0F0;
                 padding: 10px;
-                background-color:#FFFFFF;
+                background-color:#66a73f;
                 position: fixed;
 
                 width: 30px;
