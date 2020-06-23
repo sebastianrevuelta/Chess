@@ -18,9 +18,9 @@ import com.sebas.core.Square;
  * @author srevuelta
  *
  */
-public class MatchServlet extends HttpServlet {
+public class SaveGame extends HttpServlet {
 	
-	private final static Logger log = Logger.getLogger(MatchServlet.class);
+	private final static Logger log = Logger.getLogger(SaveGame.class);
 	private Match match;
 	public Match getMatch() { return match; }
 	public void setMatch(Match match) { this.match = match; }
@@ -35,15 +35,14 @@ public class MatchServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
-		if (match == null) { match = new Match("white"); }
-		String move = match.getMove();
+		Match match = new Match("white"); 
 		Board board = match.getBoard();
 		Square[][] squares = board.getSquares();
 
 		try {
 			out.println("<head>");
 			out.println("<meta http-equiv='content-type' content='text/html; charset=utf-8' />");
-			out.println("<title>Vuln Chess</title>");
+			out.println("<title>Vulnerable Chess Game</title>");
 			out.println("<script src='./js/ajax.js' language='JavaScript'></script>");
 			out.println("<link rel='stylesheet' type='text/css' href='./css/squares.css' media='screen' />");
 			out.println("</head>");
@@ -66,17 +65,14 @@ public class MatchServlet extends HttpServlet {
 					}
 				}
 			}			
-		    out.println("<div id='match'>" + move + "</div>");
+		    out.println("<div id='match'>" + "</div>");
 		    out.println("<div id='play'> <a href='./Play'>Play</a></div>");
 		    out.println("<div id='new'> <a href='./New'>New</a></div>");
 		    out.println("<div id='save'> <a href='./Save'>Save</a></div>");
 		    out.println("<div id='load'> <a href='./Load'>Load</a></div>");
 		    out.println("</body>");
 		    out.println("</html>");
-		    
-		    if (move.endsWith("++")) { //checkmate
-		      System.exit(0);
-		    }//TODO
+
 		}
 		catch(Exception e) {
 			log.error("Error in the servlet" + this.getClass().getName());
