@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="chess" default="deploy" basedir=".">
+<project name="chess" default="war" basedir=".">
   <description>
     Buildfile for chess core library
   </description>
   
 	<property name="dirDevelop" value="."/>
-	<property name="mavenRepo" value="C:/Users/eboronat/.m2/repository"/>
-	<property name="dirDeploy" value="C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/chess/"/>
-	<!-- <property name="mavenRepo" value="C:/Users/srevuelta/.m2/repository"/>
-	<property name="dirDeploy" value="C:/projects/apache-tomcat-6.0.35/webapps/chess/"/> -->
+	<property name="mavenRepo" value="C:/Users/srevuelta/.m2/repository"/>
+	<!--property name="dirDeploy" value="C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/chess/"/-->
+	<!-- <property name="mavenRepo" value="C:/Users/srevuelta/.m2/repository"/>-->
+	<property name="dirDeploy" value="C:/projects/apache-tomcat-6.0.35/webapps/chess/"/> 
 
 	<property name="src.dir" value="./src/main/java"/>
 	<property name="lib.dir" value="./lib"/>
 	<property name="build.path" value="./build/classes"/>
 	<property name="jarFile" value="Chess-1.1.jar"/>
 	
-	
-	
+
 	<path id="classpath.lib">
 		<fileset dir="${mavenRepo}/log4j/log4j/1.2.12/">
 		  <include name="*.jar"/>                          

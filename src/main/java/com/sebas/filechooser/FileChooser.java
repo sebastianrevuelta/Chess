@@ -1,110 +1,96 @@
 package com.sebas.filechooser;
- 
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.ImageFilter;
-
 import javax.swing.*;
-import javax.swing.SwingUtilities;
-import javax.swing.filechooser.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
  
-/*
- * FileChooserDemo2.java requires these files:
- *   ImageFileView.java
- *   ImageFilter.java
- *   ImagePreview.java
- *   Utils.java
- *   images/jpgIcon.gif (required by ImageFileView.java)
- *   images/gifIcon.gif (required by ImageFileView.java)
- *   images/tiffIcon.gif (required by ImageFileView.java)
- *   images/pngIcon.png (required by ImageFileView.java)
- */
-public class FileChooser extends JPanel
-                              implements ActionListener {
-    static private String newline = "\n";
-    private JTextArea log;
+public class FileChooser extends JFrame {
+ 
+    private JPanel contentPane;
+    private JTextField textField;
+    private JTextArea textArea;
     private JFileChooser fc;
- 
-    public FileChooser() {
-        super(new BorderLayout());
- 
-        //Create the log first, because the action listener
-        //needs to refer to it.
-        log = new JTextArea(5,20);
-        log.setMargin(new Insets(5,5,5,5));
-        log.setEditable(false);
-        JScrollPane logScrollPane = new JScrollPane(log);
- 
-        JButton sendButton = new JButton("Attach...");
-        sendButton.addActionListener(this);
- 
-        add(sendButton, BorderLayout.PAGE_START);
-        add(logScrollPane, BorderLayout.CENTER);
-    }
- 
-    public void actionPerformed(ActionEvent e) {
-        //Set up the file chooser.
-        if (fc == null) {
-            fc = new JFileChooser();
- 
-        //Add a custom file filter and disable the default
-        //(Accept All) file filter.
-            //fc.addChoosableFileFilter(new ImageFilter());
-            fc.setAcceptAllFileFilterUsed(false);
- 
-        //Add custom icons for file types.
-         //fc.setFileView(new ImageFileView());
- 
-        //Add the preview pane.
-           //fc.setAccessory(new ImagePreview(fc));
-        }
- 
-        //Show it.
-        int returnVal = fc.showDialog(FileChooser.this,
-                                      "Attach");
- 
-        //Process the results.
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fc.getSelectedFile();
-            log.append("Attaching file: " + file.getName()
-                       + "." + newline);
-        } else {
-            log.append("Attachment cancelled by user." + newline);
-        }
-        log.setCaretPosition(log.getDocument().getLength());
- 
-        //Reset the file chooser for the next time it's shown.
-        fc.setSelectedFile(null);
+   
+    public JFileChooser getFc() {
+		return fc;
+	}
+
+	/**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                	FileChooser frame = new FileChooser();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
  
     /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event dispatch thread.
+     * Create the frame.
      */
-    public static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("Choose a xml game file");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public FileChooser() {
  
-        //Add content to the window.
-        frame.add(new FileChooser());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
+        contentPane = new JPanel();
+        contentPane.setLayout(null);
+        setContentPane(contentPane);
  
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
+        textField = new JTextField();
+        textField.setToolTipText("Insert XML file");
+        textField.setBounds(52, 26, 209, 20);
+        contentPane.add(textField);
+        textField.setColumns(10);
  
-    public static void main(String[] args) {
-        //Schedule a job for the event dispatch thread:
-        //creating and showing this application's GUI.
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                //Turn off metal's use of bold fonts
-                UIManager.put("swing.boldMetal", Boolean.FALSE);
-                createAndShowGUI();
+        JButton btnSeleccionar = new JButton("Choose XML file...");
+        btnSeleccionar.setBounds(288, 25, 109, 23);
+        contentPane.add(btnSeleccionar);
+ 
+        textArea = new JTextArea();
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        textArea.setBounds(52, 76, 360, 156);
+ 
+        JScrollPane scroll=new JScrollPane(textArea);
+        scroll.setBounds(52, 76, 360, 156);
+        contentPane.add(scroll);
+ 
+        btnSeleccionar.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+
+            	fc = new JFileChooser();
+            	FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.XML", "xml");
+            	fc.setFileFilter(filtro);
+            	int seleccion=fc.showOpenDialog(contentPane);
+            	 
+            	if(seleccion==JFileChooser.APPROVE_OPTION){
+            	 
+            	    File fichero=fc.getSelectedFile();
+
+            	    textField.setText(fichero.getAbsolutePath());
+            	 
+            	    try(FileReader fr=new FileReader(fichero)){
+            	        String cadena="";
+            	        int valor=fr.read();
+            	        while(valor!=-1){
+            	            cadena=cadena+(char)valor;
+            	            valor=fr.read();
+            	        }
+            	        textArea.setText(cadena);
+            	    } catch (IOException e1) {
+            	        e1.printStackTrace();
+            	    }
+            	}
             }
         });
+ 
     }
 }

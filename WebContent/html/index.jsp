@@ -141,7 +141,11 @@
 	</div>
 	<div id="match">
 		<%
-			out.println("Partida");
+			out.println("Match:");
+		    String history = (String) request.getSession().getAttribute("history");
+		    if (history != null) {
+		      out.println(history);
+		    }
 		%>
 	</div>
 	<div id="play">

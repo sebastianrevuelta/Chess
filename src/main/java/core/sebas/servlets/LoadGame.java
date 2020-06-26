@@ -1,18 +1,22 @@
 package core.sebas.servlets;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.Logger;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
-import com.sebas.core.Board;
 import com.sebas.core.Match;
-import com.sebas.core.Square;
-import com.sebas.filechooser.FileChooser;
 
 /**
  * Servlet class
@@ -28,56 +32,39 @@ public class LoadGame extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
 		
-		FileChooser fc = new FileChooser();
-		fc.createAndShowGUI();
+		boolean success = true;
+		HttpSession session = request.getSession();
+
+		String xmlfile = request.getParameter("xmlfile");
 		
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-
-		Match match = new Match("white"); 
-		Board board = match.getBoard();
-		Square[][] squares = board.getSquares();
-
+        File xmlFile = new File(xmlfile);
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        /* VIOLATION, vulnerable to XML entity injection and "billion laughs attack" */
+        Document doc = null;
 		try {
-			out.println("<head>");
-			out.println("<meta http-equiv='content-type' content='text/html; charset=utf-8' />");
-			out.println("<title>Vulnerable Chess Game</title>");
-			out.println("<script src='./js/ajax.js' language='JavaScript'></script>");
-			out.println("<link rel='stylesheet' type='text/css' href='./css/squares.css' media='screen' />");
-			out.println("</head>");
-			out.println("<body>");
-			out.println("<h4>Vulnerable Chess Game</h4>");
-
-			for (int i = 0; i < 8; i++) {
-				for (int j = 0; j < 8; j++) {
-					Square square = squares[i][j];
-					String casilla = square.getHorizontal()+square.getVertical();
-					
-					if (!square.isEmpty()) {
-						
-					 String pieza = square.getPieza().getType();
-					 char color = square.getPieza().getColor().charAt(0);
-					 out.println("<div id='" + casilla  + "'><img src='./images/" + pieza + color + ".png'/></div>");
-					}
-					else {
-						out.println("<div id='" + casilla + "'></div>");
-					}
-				}
-			}			
-		    out.println("<div id='match'>" + "</div>");
-		    out.println("<div id='play'> <a href='./Play'>Play</a></div>");
-		    out.println("<div id='new'> <a href='./New'>New</a></div>");
-		    out.println("<div id='save'> <a href='./Save'>Save</a></div>");
-		    out.println("<div id='load'> <a href='./Load'>Load</a></div>");
-		    out.println("</body>");
-		    out.println("</html>");
-
+			doc = dbf.newDocumentBuilder().parse( xmlFile );
+		} catch (SAXException | ParserConfigurationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-		catch(Exception e) {
-			log.error("Error in the servlet" + this.getClass().getName());
+        String history = doc.getNodeValue();
+        session.setAttribute("history", history);
+        
+        
+        if (history == null) {
+        	success = false;
+        }
+        
+        RequestDispatcher requestDispatcher = null;
+        if (success) {
+			requestDispatcher = request.getRequestDispatcher("/html/index.jsp");
+			requestDispatcher.forward(request, response);
+		} else {
+			session.setAttribute("error", "Error with file: " + xmlfile);
+			requestDispatcher = request.getRequestDispatcher("/html/index.jsp");
+			requestDispatcher.forward(request, response);
 		}
-		finally {out.close();}
 	}
 }
