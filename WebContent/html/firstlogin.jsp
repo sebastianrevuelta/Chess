@@ -8,7 +8,7 @@ body {
 	margin-left:auto;
 	margin-right:auto;
 	width:40%;
-	background-image: url('./images/background.jpg');
+	background-image: url('./images/firstlogin.jpg');
 	background-repeat: no-repeat;
   	background-attachment: fixed;
   	background-size: cover;
@@ -78,11 +78,9 @@ span.psw {
 </head>
 <body>
 
-<h2>Vulnerable Chess Game</h2>
-<h5>You can try SQL Injection in this page ;-)</h5>
-<h6>According to OWASP TOP TEN: it is risk #1, more info <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection">here</a></h6>
-
-<form action="./Login" method="post">
+<h1>Vulnerable Chess Game</h1>
+<h5>Developed by Eduardo Boronat and Sebastian Revuelta</h5>
+<form action="./FirstLogin" method="post">
   <div class="imgcontainer">
     <img src="./images/profileimg.jpg" alt="Avatar" class="avatar">
   </div>

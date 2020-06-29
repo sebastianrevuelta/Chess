@@ -43,12 +43,15 @@ hr {
 }
 </style>
 <body>
-
+  <h2>Vulnerable Chess Game</h2>
+  <h5>You can try Cross Site Scripting (XSS) in this page ;-)</h5>
+  <h6>According to OWASP TOP TEN: it is risk #7, more info <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A7-Cross-Site_Scripting_(XSS)">here</a></h6>
+  
 <div class="bgimg">
   <div class="topleft">
   </div>
   <div class="middle">
-    <h1>STARTING GAME IN <span id="myText"></span></h1>
+    <h3>Set the time for the match<span id="myText"></span></h3>
     <form action="Timer" method="GET">
 		<input id="timer" name="timer" value="10"> 
 		<input id="button" type="submit" value="Seconds">

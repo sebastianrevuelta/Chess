@@ -48,7 +48,7 @@ public class MatchServlet extends HttpServlet {
 			out.println("<link rel='stylesheet' type='text/css' href='./css/squares.css' media='screen' />");
 			out.println("</head>");
 			out.println("<body>");
-			out.println("<h4>Vulnerable Chess Game</h4>");
+			out.println("<h2>Vulnerable Chess Game</h2>");
 
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
@@ -68,9 +68,9 @@ public class MatchServlet extends HttpServlet {
 			}			
 		    out.println("<div id='match'>" + move + "</div>");
 		    out.println("<div id='play'> <a href='./Play'>Play</a></div>");
-		    out.println("<div id='new'> <a href='./New'>New</a></div>");
+		    out.println("<div id='new'> <a href='./Game'>New</a></div>");
 		    out.println("<div id='save'> <a href='./Save'>Save</a></div>");
-		    out.println("<div id='load'> <a href='./Load'>Load</a></div>");
+		    out.println("<div id='loadgame'> <a href='./Load'>Load</a></div>");
 		    out.println("</body>");
 		    out.println("</html>");
 		    

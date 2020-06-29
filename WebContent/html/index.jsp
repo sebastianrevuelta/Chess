@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/squares.css" media="screen" />
 </head>
 <body>
-	<h4>Vulnerable Chess Game</h4>
+	<h2>Vulnerable Chess Game</h2>
 
 	<div id="a8">
 		<img src="./images/towerb.png" />
@@ -152,9 +152,9 @@
 		<a href="./Play">Play</a>
 	</div>
 	<div id="new">
-		<a href="./New">New</a>
+		<a href="./Game">New</a>
 	</div>
-	<div id="load">
+	<div id="loadgame">
 		<a href="./Load">Load</a>
 	</div>
 	<div id="save">
@@ -163,7 +163,7 @@
 	<table id="table">
 		<tr>
 			<th>Username</th>
-			<th>Password</th>
+			<!-- th>Password</th-->
 		</tr>
 		<%
 			List<String> user = (List<String>) request.getSession().getAttribute("user");
@@ -171,7 +171,7 @@
 		%>
 		<tr>
 			<td><%=user.get(i)%></td>
-			<td><%=user.get(i + 1)%></td>
+			<!-- td><%=user.get(i + 1)%></td-->
 		</tr>
 		<%
 			}

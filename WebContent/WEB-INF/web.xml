@@ -13,7 +13,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 </session-config>
 <!-- Lista de archivos de bienvenida -->
 <welcome-file-list>
-<welcome-file>html/login.jsp</welcome-file>
+<welcome-file>html/firstlogin.jsp</welcome-file>
 </welcome-file-list>
 
 <servlet>
@@ -65,6 +65,16 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 <servlet-mapping>
 <servlet-name>SaveGame</servlet-name>
 <url-pattern>/Save</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>FirstAuthentication</servlet-name>
+<servlet-class>core.sebas.servlets.FirstAuthentication</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>FirstAuthentication</servlet-name>
+<url-pattern>/FirstLogin</url-pattern>
 </servlet-mapping>
 
 <servlet>
