@@ -3,7 +3,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        withAnt(installation: 'ant', jdk: 'java8')
+        withAnt(installation: 'ant', jdk: 'java8') {
+          bat(script: 'createWar.cmd', returnStatus: true, returnStdout: true)
+          withAnt()
+        }
+
       }
     }
 
