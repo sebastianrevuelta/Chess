@@ -3,17 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        withAnt(installation: 'ant', jdk: 'java8') {
-          bat(script: 'createWar.cmd', returnStatus: true, returnStdout: true)
-          withAnt()
-        }
-
+        bat(script: 'createWar.cmd', returnStatus: true, returnStdout: true)
       }
     }
 
     stage('Tests') {
       steps {
-        sh 'sh agent.sh -s {$WORKSPACE} -n Chess'
+        bat(script: 'kiuwan.cmd', returnStatus: true, returnStdout: true)
       }
     }
 
