@@ -3,10 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        withAnt(installation: 'ant', jdk: 'java8') {
-          sh 'ant war'
-        }
-
+        withAnt(installation: 'ant', jdk: 'java8')
       }
     }
 
