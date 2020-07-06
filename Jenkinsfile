@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('Tests') {
+      steps {
+        sh 'sh agent.sh -s {$WORKSPACE} -n Chess'
+      }
+    }
+
   }
 }
