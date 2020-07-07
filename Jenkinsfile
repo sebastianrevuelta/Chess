@@ -17,7 +17,7 @@ pipeline {
 
         stage('Test_KLA_Docker_No_Engine') {
           steps {
-            bat(script: 'kla_docker_no_engine.cmd', returnStatus: true, returnStdout: true)
+            bat(script: 'kla_vJul2020_NoEngine.cmd', returnStatus: true, returnStdout: true)
           }
         }
 
