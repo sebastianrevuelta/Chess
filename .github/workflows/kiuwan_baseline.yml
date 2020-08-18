@@ -28,10 +28,10 @@ jobs:
           # Name of Kiuwan project
           project: Chess
           # Label for the analysis
-          label: '6.3'
+          label: '13.0'
           # Username for kiuwan platform
-          userid: ${{ secrets.USER_EDU }}
+          userid: ${{ secrets.KIUWAN_USER }}
           # Password for kiuwan platform
-          password: ${{ secrets.PASSWORD_EDU }}
+          password: ${{ secrets.KIUWAN_PASSWORD }}
           # Domain ID for SSO accounts  
           #advancedparams: '--domain-id ${{ secrets.KIUWAN_AZURE_DOMAIN }}'
