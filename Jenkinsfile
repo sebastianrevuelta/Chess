@@ -6,8 +6,6 @@ pipeline {
         bat(script: 'createWar.cmd', returnStatus: true, returnStdout: true)
       }
     }
-
-    stage('Security Testing') {
         stage('sast') {
           steps {
             bat(script: 'agent.cmd -s \"${WORKSPACE}\" -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=insights', returnStatus: true, returnStdout: true)
@@ -25,7 +23,7 @@ pipeline {
             }
            }
            steps {
-             sh 'hadolint \"${WORKSPACE}\" | tee -a hadolint_lint.txt'
+             sh 'hadolint Dockerfile | tee -a hadolint_lint.txt'
            }
            post {
              always {
@@ -33,6 +31,5 @@ pipeline {
              }
            }
         }
-    }
   }
 }
