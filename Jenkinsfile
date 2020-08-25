@@ -7,14 +7,20 @@ pipeline {
       }
     }
 
+    stage('sast-sca') {
+       steps {
+         bat(script: 'agent.cmd -s . -n Chess -l \"from jenkins pipeline\" -as completeDelivery', returnStatus: true, returnStdout: true)
+       }
+    }
+
     stage ("containers") {
           agent {
             docker {
-              image 'hadolint/hadolint:latest-alpine'
+              image 'hadolint/hadolint:latest-debian'
             }
            }
            steps {
-             sh 'hadolint Dockerfile | tee -a hadolint_lint.txt'
+             sh 'hadolint Dockerfile
           }
     }
   }
