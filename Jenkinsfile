@@ -8,12 +8,12 @@ pipeline {
     }
         stage('sast') {
           steps {
-            bat(script: 'agent.cmd -s \"${WORKSPACE}\" -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=insights', returnStatus: true, returnStdout: true)
+            bat(script: 'agent.cmd -s . -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=insights', returnStatus: true, returnStdout: true)
           }
         }
         stage('sca') {
           steps {
-            bat(script: 'agent.cmd -s \"${WORKSPACE}\" -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=rules,metrics,clones', returnStatus: true, returnStdout: true)
+            bat(script: 'agent.cmd -s . -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=rules,metrics,clones', returnStatus: true, returnStdout: true)
           }
         }
   }
