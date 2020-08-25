@@ -8,7 +8,6 @@ pipeline {
     }
 
     stage('Security Testing') {
-      parallel {
         stage('sast') {
           steps {
             bat(script: 'agent.cmd -s \"${WORKSPACE}\" -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=insights', returnStatus: true, returnStdout: true)
@@ -26,7 +25,7 @@ pipeline {
             }
            }
            steps {
-             sh 'hadolint dockerfiles/* | tee -a hadolint_lint.txt'
+             sh 'hadolint \"${WORKSPACE}\" | tee -a hadolint_lint.txt'
            }
            post {
              always {
@@ -34,7 +33,6 @@ pipeline {
              }
            }
         }
-      }
     }
   }
 }
