@@ -16,20 +16,5 @@ pipeline {
             bat(script: 'agent.cmd -s \"${WORKSPACE}\" -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=rules,metrics,clones', returnStatus: true, returnStdout: true)
           }
         }
-        stage ("containers") {
-          agent {
-            docker {
-              image 'hadolint/hadolint:latest-debian'
-            }
-           }
-           steps {
-             sh 'hadolint Dockerfile | tee -a hadolint_lint.txt'
-           }
-           post {
-             always {
-               archiveArtifacts 'hadolint_lint.txt'
-             }
-           }
-        }
   }
 }
