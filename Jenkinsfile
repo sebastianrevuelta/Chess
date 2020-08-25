@@ -6,15 +6,16 @@ pipeline {
         bat(script: 'createWar.cmd', returnStatus: true, returnStdout: true)
       }
     }
-    stage('sast-sca') {
-       steps {
-         bat(script: 'agent.cmd -s . -n Chess -l \"from jenkins pipeline\" -as completeDelivery', returnStatus: true, returnStdout: true)
-       }
-    }
-    stage('containers') {
-       steps {
-          bat(script: 'docker run --rm -i hadolint/hadolint < Dockerfile')
-       }
+
+    stage ("containers") {
+          agent {
+            docker {
+              image 'hadolint/hadolint:latest-alpine'
+            }
+           }
+           steps {
+             sh 'hadolint Dockerfile | tee -a hadolint_lint.txt'
+          }
     }
   }
 }
