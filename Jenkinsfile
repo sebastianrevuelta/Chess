@@ -20,7 +20,7 @@ pipeline {
             }
            }
            steps {
-             sh 'hadolint Dockerfile
+             sh 'hadolint Dockerfile'
           }
     }
   }
