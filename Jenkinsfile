@@ -7,22 +7,34 @@ pipeline {
       }
     }
 
-    stage('Tests') {
+    stage('Security Testing') {
       parallel {
-        stage('KLA_Local') {
+        stage('sast') {
           steps {
-            bat(script: 'kiuwan.cmd', returnStatus: true, returnStdout: true)
+            bat(script: 'agent.cmd -s \"${WORKSPACE}\" -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=insights', returnStatus: true, returnStdout: true)
           }
         }
-
-        stage('Test_KLA_Docker_No_Engine') {
+        stage('sca') {
           steps {
-            bat(script: 'kla_vJul2020_NoEngine.cmd', returnStatus: true, returnStdout: true)
+            bat(script: 'agent.cmd -s \"${WORKSPACE}\" -n Chess -l \"from jenkins pipeline\" -as completeDelivery ignore=rules,metrics,clones', returnStatus: true, returnStdout: true)
           }
         }
-
+        stage ("containers") {
+          agent {
+            docker {
+              image 'hadolint/hadolint:latest-debian'
+            }
+           }
+           steps {
+             sh 'hadolint dockerfiles/* | tee -a hadolint_lint.txt'
+           }
+           post {
+             always {
+               archiveArtifacts 'hadolint_lint.txt'
+             }
+           }
+        }
       }
     }
-
   }
 }
