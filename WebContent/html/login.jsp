@@ -80,7 +80,7 @@ span.psw {
 
 <h2>Vulnerable Chess Game</h2>
 <h5>You can try SQL Injection in this page ;-)</h5>
-<h6>According to OWASP TOP TEN: it is risk #1, more info <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection">here</a></h6>
+<h6>According to the OWASP TOP TEN: it is risk #1, more info <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection">here</a></h6>
 
 <form action="./Login" method="post">
   <div class="imgcontainer">
@@ -104,5 +104,14 @@ span.psw {
 		
 	<% request.getSession().removeAttribute("error");}%>
 </script>
-
+<p>
+<p>
+<p>
+<p>
+<h8>HINT 1. username: user' or '1'='1</h8>
+<h8>Password: whatever</h8>
+<p>
+<p>
+<h8>HINT 2: username: whatever</h8>
+<h8>Password: ' UNION select * from user where '1'='1</h8>
 </body>

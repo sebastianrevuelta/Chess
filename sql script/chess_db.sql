@@ -9,7 +9,10 @@ CREATE TABLE user (
     PRIMARY KEY (`username`)
 );
 
-INSERT INTO `user` (username,password) values ("sebastian.revuelta@kiuwan.com","thisismypassword");
-INSERT INTO `user` (username,password) values ("eduardo.boronat@kiuwan.com","thepasswordofedu");
-INSERT INTO `user` (username,password) values ("chess.king@kiuwan.com","passwordking");
-INSERT INTO `user` (username,password) values ("chess.queen@kiuwan.com","passwordqueen");
+INSERT INTO `user` (username,password) values ("admin","admin");
+INSERT INTO `user` (username,password) values ("fischer","fischer");
+INSERT INTO `user` (username,password) values ("capablanca","capablanca");
+INSERT INTO `user` (username,password) values ("kasparov","kasparov");
+INSERT INTO `user` (username,password) values ("carlsen","carlsen");
+INSERT INTO `user` (username,password) values ("revuelta","revuelta");
+
