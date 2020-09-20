@@ -100,46 +100,46 @@ var from = url.indexOf("timer=")+6;
 if (from != 5) { //-1+6
 	var time = decodeURI(url.substring(from));
 	var time2 = url.substring(from);
-	alert(time2);
+	//alert(time2);
 	//document.getElementById("demo").innerHTML = "Creating " + params['timer'] + " minutes match between " + params['player1'] + " and " + params['player2'];
-	document.getElementById("demo").innerHTML = '<h4>' + '<img src=x onerror="alert(\'XSS Attack\')">' + '</h4>';
-	document.getElementById("demo").innerHTML = '<h4>' + time2 + '</h4>';
+	//document.getElementById("demo").innerHTML = '<h4>' + '<img src=x onerror="alert(\'XSS Attack\')">' + '</h4>';
+	//document.getElementById("demo").innerHTML = '<h4>' + time2 + '</h4>';
 	
 
-// 	if(!isNaN(parseInt(time))){
+ 	if(!isNaN(parseInt(time))){
 		
-// 		// Set the date we're counting down to
-// 		var now = new Date(Date.now());
-// 		now.setSeconds(now.getSeconds() + parseInt(time));
-// 		var countDownDate = now.getTime();
+ 		// Set the date we're counting down to
+ 		var now = new Date(Date.now());
+ 		now.setSeconds(now.getSeconds() + parseInt(time));
+ 		var countDownDate = now.getTime();
 		
-// 		// Update the count down every 1 second
-// 		var countdownfunction = setInterval(function() {
+ 		// Update the count down every 1 second
+ 		var countdownfunction = setInterval(function() {
 		
-// 			// Get todays date and time
-// 			var now = new Date().getTime();
+ 			// Get todays date and time
+ 			var now = new Date().getTime();
 		
-// 			// Find the distance between now an the count down date
-// 			var distance = countDownDate - now;
+ 			// Find the distance between now an the count down date
+ 			var distance = countDownDate - now;
 		
-// 			// Time calculations for days, hours, minutes and seconds
-// 			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-// 			var hours = Math.floor((distance % (1000 * 60 * 60 * 24))/ (1000 * 60 * 60));
-// 			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-// 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+ 			// Time calculations for days, hours, minutes and seconds
+ 			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+ 			var hours = Math.floor((distance % (1000 * 60 * 60 * 24))/ (1000 * 60 * 60));
+ 			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+ 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 		
-// 			// Output the result in an element with id="demo"
-// 			document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-// 					+ minutes + "m " + seconds + "s ";
+ 			// Output the result in an element with id="demo"
+ 			document.getElementById("demo").innerHTML = "Starting match in ..." + days + "d " + hours + "h "
+ 					+ minutes + "m " + seconds + "s ";
 		
-// 			// If the count down is over, write some text 
-// 			if (distance < 0) {
-// 				clearInterval(countdownfunction);
-// 				document.getElementById("demo").innerHTML = "START!";
-// 				window.location.href = "./Game"
-// 			}
-// 		}, 1000);
-// 	}
+ 			// If the count down is over, write some text 
+ 			if (distance < 0) {
+ 				clearInterval(countdownfunction);
+ 				document.getElementById("demo").innerHTML = "START!";
+ 				window.location.href = "./Game"
+ 			}
+ 		}, 1000);
+ 	}
 } 
 </script>
 

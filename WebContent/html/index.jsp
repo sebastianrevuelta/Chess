@@ -154,11 +154,14 @@
 	<div id="new">
 		<a href="./Game">New</a>
 	</div>
-	<div id="loadgame">
+	<div id="load">
 		<a href="./Load">Load</a>
 	</div>
 	<div id="save">
 		<a href="./Save">Save</a>
+	</div>
+	<div id="message">
+		Click play button
 	</div>
 	<table id="table">
 		<tr>

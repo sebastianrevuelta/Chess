@@ -15,4 +15,4 @@ INSERT INTO `user` (username,password) values ("capablanca","capablanca");
 INSERT INTO `user` (username,password) values ("kasparov","kasparov");
 INSERT INTO `user` (username,password) values ("carlsen","carlsen");
 INSERT INTO `user` (username,password) values ("revuelta","revuelta");
-
+INSERT INTO secure_user (username, password) VALUES ('sebastianrevuelta@gmail.com', SHA1('Catamarca1039'));

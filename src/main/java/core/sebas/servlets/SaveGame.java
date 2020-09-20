@@ -1,17 +1,21 @@
 package core.sebas.servlets;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
-import com.sebas.core.Board;
 import com.sebas.core.Match;
-import com.sebas.core.Square;
 
 /**
  * Servlet class
@@ -30,53 +34,36 @@ public class SaveGame extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
 	@Override
-	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		HttpSession session = req.getSession();
+		resp.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		
+		Match match = (Match) session.getAttribute("match");
+		
+		String file = req.getParameter("file");
+		File f = new File(file);
+		f.createNewFile();
 
-		Match match = new Match("white"); 
-		Board board = match.getBoard();
-		Square[][] squares = board.getSquares();
-
-		try {
-			out.println("<head>");
-			out.println("<meta http-equiv='content-type' content='text/html; charset=utf-8' />");
-			out.println("<title>Vulnerable Chess Game</title>");
-			out.println("<script src='./js/ajax.js' language='JavaScript'></script>");
-			out.println("<link rel='stylesheet' type='text/css' href='./css/squares.css' media='screen' />");
-			out.println("</head>");
-			out.println("<body>");
-			out.println("<h4>Vulnerable Chess Game</h4>");
-
-			for (int i = 0; i < 8; i++) {
-				for (int j = 0; j < 8; j++) {
-					Square square = squares[i][j];
-					String casilla = square.getHorizontal()+square.getVertical();
-					
-					if (!square.isEmpty()) {
-						
-					 String pieza = square.getPieza().getType();
-					 char color = square.getPieza().getColor().charAt(0);
-					 out.println("<div id='" + casilla  + "'><img src='./images/" + pieza + color + ".png'/></div>");
-					}
-					else {
-						out.println("<div id='" + casilla + "'></div>");
-					}
-				}
-			}			
-		    out.println("<div id='match'>" + "</div>");
-		    out.println("<div id='play'> <a href='./Play'>Play</a></div>");
-		    out.println("<div id='new'> <a href='./New'>New</a></div>");
-		    out.println("<div id='save'> <a href='./Save'>Save</a></div>");
-		    out.println("<div id='load'> <a href='./Load'>Load</a></div>");
-		    out.println("</body>");
-		    out.println("</html>");
-
-		}
-		catch(Exception e) {
-			log.error("Error in the servlet" + this.getClass().getName());
-		}
-		finally {out.close();}
+		BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
+		bw.write("Match"); 
+		bw.newLine();
+		bw.write("player1: " + match.getPlayer1()); 
+		bw.write("player2: " + match.getPlayer2()); 
+		bw.newLine();
+		bw.write("time: " + match.getTimer() + " minutes"); 
+		bw.newLine();
+		bw.write(match.getHistoryMatch());
+		bw.newLine();
+		bw.flush();
+		bw.close();
+		out.println("<h4>Match correctly save to: " + f.getAbsolutePath() + "</h4>");
+		session.setAttribute("shouldMove",false);
+		session.setAttribute("message","Match correctly save to: " + f.getAbsolutePath());
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("./Play");
+		requestDispatcher.forward(req, resp);
 	}
 }
