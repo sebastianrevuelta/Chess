@@ -1,15 +1,24 @@
-* update chess to git
-* analyze with Kiuwan
-* see path traversal
-* read documentation
-develop in the chess app
-  save in linux folder
-  ask the path
-  save as ../../etc/passwd
-  open the file
-write post in blog
-update blog with SAST tools
-xss in the chess
+-------------------------------
+document path traversal
+add directory matches
+read from matches/../etc/passwd
+-------------------------------
+save player1 and player2 as cookies
+save timer in the session
+paint timer in the match
+paint the players in the match
+document http response splitting
+-------------------------------
+document sql injection
+-------------------------------
+implement xss
+document xss 
+-------------------------------
+implement xxe 
+(update xml with color settings?)
+show the message to the user
+-------------------------------
+
 
 review dhcp server when launching docker terminal
 
