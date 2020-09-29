@@ -32,19 +32,26 @@ public class LoadGame extends HttpServlet {
 		HttpSession session = request.getSession();
 		String file = request.getParameter("file");
 		
-        File matchFile = new File(file);
-        StringBuffer sb = new StringBuffer();
-        BufferedReader br = new BufferedReader(new FileReader(matchFile)); 
-        String st; 
-        while ((st = br.readLine()) != null) {
-          sb.append(st);
-        } 
+		if (file.startsWith("/matches/")) {
+	        File matchFile = new File(file);
+	        StringBuffer sb = new StringBuffer();
+	        try (BufferedReader br = new BufferedReader(new FileReader(matchFile))) {
+				String st; 
+				while ((st = br.readLine()) != null) {
+				  sb.append(st);
+				}
+			} 
+	        Match match = (Match) session.getAttribute("match");
+	        match.setHistoryMatch(sb.toString());
+	        session.setAttribute("match", match);
+			session.setAttribute("shouldMove",false);
+			session.setAttribute("message","Match correctly load from: " + matchFile.getAbsolutePath());
+		}
+		else {
+			session.setAttribute("shouldMove",false);
+			session.setAttribute("message","Path file should start with /matches/");
 
-        Match match = (Match) session.getAttribute("match");
-        match.setHistoryMatch(sb.toString());
-        session.setAttribute("match", match);
-		session.setAttribute("shouldMove",false);
-		session.setAttribute("message","Match correctly load from: " + matchFile.getAbsolutePath());
+		}
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("./Play");
 		requestDispatcher.forward(request, response);
         

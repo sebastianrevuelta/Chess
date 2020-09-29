@@ -1,8 +1,3 @@
--------------------------------
-document path traversal
-add directory matches
-read from matches/../etc/passwd
--------------------------------
 save player1 and player2 as cookies
 save timer in the session
 paint timer in the match

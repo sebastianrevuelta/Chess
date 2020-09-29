@@ -148,6 +148,42 @@
 		    }
 		%>
 	</div>
+	<div id="timer1">
+		<%
+			out.println("Time:");
+		    String time = (String) request.getSession().getAttribute("timer");
+		    if (time != null) {
+		      out.println(time);
+		    }
+		%>
+	</div>
+	<div id="timer2">
+		<%
+			out.println("Time:");
+		    String time2 = (String) request.getSession().getAttribute("timer");
+		    if (time2 != null) {
+		      out.println(time2);
+		    }
+		%>
+	</div>
+	<div id="player1">
+		<%
+			out.println("Player:");
+		    String player1 = (String) request.getSession().getAttribute("player1");
+		    if (player1 != null) {
+		      out.println(player1);
+		    }
+		%>
+	</div>
+	<div id="player2">
+		<%
+			out.println("Player2:");
+		    String player2 = (String) request.getSession().getAttribute("player2");
+		    if (player2 != null) {
+		      out.println(player2);
+		    }
+		%>
+	</div>
 	<div id="play">
 		<a href="./Play">Play</a>
 	</div>

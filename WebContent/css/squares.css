@@ -97,6 +97,62 @@
                 top: 520px;
                 left: 520px;
 			}
+			
+			#player1 {
+                margin: 20px;
+                border: 5px solid #F0F0F0;
+                padding: 10px;
+                background-color:white;
+                position: fixed;
+                
+                width: 150px;
+                height: 15px;
+                
+                top: 40px;
+                left: 100px;
+			}
+			
+			#timer1 {
+                margin: 20px;
+                border: 5px solid #F0F0F0;
+                padding: 10px;
+                background-color:white;
+                position: fixed;
+                
+                width: 100px;
+                height: 15px;
+                
+                top: 40px;
+                left: 300px;
+			}
+			
+			#player2 {
+                margin: 20px;
+                border: 5px solid #F0F0F0;
+                padding: 10px;
+                background-color:white;
+                position: fixed;
+                
+                width: 150px;
+                height: 15px;
+                
+                top: 520px;
+                left: 100px;
+			}
+			
+			#timer2 {
+                margin: 20px;
+                border: 5px solid #F0F0F0;
+                padding: 10px;
+                background-color:white;
+                position: fixed;
+                
+                width: 100px;
+                height: 15px;
+                
+                top: 520px;
+                left: 300px;
+			}
             
             #a8 {
                 margin: 20px;

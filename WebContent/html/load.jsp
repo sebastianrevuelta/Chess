@@ -51,8 +51,9 @@ hr {
   </div>
   <div class="middle">
     <h3>Please choose your txt file<span id="myText"></span></h3>
+    <p>All the matches are saved in the folder "matches", so you can write for example /matches/match1.txt</p>
     <form action="./LoadGame" method="post">
-		<input id="file" name="file" value="match1.txt"> 
+		<input id="file" name="file" value="/matches/match1.txt"> 
 		<button id="button" type="submit">Load Match</button>
 	</form>
 	<script>
@@ -68,6 +69,10 @@ hr {
   <div class="bottomleft">
   </div>
 </div>
-
+<p>
+<p>
+<p>HINT. Try "/matches/../etc/passwd"</p>
+<p>
+<p>
 </body>
 </html>

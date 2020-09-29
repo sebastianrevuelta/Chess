@@ -99,18 +99,12 @@ params = getParams(url);
 var from = url.indexOf("timer=")+6;
 if (from != 5) { //-1+6
 	var time = decodeURI(url.substring(from));
-	var time2 = url.substring(from);
-	//alert(time2);
-	//document.getElementById("demo").innerHTML = "Creating " + params['timer'] + " minutes match between " + params['player1'] + " and " + params['player2'];
-	//document.getElementById("demo").innerHTML = '<h4>' + '<img src=x onerror="alert(\'XSS Attack\')">' + '</h4>';
-	//document.getElementById("demo").innerHTML = '<h4>' + time2 + '</h4>';
-	
 
  	if(!isNaN(parseInt(time))){
 		
  		// Set the date we're counting down to
  		var now = new Date(Date.now());
- 		now.setSeconds(now.getSeconds() + parseInt(time));
+ 		now.setSeconds(now.getSeconds() + parseInt(3));
  		var countDownDate = now.getTime();
 		
  		// Update the count down every 1 second
@@ -129,13 +123,14 @@ if (from != 5) { //-1+6
  			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 		
  			// Output the result in an element with id="demo"
- 			document.getElementById("demo").innerHTML = "Starting match in ..." + days + "d " + hours + "h "
+ 			document.getElementById("demo").innerHTML = "Preparing match  ..." + days + "d " + hours + "h "
  					+ minutes + "m " + seconds + "s ";
 		
  			// If the count down is over, write some text 
  			if (distance < 0) {
  				clearInterval(countdownfunction);
  				document.getElementById("demo").innerHTML = "START!";
+ 				//sessionStorage.setItem("timer",time);
  				window.location.href = "./Game"
  			}
  		}, 1000);
