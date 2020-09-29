@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+    tomcat:
+        container_name: chess
+        build:
+            context: .
+        image: chess-game
+        ports: 
+            - "8081:8080"
+        command: ["/opt/tomcat/bin/catalina.sh", "run"]
+        
+    db:
+       image: mysql
+       container_name: mysql-db
+       command: --default-authentication-plugin=mysql_native_password
+       volumes: 
+         - mysql-db-data:/var/lib/mysql
+       ports:
+          - "33060:3306"
+       restart: always
+       environment:  
+         MYSQL_DATABASE: 'chess'
+         MYSQL_USER: 'sebas'
+         MYSQL_PASSWORD: 'password'
+         MYSQL_ROOT_PASSWORD: 'password'
+volumes:
+    mysql-db-data:
