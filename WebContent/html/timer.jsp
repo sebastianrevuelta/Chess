@@ -97,6 +97,11 @@ function getParams(url) {
 var url = document.location.href;
 params = getParams(url);
 var from = url.indexOf("timer=")+6;
+
+var timer = params["timer"];
+var player1 = params["player1"];
+var player2 = params["player2"];
+
 if (from != 5) { //-1+6
 	var time = decodeURI(url.substring(from));
 
@@ -130,13 +135,14 @@ if (from != 5) { //-1+6
  			if (distance < 0) {
  				clearInterval(countdownfunction);
  				document.getElementById("demo").innerHTML = "START!";
- 				//sessionStorage.setItem("timer",time);
+ 				document.cookie = "timer="+timer;
+ 				document.cookie = "player1="+player1;
+ 				document.cookie = "player2="+player2;
  				window.location.href = "./Game"
  			}
  		}, 1000);
  	}
 } 
 </script>
-
 </body>
 </html>

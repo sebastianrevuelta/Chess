@@ -22,15 +22,26 @@ public class Game extends HttpServlet {
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		String player1 = request.getParameter("player1");
-		String player2 = request.getParameter("player2");
-		
-		Cookie cookie1 = new Cookie("player1", player1);
-		Cookie cookie2 = new Cookie("player2", player2);
-		
-		String timer = request.getParameter("timer");
-		session.setAttribute("timer", timer); 
-		
+		Cookie[] cookies = request.getCookies();
+		String player1 = "unknown";
+		String player2 = "unknown";
+		String timer = "0";
+		if (cookies != null) {
+		 for (Cookie cookie : cookies) {
+		   if (cookie.getName().equals("timer")) {
+			   timer = cookie.getValue();
+		    }
+		   if (cookie.getName().equals("player1")) {
+			   player1 = cookie.getValue();
+		    }
+		   if (cookie.getName().equals("player2")) {
+			   player2 = cookie.getValue();
+		    }
+		  }
+		}
+		session.setAttribute("timer",timer);
+		session.setAttribute("player1",player1);
+		session.setAttribute("player2",player2);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/html/game.jsp");
 		requestDispatcher.forward(request, response);
 	}
