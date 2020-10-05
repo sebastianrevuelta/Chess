@@ -8,7 +8,6 @@ RUN adduser -u 8877 -G chessgroup -h /home/sebas -D sebas
 WORKDIR /home/sebas
 #it is better to use COPY instead of ADD
 ADD chess.war /opt/tomcat/webapps/
-
 #is it possible to expose another ports?
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
