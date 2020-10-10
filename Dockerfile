@@ -1,13 +1,11 @@
-#it is so much better to use a official image
 FROM davidcaste/alpine-tomcat:tomcat8
 LABEL maintainer="sebastianrevuelta@gmail.com"
-RUN mkdir /home/sebas
-#create the user
-RUN addgroup -g 8877 chessgroup 
-RUN adduser -u 8877 -G chessgroup -h /home/sebas -D sebas
-WORKDIR /home/sebas
-#it is better to use COPY instead of ADD
-ADD chess.war /opt/tomcat/webapps/
-#is it possible to expose another ports?
+LABEL version="1.3"
+LABEL name="chess vulnerable game"
 EXPOSE 8080
+RUN mkdir /home/sebas
+WORKDIR /home/sebas
+RUN addgroup -g 8877 chessgroup
+RUN adduser -u 8877 -G chessgroup -h /home/sebas -D sebas
+ADD chess.war /opt/tomcat/webapps/
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
