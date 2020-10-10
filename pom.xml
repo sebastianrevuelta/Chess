@@ -12,8 +12,10 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-	</properties>
+		<java.version>1.8</java.version>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        </properties>
 
 	<dependencies>
 
@@ -64,6 +66,26 @@
         </resource>
       </resources>
       <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals><goal>copy</goal></goals>
+                    <configuration>
+                        <artifactItems>
+                            <artifactItem>
+                                <groupId>com.heroku</groupId>
+                                <artifactId>webapp-runner</artifactId>
+                                <version>9.0.30.0</version>
+                                <destFileName>webapp-runner.jar</destFileName>
+                            </artifactItem>
+                        </artifactItems>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>  
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -86,16 +108,16 @@
 				</execution>
 			</executions>
 			<configuration>
-				<projectType>library</projectType>
-				<schemaVersion>1.2</schemaVersion>
-				<includeBomSerialNumber>true</includeBomSerialNumber>
-				<includeCompileScope>true</includeCompileScope>
-				<includeProvidedScope>true</includeProvidedScope>
-				<includeRuntimeScope>true</includeRuntimeScope>
-				<includeSystemScope>true</includeSystemScope>
-				<includeTestScope>false</includeTestScope>
-				<includeLicenseText>false</includeLicenseText>
-				<outputFormat>all</outputFormat>
+			  <projectType>library</projectType>
+			  <schemaVersion>1.2</schemaVersion>
+			  <includeBomSerialNumber>true</includeBomSerialNumber>
+			  <includeCompileScope>true</includeCompileScope>
+			  <includeProvidedScope>true</includeProvidedScope>
+			  <includeRuntimeScope>true</includeRuntimeScope>
+			  <includeSystemScope>true</includeSystemScope>
+			  <includeTestScope>false</includeTestScope>
+			  <includeLicenseText>false</includeLicenseText>
+			  <outputFormat>all</outputFormat>
 			</configuration>
        </plugin>
       </plugins>
