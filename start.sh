@@ -1,4 +1,4 @@
-ant war
+mvn clean install
 docker container stop mysql-db
 docker rm -f mysql-db
 docker volume prune --force

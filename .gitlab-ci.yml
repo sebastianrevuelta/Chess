@@ -1,7 +1,7 @@
 stages:
   - build
-  - analyze
-  - promote
+  - container
+  - db
   - deploy
   
 maven-build:
@@ -10,24 +10,24 @@ maven-build:
     - mvn clean
   tags:
     - maven
-    
-kiuwan-complete-delivery-analysis:
-  stage: analyze
+   
+container:
+  stage: container
   script: 
-    - agent -n %CI_PROJECT_NAME% -s %CI_PROJECT_DIR% -l "GitLab build" -as completeDelivery -cr "Fix Board" -wr
+    - start.sh
   tags:
-    - kiuwan_delivery
+    - container
 
-kiuwan-promote-to-baseline:
-  stage: promote
+db:
+  stage: db
   script: 
-    - agent --promote-to-baseline -n %CI_PROJECT_NAME% -l "GitLab build" -pbl "v3.%CI_JOB_ID%" -cr "Fix Board" 
+    - ./populatedb.sh 
   tags:
-    - kiuwan_promote
+    - db
     
-deploy-tomcat:
+deploy:
   stage: deploy
   script: 
-    - ant deploy
+    - git push heroku master
   tags:
-    - tomcat
+    - heroku
