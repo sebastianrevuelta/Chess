@@ -1,2 +1,2 @@
-web: java -jar target/dependency/webapp-runner.jar target/Chess-1.1.war
+web: java -jar target/dependency/webapp-runner.jar target/chess-1.1.war
 
