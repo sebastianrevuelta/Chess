@@ -81,6 +81,7 @@ span.psw {
 <h2>Vulnerable Chess Game</h2>
 <h5>You can try SQL Injection in this page ;-)</h5>
 <h6>According to the OWASP TOP TEN: it is risk #1, more info <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection">here</a></h6>
+<h6>And you can find a specific explantation for this SQL Injection in my blog <a href="https://securingsoftware.blog/2020/10/06/sql-injection-in-chess-application/">here</a></h6>
 
 <form action="./Login" method="post">
   <div class="imgcontainer">

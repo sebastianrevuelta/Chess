@@ -9,12 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Save extends HttpServlet {
-
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 3676129354289594363L;
 
 	@Override
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {

@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Timer extends HttpServlet {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -4183969347198935224L;
 
 	@Override
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {

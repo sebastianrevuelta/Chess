@@ -3,7 +3,6 @@ package core.sebas.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,12 +22,12 @@ import com.sebas.core.Square;
  */
 public class MatchServlet extends HttpServlet {
 	
-	private final static Logger log = Logger.getLogger(MatchServlet.class);
-
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 4530399168686881410L;
+	private final static Logger log = Logger.getLogger(MatchServlet.class);
+
 
 	@Override
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
