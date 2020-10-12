@@ -2,7 +2,7 @@ FROM davidcaste/alpine-tomcat:tomcat8
 LABEL maintainer="sebastianrevuelta@gmail.com"
 LABEL version="1.3"
 LABEL name="chess vulnerable game"
-EXPOSE 8080
+EXPOSE $PORT
 RUN mkdir /home/sebas
 WORKDIR /home/sebas
 RUN addgroup -g 8877 chessgroup
