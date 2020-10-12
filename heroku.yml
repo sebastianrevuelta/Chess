@@ -5,5 +5,8 @@ setup:
 build:
   docker:
     web: Dockerfile
+    worker: worker
+release:
+  image: worker
   command:
     - ./start.sh
