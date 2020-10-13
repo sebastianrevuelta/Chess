@@ -45,7 +45,7 @@ public class Authentication extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		log.debug("Connecting to database with user: " + username);
+		log.debug("Accessing to chess with user: " + username);
 		
 		boolean success = false;
 
@@ -68,9 +68,9 @@ public class Authentication extends HttpServlet {
 		String hostDB = prop.getProperty("hostDB");
 		String portDB = prop.getProperty("portDB");
 		
-		String connectionChain = "jdbc:mysql://" + hostDB + ":" + portDB + "/chess?serverTimezone=UTC";
+		String connectionChain = "jdbc:mysql://" + hostDB + ":" + portDB + "/chess";
 		
-		log.debug("Connecting to database with credentials: " + userDB);
+		log.debug("Connecting to database with credentials: " + userDB + " and password: " + pwdDB);
 		log.debug("Database chain: " + connectionChain);
 		try {
 			conn = DriverManager.getConnection(connectionChain, userDB, pwdDB);
@@ -89,12 +89,15 @@ public class Authentication extends HttpServlet {
 				session.setAttribute("user", list);
 			}
 		} catch (Exception e) {
+			log.error("Error to database: " + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				stmt.close();
 				conn.close();
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				log.error("Error closing connection: " + e.getMessage());
+			}
 		}
 		
 		RequestDispatcher requestDispatcher = null;
@@ -103,7 +106,7 @@ public class Authentication extends HttpServlet {
 			requestDispatcher = request.getRequestDispatcher("/html/timer.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
-			log.error("Username or Password incorrect");
+			log.error("Error in the connection to database chess");
 			session.setAttribute("error", "Username or Password incorrect");
 			requestDispatcher = request.getRequestDispatcher("/html/login.jsp");
 			requestDispatcher.forward(request, response);

@@ -1,5 +1,6 @@
 stages:
   - build
+  - tests
   - container
   - db
   - deploy
@@ -7,10 +8,17 @@ stages:
 maven-build:
   stage: build
   script: 
-    - mvn clean
+    - mvn clean install
   tags:
     - maven
    
+tests:
+  stage: tests
+  script:
+    - java -cp /home/sebas/junit4.10/junit-4.10.jar/:./WebContent/WEB-INF/lib/chess.ar org.junit.runner.JUnitCore com.senas.core.UtilChessTest
+  tags:
+    - junit
+
 container:
   stage: container
   script: 

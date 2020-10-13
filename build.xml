@@ -12,10 +12,10 @@
 	<!--property name="mavenRepo" value="C:/Users/srevuelta/.m2/repository"/-->
 	<property name="dirDeploy" value="C:/projects/apache-tomcat-6.0.35/webapps/chess/"/> 
 
-	<property name="src.dir" value="./src/main/java"/>
+	<property name="src.dir" value="./src/"/>
 	<property name="lib.dir" value="./lib"/>
 	<property name="build.path" value="./build/classes"/>
-	<property name="jarFile" value="Chess-1.1.jar"/>
+	<property name="jarFile" value="chess.jar"/>
 	
 
 	<path id="classpath.lib">
