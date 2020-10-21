@@ -42,5 +42,5 @@ release:
     - docker login -u sebastianrevuelta -p $DOCKER_HUB_CREDENTIALS
     - docker build -t chess-game .
     - docker run -d -p 8081:8080 --name chess chess-game
-    - docker commit chess sebastianrevuelta/chess-game:1.6
-    - docker push sebastianrevuelta/chess-game:1.6
+    - docker commit chess sebastianrevuelta/chess-game:$CI_BUILD_REF_NAME
+    - docker push sebastianrevuelta/chess-game:$CI_BUILD_REF_NAME
