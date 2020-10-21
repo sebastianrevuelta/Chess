@@ -45,7 +45,7 @@ public class Authentication extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		log.debug("Accessing to chess with user: " + username);
+		log.debug("Login user: " + username);
 		
 		boolean success = false;
 
@@ -68,9 +68,9 @@ public class Authentication extends HttpServlet {
 		String hostDB = prop.getProperty("hostDB");
 		String portDB = prop.getProperty("portDB");
 		
-		String connectionChain = "jdbc:mysql://" + hostDB + ":" + portDB + "/chess";
+		String connectionChain = "jdbc:mysql://" + hostDB + ":" + portDB + "/chess?serverTimezone=UTC";
 		
-		log.debug("Connecting to database with credentials: " + userDB + " and password: " + pwdDB);
+		log.debug("Connecting to database with credentials: " + userDB + " and password: ********");
 		log.debug("Database chain: " + connectionChain);
 		try {
 			conn = DriverManager.getConnection(connectionChain, userDB, pwdDB);
@@ -108,6 +108,7 @@ public class Authentication extends HttpServlet {
 		} else {
 			log.error("Error in the connection to database chess");
 			session.setAttribute("error", "Username or Password incorrect");
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			requestDispatcher = request.getRequestDispatcher("/html/login.jsp");
 			requestDispatcher.forward(request, response);
 		}
