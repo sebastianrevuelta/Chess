@@ -40,6 +40,7 @@ release:
   script:
     - cp target/chess-1.1.war chess.war
     - docker login -u sebastianrevuelta -p $DOCKER_HUB_CREDENTIALS
-    - docker build -t chess .
+    - docker build -t chess-game .
+    - docker run -d -p 8081:8080 --name chess chess-game
     - docker commit chess sebastianrevuelta/$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
     - docker push sebastianrevuelta/$CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
