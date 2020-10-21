@@ -1,9 +1,10 @@
 image: docker:git
 services:
 - docker:dind
+- maven
 
 build:
   script:
-  - ant war
+  - mvn clean install
   - docker build -t chess .
   - docker push sebastianrevuelta/chess-game:1.4
