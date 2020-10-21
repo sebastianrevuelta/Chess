@@ -33,6 +33,6 @@ release:
   services:
     - docker:dind
   script:
-    - docker login -u sebastianrevuelta
+    - docker login -u sebastianrevuelta -p $DOCKER_HUB_CREDENTIALS
     - docker build -t $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME .
     - docker push $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
