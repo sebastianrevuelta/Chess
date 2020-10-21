@@ -4,5 +4,6 @@ services:
 
 build:
   script:
+  - ant war
   - docker build -t chess .
   - docker push sebastianrevuelta/chess-game:1.4
