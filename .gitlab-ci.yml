@@ -27,12 +27,18 @@ mvn-package:
   stage: build
   script:
     - 'mvn clean install'
+  artifacts:
+    paths:
+      - target/surefire-reports/*
+      - target/*.jar
+      - target/*.war
 
 release:
   stage: deploy
   services:
     - docker:dind
   script:
+    - cp target/chess-1.1.war chess.war
     - docker login -u sebastianrevuelta -p $DOCKER_HUB_CREDENTIALS
     - docker build -t $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME .
     - docker push $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
