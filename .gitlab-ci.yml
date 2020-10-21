@@ -1,12 +1,3 @@
 image: maven:3.5.2-jdk-8-alpine
-before_script:
+script:
   - mvn clean install
-
-image: docker:git
-services:
-- docker:dind
-
-build:
-  script:
-  - docker build -t chess .
-  - docker push sebastianrevuelta/chess-game:1.4
