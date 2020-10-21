@@ -1,41 +1,8 @@
-stages:
-  - build
-  - tests
-  - container
-  - db
-  - deploy
-  
-maven-build:
-  stage: build
-  script: 
-    - mvn clean install
-  tags:
-    - maven
-   
-tests:
-  stage: tests
+image: docker:git
+services:
+- docker:dind
+
+build:
   script:
-    - java -cp /home/sebas/junit4.10/junit-4.10.jar/:./WebContent/WEB-INF/lib/chess.ar org.junit.runner.JUnitCore com.senas.core.UtilChessTest
-  tags:
-    - junit
-
-container:
-  stage: container
-  script: 
-    - start.sh
-  tags:
-    - container
-
-db:
-  stage: db
-  script: 
-    - ./populatedb.sh 
-  tags:
-    - db
-    
-deploy:
-  stage: deploy
-  script: 
-    - git push heroku master
-  tags:
-    - heroku
+  - docker build -t chess .
+  - docker push sebastianrevuelta/chess-game:1.4
