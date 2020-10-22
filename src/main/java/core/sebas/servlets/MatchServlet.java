@@ -25,7 +25,7 @@ public class MatchServlet extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4530399168686881410L;
+	private static final long serialVersionUID = 1L;
 	private final static Logger log = Logger.getLogger(MatchServlet.class);
 
 

@@ -26,7 +26,7 @@ public class LoadGame extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 9154182490255213263L;
+	private static final long serialVersionUID = 1L;
 	private final static Logger log = Logger.getLogger(LoadGame.class);
 
 

@@ -6,7 +6,7 @@ services:
             context: .
         image: chess-game
         ports: 
-            - "8081:8080"
+            - "8087:8080"
         command: ["/opt/tomcat/bin/catalina.sh", "run"]
         
     db:
@@ -16,12 +16,12 @@ services:
        volumes: 
          - mysql-db-data:/var/lib/mysql
        ports:
-          - "33060:3306"
+          - "3306:3306"
        restart: always
        environment:  
          MYSQL_DATABASE: 'chess'
-         MYSQL_USER: 'sebas'
-         MYSQL_PASSWORD: 'password'
-         MYSQL_ROOT_PASSWORD: 'password'
+         MYSQL_USER: 'chess'
+         MYSQL_PASSWORD: 'checkMate$_@76'
+         MYSQL_ROOT_PASSWORD: 'platas76'
 volumes:
     mysql-db-data:

@@ -6,8 +6,8 @@
   </description>
   
 	<property name="dirDevelop" value="."/>
-	<!--property name="mavenRepo" value="C:/Users/T0245924/.m2/repository"/-->
-	<property name="mavenRepo" value="/home/sebas/.m2/repository"/>
+	<property name="mavenRepo" value="C:/Users/T0245924/.m2/repository"/>
+	<!--property name="mavenRepo" value="/home/sebas/.m2/repository"/-->
 	<!--property name="mavenRepo" value="C:/Users/srevuelta/.m2/repository"/-->
 	<property name="dirDeploy" value="/home/sebas/tomcat/apache-tomcat-8.5.59/webapps"/> 
 

@@ -27,7 +27,7 @@ public class Authentication extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3999319863000994064L;
+	private static final long serialVersionUID = 1L;
 
 	static {
 		try {

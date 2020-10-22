@@ -15,7 +15,7 @@ public class Game extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7729624646510956812L;
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {

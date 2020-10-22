@@ -12,7 +12,7 @@ public class Load extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1671509401766330487L;
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
