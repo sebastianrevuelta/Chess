@@ -20,15 +20,15 @@ import com.sebas.core.Square;
  */
 public class NewGame extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7048156257471315257L;
 	private final static Logger log = Logger.getLogger(NewGame.class);
 	private Match match;
 	public Match getMatch() { return match; }
 	public void setMatch(Match match) { this.match = match; }
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {

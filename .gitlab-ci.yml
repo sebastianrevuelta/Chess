@@ -1,33 +1,46 @@
-stages:
-  - build
-  - analyze
-  - promote
-  - deploy
-  
-maven-build:
-  stage: build
-  script: 
-    - mvn clean
-  tags:
-    - maven
-    
-kiuwan-complete-delivery-analysis:
-  stage: analyze
-  script: 
-    - agent -n %CI_PROJECT_NAME% -s %CI_PROJECT_DIR% -l "GitLab build" -as completeDelivery -cr "Fix Board" -wr
-  tags:
-    - kiuwan_delivery
+image: docker:git
+services:
+  - docker:dind
 
-kiuwan-promote-to-baseline:
-  stage: promote
-  script: 
-    - agent --promote-to-baseline -n %CI_PROJECT_NAME% -l "GitLab build" -pbl "v3.%CI_JOB_ID%" -cr "Fix Board" 
-  tags:
-    - kiuwan_promote
-    
-deploy-tomcat:
+stages:
+- build
+- deploy
+
+variables:
+  # This will supress any download for dependencies and plugins or upload messages which would clutter the console log.
+  # `showDateTime` will show the passed time in milliseconds. You need to specify `--batch-mode` to make this work.
+  MAVEN_OPTS: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  # As of Maven 3.3.0 instead of this you may define these options in `.mvn/maven.config` so the same config is used
+  # when running from the command line.
+  # `installAtEnd` and `deployAtEnd`are only effective with recent version of the corresponding plugins.
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+
+
+
+# Cache downloaded dependencies and plugins between builds.
+cache:
+  paths:
+    - /root/.m2/repository/
+
+mvn-package:
+  image: maven:3.3.9-jdk-8
+  stage: build
+  script:
+    - 'mvn clean install'
+  artifacts:
+    paths:
+      - target/surefire-reports/*
+      - target/*.jar
+      - target/*.war
+
+release:
   stage: deploy
-  script: 
-    - ant deploy
-  tags:
-    - tomcat
+  services:
+    - docker:dind
+  script:
+    - cp target/chess-1.1.war chess.war
+    - docker login -u sebastianrevuelta -p $DOCKER_HUB_CREDENTIALS
+    - docker build -t chess-game .
+    - docker run -d -p 8081:8080 --name chess chess-game
+    - docker commit chess sebastianrevuelta/chess-game:$CI_BUILD_REF_NAME
+    - docker push sebastianrevuelta/chess-game:$CI_BUILD_REF_NAME

@@ -25,3 +25,7 @@ CREATE TABLE secure_user (
 );
 INSERT INTO secure_user (username, password) VALUES ('sebastianrevuelta@gmail.com', SHA1('Catamarca1039'));
 INSERT INTO secure_user (username, password) VALUES ('a', SHA1('a'));
+
+-- create read user
+CREATE USER 'chess'@'%' IDENTIFIED BY 'checkMate$_@76';
+GRANT SELECT ON chess.* TO chess@'%';

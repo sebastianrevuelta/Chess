@@ -24,15 +24,14 @@ import com.sebas.core.Match;
  */
 public class SaveGame extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -74271710452654736L;
 	private final static Logger log = Logger.getLogger(SaveGame.class);
 	private Match match;
 	public Match getMatch() { return match; }
 	public void setMatch(Match match) { this.match = match; }
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	
 	@Override

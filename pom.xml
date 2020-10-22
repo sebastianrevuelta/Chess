@@ -4,66 +4,91 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sebas.core</groupId>
-	<artifactId>Chess</artifactId>
-	<version>1.1</version>
-	<packaging>jar</packaging>
+	<artifactId>chess</artifactId>
+        <version>1.1</version>
+        <packaging>${p.type}</packaging>
 
-	<name>Chess</name>
+	<name>chess</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-	</properties>
+	  <p.type>war</p.type>
+          <java.version>1.8</java.version>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+          <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        </properties>
 
 	<dependencies>
 
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.12</version>
-		</dependency>
-        <!--dependency> 
-           <groupId>ch.qos.logback</groupId> 
-           <artifactId>logback-classic</artifactId> 
-           <version>1.2.3</version> 
-       </dependency-->
-
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.4</version>
-		</dependency>
-		
-	
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
+	          <groupId>log4j</groupId>
+		  <artifactId>log4j</artifactId>
+		  <version>1.2.12</version>
 		</dependency>
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.19</version>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>servlet-api</artifactId>
+		  <version>2.4</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>junit</groupId>
+		   <artifactId>junit</artifactId>
+		   <version>3.8.1</version>
+		   <scope>test</scope>
+		</dependency>
+
+		<dependency>
+		  <groupId>mysql</groupId>
+		  <artifactId>mysql-connector-java</artifactId>
+		  <version>8.0.19</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-collections4</artifactId>
-			<version>4.0</version>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-collections4</artifactId>
+		  <version>4.0</version>
 		</dependency>
 	</dependencies>
     <build>
       <resources>
         <resource>
-            <directory>src/main/java</directory>
+            <directory>src/main/</directory>
             <includes>
-                <include>**/config.properties</include>
+                <include>**/*.properties</include>
             </includes>
         </resource>
-      </resources>
-      <plugins>
+     </resources>
+     <plugins>
+       <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+              <warSourceDirectory>WebContent</warSourceDirectory>
+              <failOnMissingWebXml>false</failOnMissingWebXml>
+           </configuration>
+       </plugin>
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals><goal>copy</goal></goals>
+                    <configuration>
+                        <artifactItems>
+                            <artifactItem>
+                                <groupId>com.heroku</groupId>
+                                <artifactId>webapp-runner</artifactId>
+                                <version>9.0.30.0</version>
+                                <destFileName>webapp-runner.jar</destFileName>
+                            </artifactItem>
+                        </artifactItems>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>  
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -77,25 +102,25 @@
         <groupId>org.cyclonedx</groupId>
         <artifactId>cyclonedx-maven-plugin</artifactId>
         <version>2.0.3</version>
-			<executions>
-				<execution>
-					<phase>verify</phase>
-					<goals>
-						<goal>makeAggregateBom</goal>
-					</goals>
-				</execution>
-			</executions>
+  	  <executions>
+	  <execution>
+	    <phase>verify</phase>
+	    <goals>
+		<goal>makeAggregateBom</goal>
+	    </goals>
+	</execution>
+	</executions>
 			<configuration>
-				<projectType>library</projectType>
-				<schemaVersion>1.2</schemaVersion>
-				<includeBomSerialNumber>true</includeBomSerialNumber>
-				<includeCompileScope>true</includeCompileScope>
-				<includeProvidedScope>true</includeProvidedScope>
-				<includeRuntimeScope>true</includeRuntimeScope>
-				<includeSystemScope>true</includeSystemScope>
-				<includeTestScope>false</includeTestScope>
-				<includeLicenseText>false</includeLicenseText>
-				<outputFormat>all</outputFormat>
+			  <projectType>library</projectType>
+			  <schemaVersion>1.2</schemaVersion>
+			  <includeBomSerialNumber>true</includeBomSerialNumber>
+			  <includeCompileScope>true</includeCompileScope>
+			  <includeProvidedScope>true</includeProvidedScope>
+			  <includeRuntimeScope>true</includeRuntimeScope>
+			  <includeSystemScope>true</includeSystemScope>
+			  <includeTestScope>false</includeTestScope>
+			  <includeLicenseText>false</includeLicenseText>
+			  <outputFormat>all</outputFormat>
 			</configuration>
        </plugin>
       </plugins>

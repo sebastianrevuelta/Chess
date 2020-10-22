@@ -23,8 +23,12 @@ import com.sebas.core.Match;
  */
 public class LoadGame extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9154182490255213263L;
 	private final static Logger log = Logger.getLogger(LoadGame.class);
-	private static final long serialVersionUID = 1L;
+
 
 	@Override
 	protected void doPost(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
@@ -48,6 +52,7 @@ public class LoadGame extends HttpServlet {
 			session.setAttribute("message","Match correctly load from: " + matchFile.getAbsolutePath());
 		}
 		else {
+			log.error("File should start with /matches/");
 			session.setAttribute("shouldMove",false);
 			session.setAttribute("message","Path file should start with /matches/");
 
