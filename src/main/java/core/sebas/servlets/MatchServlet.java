@@ -42,7 +42,7 @@ public class MatchServlet extends HttpServlet {
 		if (match == null) { match = new Match("white"); }
 		match.setPlayer1(player1);
 		match.setPlayer2(player2);
-		match.setTimer(timer);
+		match.setTimer(timer + ":00");
 
 		try {
 			StringBuffer html = paintMatch(match,true, "Click play button");

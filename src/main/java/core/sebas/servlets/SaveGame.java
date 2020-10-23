@@ -33,9 +33,6 @@ public class SaveGame extends HttpServlet {
 	 */
 
 	private final static Logger log = Logger.getLogger(SaveGame.class);
-	private Match match;
-	public Match getMatch() { return match; }
-	public void setMatch(Match match) { this.match = match; }
 
 	
 	@Override
@@ -59,6 +56,7 @@ public class SaveGame extends HttpServlet {
 		bw.write("Match"); 
 		bw.newLine();
 		bw.write("player1: " + match.getPlayer1()); 
+		bw.newLine();
 		bw.write("player2: " + match.getPlayer2()); 
 		bw.newLine();
 		bw.write("time: " + match.getTimer() + " minutes"); 
