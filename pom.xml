@@ -54,9 +54,9 @@
     <build>
       <resources>
         <resource>
-            <directory>src/main/</directory>
+            <directory>src/main/resources</directory>
             <includes>
-                <include>**/*.properties</include>
+                <include>/*.properties</include>
             </includes>
         </resource>
      </resources>

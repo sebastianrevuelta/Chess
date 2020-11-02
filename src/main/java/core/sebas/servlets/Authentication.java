@@ -24,6 +24,7 @@ import org.apache.log4j.PropertyConfigurator;
 public class Authentication extends HttpServlet {
 
 	private static Logger log = Logger.getLogger(Authentication.class);
+	
 	/**
 	 * 
 	 */
@@ -32,13 +33,16 @@ public class Authentication extends HttpServlet {
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
+			
 		} catch (Exception e) {}
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
 		//PropertiesConfigurator is used to configure logger from properties file
-        PropertyConfigurator.configure("log4j.properties");
+		Properties props = new Properties();
+		props.load(getClass().getClassLoader().getResourceAsStream("log4j.properties"));
+		PropertyConfigurator.configure(props);
         
 		HttpSession session = request.getSession();
 
@@ -68,7 +72,7 @@ public class Authentication extends HttpServlet {
 		String hostDB = prop.getProperty("hostDB");
 		String portDB = prop.getProperty("portDB");
 		
-		String connectionChain = "jdbc:mysql://" + hostDB + ":" + portDB + "/chess?serverTimezone=UTC";
+		String connectionChain = "jdbc:mysql://" + hostDB + ":" + portDB + "/chess?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8";
 		
 		log.debug("Connecting to database with credentials: " + userDB + " and password: ********");
 		log.debug("Database chain: " + connectionChain);
