@@ -1,6 +1,7 @@
-ant updateWebContent
+mvn clean
+mvn compile -Dp.ptype=jar
 java -jar /home/sebas/sw/proguard-7.0.0/lib/proguard.jar @proguard/chess-proguard.pro
-ant war
+mvn deploy -Dusername=sebastianrevuelta@gmail.com -Dpassword=xxxxxx
 #docker container stop mysql-db
 #docker rm -f mysql-db
 #docker volume prune --force
@@ -9,4 +10,4 @@ ant war
 docker container stop chess
 docker container rm chess
 docker build -t chess-game .
-docker run -d -p 8081:8080 --name chess --link localhost:mysql-db chess-game
+docker-compose up

@@ -5,18 +5,18 @@
 
 	<groupId>com.sebas.core</groupId>
 	<artifactId>chess</artifactId>
-    <version>1.1</version>
-    <packaging>${p.type}</packaging>
+        <version>1.2</version>
+        <packaging>${p.type}</packaging>
 
 	<name>chess</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 	  <p.type>jar</p.type>
-         <java.version>1.8</java.version>
-         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
+          <java.version>1.8</java.version>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+          <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        </properties>
 
 
 	<dependencies>
@@ -57,7 +57,7 @@
         <resource>
             <directory>src/main/resources</directory>
             <includes>
-                <include>/*.properties</include>
+                <include>**/*.properties</include>
             </includes>
         </resource>
      </resources>
@@ -79,35 +79,47 @@
             <version>2.4</version>
             <configuration>
               <warSourceDirectory>WebContent</warSourceDirectory>
-              <failOnMissingWebXml>false</failOnMissingWebXml>
+              <failOnMissingWebXml>true</failOnMissingWebXml>
            </configuration>
        </plugin>
 	   
-       <plugin>
-            <groupId>org.jfrog.buildinfo</groupId>
-            <artifactId>artifactory-maven-plugin</artifactId>
-			<version>2.6.1</version>
-			<inherited>false</inherited>
-			<executions>
-			  <execution>
-			    <id>build-info</id>
-				<goals>
-				  <goal>publish</goal>
-				</goals>
-				<configuration>
-				  <publisher>
-				    <contextUrl>https://chessgame.jfrog.io/artifactory</contextUrl>
-					<username>${username}</username>
-					<password>${password}</password>
-					<repoKey>libs-release-local</repoKey>
-					<snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
-					<excludePatterns>*.pom</excludePatterns>
-					<includePatterns>*.jar</includePatterns>
-				  </publisher>
-				</configuration>
-			  </execution>
-			</executions>
-       </plugin>
+            <plugin>
+                <groupId>org.jfrog.buildinfo</groupId>
+                <artifactId>artifactory-maven-plugin</artifactId>
+                <version>2.6.1</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>publish</goal>
+                        </goals>
+                        <configuration>
+                            <deployProperties>
+                                <gradle>awesome</gradle>
+                            </deployProperties>
+                            <artifactory>
+                                <includeEnvVars>true</includeEnvVars>
+                                <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*</envVarsExcludePatterns>
+                                <timeoutSec>60</timeoutSec>
+                            </artifactory>
+                            <publisher>
+                                <contextUrl>https://chessgame.jfrog.io/artifactory/chessvirutal</contextUrl>
+                                <username>${username}</username>
+                                <password>${password}</password>
+                                <excludePatterns>*.json</excludePatterns>
+                                <repoKey>libs-release-local</repoKey>
+                                <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+                            </publisher>
+                            <buildInfo>
+                                <buildName>plugin-demo</buildName>
+                                <buildNumber>${buildnumber}</buildNumber>
+                                <buildUrl>http://build-url.org</buildUrl>
+                            </buildInfo>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 	   
        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -159,19 +171,6 @@
       </plugins>
 	  
     </build>
-	
-	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<name>a0zjf3mt7kekd-artifactory-primary-0-releases</name>
-			<url>https://chessgame.jfrog.io/artifactory/chess</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>a0zjf3mt7kekd-artifactory-primary-0-snapshots</name>
-			<url>https://chessgame.jfrog.io/artifactory/chess</url>
-		</snapshotRepository>
-	</distributionManagement>
 
     <repositories>
         <repository>
@@ -184,7 +183,7 @@
         </repository>
     </repositories>
     
-	<pluginRepositories>
+    <pluginRepositories>
         <pluginRepository>
             <snapshots>
                 <enabled>false</enabled>
@@ -193,6 +192,6 @@
             <name>bintray-plugins</name>
             <url>https://jcenter.bintray.com</url>
         </pluginRepository>
-    </pluginRepositories>
+     </pluginRepositories>
 
 </project>

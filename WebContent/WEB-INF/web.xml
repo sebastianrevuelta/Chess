@@ -17,16 +17,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 </welcome-file-list>
 
 <servlet>
-<servlet-name>HolaMundo</servlet-name>
-<servlet-class>core.sebas.servlets.HolaMundo</servlet-class>
-</servlet>
-
-<servlet-mapping>
-<servlet-name>HolaMundo</servlet-name>
-<url-pattern>/HolaMundo</url-pattern>
-</servlet-mapping>
-
-<servlet>
 <servlet-name>MatchServlet</servlet-name>
 <servlet-class>core.sebas.servlets.MatchServlet</servlet-class>
 </servlet>
