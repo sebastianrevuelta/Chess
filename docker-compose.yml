@@ -1,5 +1,6 @@
 db:
   image: mysql
+  container_name: mysql_db
   ports:
     - 8306:3306
   volumes:
@@ -12,6 +13,7 @@ db:
     MYSQL_PASSWORD: checkMate$_@76
 chess:
   image: chess-game
+  container_name: chess
   ports: 
     - 8087:8080
   links:
