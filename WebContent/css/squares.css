@@ -91,11 +91,25 @@
                 background-color:white;
                 position: fixed;
                 
-                width: 500px;
+                width: 450px;
                 height: 20px;
                 
                 top: 520px;
-                left: 520px;
+                left: 500px;
+			}
+			
+			#move {
+                margin: 20px;
+                border: 5px solid #F0F0F0;
+                padding: 10px;
+                background-color:white;
+                position: fixed;
+                
+                width: 100px;
+                height: 20px;
+                
+                top: 520px;
+                left: 970px;
 			}
 			
 			#player1 {

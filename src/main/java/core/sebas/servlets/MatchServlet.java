@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 import com.sebas.core.Board;
 import com.sebas.core.Match;
+import com.sebas.core.Movement;
 import com.sebas.core.Square;
 
 /**
@@ -22,6 +23,7 @@ import com.sebas.core.Square;
  */
 public class MatchServlet extends HttpServlet {
 	
+	private static final String MESSAGE_TO_PLAY = "Click play button or insert move as e2e4";
 	/**
 	 * 
 	 */
@@ -31,21 +33,19 @@ public class MatchServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
-		String player1 = request.getParameter("player1");
-		String player2 = request.getParameter("player2");
-		String timer = request.getParameter("timer");
 		response.setContentType("text/html;charset=UTF-8");
 		
+		String move = request.getParameter("move");
+		boolean shouldMove = true;
+		if (move != null) shouldMove = true;
+		
 		PrintWriter out = response.getWriter();
-		Match match = (Match) session.getAttribute("match");
-		if (match == null) { match = new Match("white"); }
-		match.setPlayer1(player1);
-		match.setPlayer2(player2);
-		match.setTimer(timer + ":00");
-
+		Match match = updateMatch(session);
+		
 		try {
-			StringBuffer html = paintMatch(match,true, "Click play button");
+			StringBuffer html = paintMatch(match, move, shouldMove, MESSAGE_TO_PLAY);
 			out.println(html.toString());
 		    session.setAttribute("match", match);
 		}
@@ -56,19 +56,22 @@ public class MatchServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
 		response.setContentType("text/html;charset=UTF-8");
 		
+		String move = request.getParameter("move");
+		boolean shouldMove = true;
+		if (move != null) shouldMove = true;
+		
 		PrintWriter out = response.getWriter();
-		Match match = (Match) session.getAttribute("match");
-		if (match == null) { match = new Match("white"); }
+		Match match = updateMatch(session);
 		
-		boolean shouldMove = (boolean) session.getAttribute("shouldMove");
+		//boolean shouldMove = (boolean) session.getAttribute("shouldMove");
 		String message = (String) session.getAttribute("message");
-		
 		try {
-			StringBuffer html = paintMatch(match,shouldMove, message);
+			StringBuffer html = paintMatch(match, move, shouldMove, message);
 			out.println(html.toString());
 		    session.setAttribute("match", match);
 		    session.setAttribute("shouldMove",true);
@@ -79,16 +82,44 @@ public class MatchServlet extends HttpServlet {
 		finally {out.close();}
 	}
 	
-	private StringBuffer paintMatch(Match match, boolean shouldMove, String message) {
+	/**
+	 * update Match
+	 * @param session
+	 * @return
+	 */
+	private Match updateMatch(HttpSession session) {
+		
+		Match match = (Match) session.getAttribute("match");
+		if (match == null) { match = new Match("white"); }
+		
+		String player1 = (String)session.getAttribute("player1");
+		String player2 = (String)session.getAttribute("player2");
+		String timer = (String)session.getAttribute("timer");
+		match.setPlayer1(player1);
+		match.setPlayer2(player2);
+		match.setTimer(timer);
+		return match;
+	}
+
+	/**
+	 * paint Match
+	 * @param match
+	 * @param shouldMove
+	 * @param message
+	 * @return
+	 */
+	private StringBuffer paintMatch(Match match, String move, boolean shouldMove, String message) {
 		
 		StringBuffer sb = new StringBuffer();
-
-		String move= "";
+		Board board = match.getBoard();
 		if (shouldMove) {
-		  move = match.getMove();
+		  match.justMove(null);
+		}
+		else {
+		  Movement movement = new Movement(board,move);
+		  match.justMove(movement);
 		}
 
-		Board board = match.getBoard();
 		String history = match.getHistoryMatch();
 		Square[][] squares = board.getSquares();
 		
@@ -118,6 +149,9 @@ public class MatchServlet extends HttpServlet {
 			}
 		}			
 		sb.append("<div id='match'>" + history + "</div>");
+		sb.append("<div id='player1'>" + "Player 1: " + match.getPlayer1() + "</div>");
+		sb.append("<div id='player2'>" + "Player 2: " + match.getPlayer2()  + "</div>");
+		sb.append("<div id='timer'>" + "Time: " + match.getTimer()  + "</div>");
 		sb.append("<div id='play'> <a href='./Play'>Play</a></div>");
 		sb.append("<div id='new'> <a href='./Game'>New</a></div>");
 		sb.append("<div id='save'> <a href='./Save'>Save</a></div>");

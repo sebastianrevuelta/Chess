@@ -46,6 +46,20 @@ public class Movement {
 		this.origin = origin;
 		this.destiny = destiny;
 	}
+	
+	public Movement(Board board, String move) {
+		
+		String origin = move.substring(0, 1);
+		String destiny = move.substring(2, 3);
+		Square[][] squares = board.getSquares();
+		int h = UtilChess.calculateHorizontal(origin);
+		int v = UtilChess.calculateVertical(origin);
+		Square square = squares[h][v];
+		Piece piece = square.getPieza();
+		this.piece = piece;
+		this.origin = origin;
+		this.destiny = destiny;
+	}
 
 
 	/**

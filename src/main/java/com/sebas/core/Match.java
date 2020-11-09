@@ -103,12 +103,12 @@ public class Match {
 	 * move!
 	 * @return
 	 */
-	public String getMove() {
+	public String justMove(Movement m) {
 
-		Movement m = new Movement();
-		
-		m = m.makeMovement(board,turn,1);
-
+		if (m == null) {
+		  m = new Movement();
+		  m = m.makeMovement(board,turn,1);
+		}
 		checkmate = board.checkMate(m);
 		String descriptionMove;
 

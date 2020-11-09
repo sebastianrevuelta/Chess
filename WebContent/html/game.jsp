@@ -168,7 +168,7 @@
 	</div>
 	<div id="player1">
 		<%
-			out.println("Player:");
+			out.println("Player 1:");
 		    String player1 = (String) request.getSession().getAttribute("player1");
 		    if (player1 != null) {
 		      out.println(player1);
@@ -177,7 +177,7 @@
 	</div>
 	<div id="player2">
 		<%
-			out.println("Player2:");
+			out.println("Player 2:");
 		    String player2 = (String) request.getSession().getAttribute("player2");
 		    if (player2 != null) {
 		      out.println(player2);
@@ -185,7 +185,7 @@
 		%>
 	</div>
 	<div id="play">
-		<a href="./Play">Play</a>
+		<a href="./Play">Idea</a>
 	</div>
 	<div id="new">
 		<a href="./Game">New</a>
@@ -197,7 +197,14 @@
 		<a href="./Save">Save</a>
 	</div>
 	<div id="message">
-		Click play button
+		Click Idea button or insert your move as e2e4
+	</div>
+	<div id="move">
+		<form action="/Play">
+		  <label for="move">Move: </label>
+		  <input type="text" id="move" name="move"><br>
+		  <input type="play" value="Play">
+		</form>
 	</div>
 	<table id="table">
 		<tr>

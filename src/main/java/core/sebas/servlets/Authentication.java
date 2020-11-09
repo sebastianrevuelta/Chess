@@ -39,12 +39,9 @@ public class Authentication extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
-		//PropertiesConfigurator is used to configure logger from properties file
-//		Properties props = new Properties();
-//		props.load(getClass().getClassLoader().getResourceAsStream("log4j.properties"));
+
 		PropertyConfigurator.configure("log4j.properties");
-		//PropertyConfigurator.configure(props);
-        
+
 		HttpSession session = request.getSession();
 
 		String username = request.getParameter("username");
