@@ -4,42 +4,39 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sebas.core</groupId>
-	<artifactId>Chess</artifactId>
-	<version>1.1</version>
-	<packaging>jar</packaging>
+	<artifactId>chess</artifactId>
+        <version>1.2</version>
+        <packaging>${p.type}</packaging>
 
-	<name>Chess</name>
+	<name>chess</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-	</properties>
+	  <p.type>jar</p.type>
+          <java.version>1.8</java.version>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+          <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        </properties>
+
 
 	<dependencies>
+		<dependency>
+	      <groupId>log4j</groupId>
+		  <artifactId>log4j</artifactId>
+		  <version>1.2.12</version>
+		</dependency>
 
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.12</version>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>servlet-api</artifactId>
+		  <version>2.4</version>
 		</dependency>
-        <!--dependency> 
-           <groupId>ch.qos.logback</groupId> 
-           <artifactId>logback-classic</artifactId> 
-           <version>1.2.3</version> 
-       </dependency-->
 
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.4</version>
-		</dependency>
-		
-	
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
+		  <groupId>junit</groupId>
+		   <artifactId>junit</artifactId>
+		   <version>3.8.1</version>
+		   <scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -49,21 +46,24 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-collections4</artifactId>
-			<version>4.0</version>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-collections4</artifactId>
+		  <version>4.0</version>
 		</dependency>
 	</dependencies>
+	
     <build>
       <resources>
         <resource>
-            <directory>src/main/java</directory>
+            <directory>src/main/resources</directory>
             <includes>
-                <include>**/config.properties</include>
+                <include>**/*.properties</include>
             </includes>
         </resource>
-      </resources>
-      <plugins>
+     </resources>
+	 
+     <plugins>
+	 
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -73,7 +73,125 @@
                 <target>1.8</target>
             </configuration>
         </plugin>
+		
+       <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+              <warSourceDirectory>WebContent</warSourceDirectory>
+              <failOnMissingWebXml>true</failOnMissingWebXml>
+           </configuration>
+       </plugin>
+	   
+            <plugin>
+                <groupId>org.jfrog.buildinfo</groupId>
+                <artifactId>artifactory-maven-plugin</artifactId>
+                <version>2.6.1</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>publish</goal>
+                        </goals>
+                        <configuration>
+                            <deployProperties>
+                                <gradle>awesome</gradle>
+                            </deployProperties>
+                            <artifactory>
+                                <includeEnvVars>true</includeEnvVars>
+                                <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*</envVarsExcludePatterns>
+                                <timeoutSec>60</timeoutSec>
+                            </artifactory>
+                            <publisher>
+                                <contextUrl>https://chessgame.jfrog.io/artifactory/chessvirutal</contextUrl>
+                                <username>${username}</username>
+                                <password>${password}</password>
+                                <excludePatterns>*.json</excludePatterns>
+                                <repoKey>libs-release-local</repoKey>
+                                <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+                            </publisher>
+                            <buildInfo>
+                                <buildName>plugin-demo</buildName>
+                                <buildNumber>${buildnumber}</buildNumber>
+                                <buildUrl>http://build-url.org</buildUrl>
+                            </buildInfo>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+	   
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals><goal>copy</goal></goals>
+                    <configuration>
+                        <artifactItems>
+                            <artifactItem>
+                                <groupId>com.heroku</groupId>
+                                <artifactId>webapp-runner</artifactId>
+                                <version>9.0.30.0</version>
+                                <destFileName>webapp-runner.jar</destFileName>
+                            </artifactItem>
+                        </artifactItems>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>  
+	
+        <plugin>
+          <groupId>org.cyclonedx</groupId>
+          <artifactId>cyclonedx-maven-plugin</artifactId>
+          <version>2.0.3</version>
+  	      <executions>
+	        <execution>
+	          <phase>verify</phase>
+	            <goals>
+		          <goal>makeAggregateBom</goal>
+	            </goals>
+	        </execution>
+	      </executions>
+		  <configuration>
+			  <projectType>library</projectType>
+			  <schemaVersion>1.2</schemaVersion>
+			  <includeBomSerialNumber>true</includeBomSerialNumber>
+			  <includeCompileScope>true</includeCompileScope>
+			  <includeProvidedScope>true</includeProvidedScope>
+			  <includeRuntimeScope>true</includeRuntimeScope>
+			  <includeSystemScope>true</includeSystemScope>
+			  <includeTestScope>false</includeTestScope>
+			  <includeLicenseText>false</includeLicenseText>
+			  <outputFormat>all</outputFormat>
+			</configuration>
+       </plugin>
+	   
       </plugins>
+	  
     </build>
+
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>bintray</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>bintray-plugins</name>
+            <url>https://jcenter.bintray.com</url>
+        </pluginRepository>
+     </pluginRepositories>
 
 </project>

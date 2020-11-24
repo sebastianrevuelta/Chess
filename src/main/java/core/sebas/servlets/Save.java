@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Load extends HttpServlet {
+public class Save extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -16,7 +16,7 @@ public class Load extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request,final HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/html/load.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/html/save.jsp");
 		requestDispatcher.forward(request, response);
 	}
 	
