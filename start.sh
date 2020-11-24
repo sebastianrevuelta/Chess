@@ -1,9 +1,9 @@
 mvn clean compile package -Dp.type=jar
 ##Obfuscate the java jar
-java -jar $PROGUARD_HOME/lib/proguard.jar @proguard/chess-proguard.pro
+#java -jar $PROGUARD_HOME/lib/proguard.jar @proguard/chess-proguard.pro
 mvn package -Dp.type=war
 ##Deploy to jfrog artifacts
-mvn deploy -Dusername=sebastianrevuelta@gmail.com -Dpassword=$1
+#mvn deploy -Dusername=sebastianrevuelta@gmail.com -Dpassword=$1
 #If needed stop and run mysql container
 #docker container stop mysql-db
 #docker rm -f mysql-db

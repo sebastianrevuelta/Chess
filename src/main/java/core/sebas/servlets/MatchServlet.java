@@ -39,7 +39,7 @@ public class MatchServlet extends HttpServlet {
 		
 		String move = request.getParameter("move");
 		boolean shouldMove = true;
-		if (move != null) shouldMove = true;
+		if (move != null) shouldMove = false;
 		
 		PrintWriter out = response.getWriter();
 		Match match = updateMatch(session);
@@ -63,12 +63,11 @@ public class MatchServlet extends HttpServlet {
 		
 		String move = request.getParameter("move");
 		boolean shouldMove = true;
-		if (move != null) shouldMove = true;
+		if (move != null) shouldMove = false;
 		
 		PrintWriter out = response.getWriter();
 		Match match = updateMatch(session);
 		
-		//boolean shouldMove = (boolean) session.getAttribute("shouldMove");
 		String message = (String) session.getAttribute("message");
 		try {
 			StringBuffer html = paintMatch(match, move, shouldMove, message);
@@ -148,6 +147,12 @@ public class MatchServlet extends HttpServlet {
 				}
 			}
 		}			
+		sb.append("<div id='move'>");
+		sb.append("<form action='./Play' method='GET'>");
+		sb.append("<input id='text' name=''move' value=''>");
+		sb.append("<input id='button' type='submit' value='Play'>");
+		sb.append("</form>");
+		sb.append("</div>");
 		sb.append("<div id='match'>" + history + "</div>");
 		sb.append("<div id='player1'>" + "Player 1: " + match.getPlayer1() + "</div>");
 		sb.append("<div id='player2'>" + "Player 2: " + match.getPlayer2()  + "</div>");
