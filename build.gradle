@@ -6,6 +6,7 @@ buildscript {
     repositories {
       jcenter()
 	  google()
+	  mavenCentral()
     }
     dependencies {
       classpath 'com.guardsquare:proguard-gradle:7.0.0'
@@ -17,6 +18,7 @@ plugins {
     id 'maven-publish'
 	id 'application' 
 	id 'war'
+	id 'com.bmuschko.docker-remote-api' version '6.4.0' 
 }
 
 repositories {
@@ -63,6 +65,8 @@ jar {
   }
 }
 
+//Import task types
+import com.bmuschko.gradle.docker.tasks.image.*
 
 task obfuscation(type: proguard.gradle.ProGuardTask) {
   dependsOn build
@@ -75,8 +79,28 @@ task obfuscation(type: proguard.gradle.ProGuardTask) {
 
 task war_obf(type: War) {
     dependsOn obfuscation
-	rootSpec.exclude('**/com/**')
-	rootSpec.exclude('**/core/**')
-	classpath fileTree(dir:'build/libs/',include:'*_obf.jar')
-	archiveName = "chess-${project.version}_obf.war"
+    rootSpec.exclude('**/com/**')
+    rootSpec.exclude('**/core/**')
+    classpath fileTree(dir:'build/libs/',include:'*_obf.jar')
+    archiveName = "chess-${project.version}_obf.war"
 }
+
+task buildImage(type: DockerBuildImage) {
+	dependsOn war
+	inputDir = file('.')
+	images.add("docker.io/sebastianrevuelta/chess-game:${project.version}")	
+}
+
+task buildImageObf(type: DockerBuildImage) {
+	dependsOn war_obf
+	inputDir = file('.')
+	buildArgs = ['OBF_SUFFIX':'_obf']
+	images.add("docker.io/sebastianrevuelta/chess-game:obf-${project.version}")	
+}
+
+task pushImageObf(type: DockerPushImage, dependsOn: buildImageObf) {
+	dependsOn buildImageObf
+    images.add("docker.io/sebastianrevuelta/chess-game:obf-${project.version}")
+}
+
+

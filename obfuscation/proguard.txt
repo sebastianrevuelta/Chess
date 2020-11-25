@@ -1,5 +1,6 @@
 # Include java runtime classes
--libraryjars  <java.home>/lib/rt.jar
+-libraryjars  <java.home>/jmods/java.base.jmod(!**.jar;!module-info.class)
+-libraryjars  <java.home>/jmods/java.sql.jmod(!**.jar;!module-info.class)
 
 # Output a source map file
 -printmapping proguard.map

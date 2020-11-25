@@ -194,9 +194,9 @@ core.sebas.servlets.MatchServlet -> core.sebas.servlets.MatchServlet:
     org.apache.log4j.Logger log -> a
     24:24:void <init>() -> <init>
     37:56:void doGet(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) -> doGet
-    61:83:void doPost(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) -> doPost
-    92:101:com.sebas.core.Match updateMatch(javax.servlet.http.HttpSession) -> a
-    113:163:java.lang.StringBuffer paintMatch(com.sebas.core.Match,java.lang.String,boolean,java.lang.String) -> a
+    61:82:void doPost(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) -> doPost
+    91:100:com.sebas.core.Match updateMatch(javax.servlet.http.HttpSession) -> a
+    112:168:java.lang.StringBuffer paintMatch(com.sebas.core.Match,java.lang.String,boolean,java.lang.String) -> a
     31:31:void <clinit>() -> <clinit>
 core.sebas.servlets.NewGame -> core.sebas.servlets.NewGame:
     long serialVersionUID -> serialVersionUID
