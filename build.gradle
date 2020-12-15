@@ -5,8 +5,8 @@
 buildscript {
     repositories {
       jcenter()
-	  google()
-	  mavenCentral()
+      google()
+      mavenCentral()
     }
     dependencies {
       classpath 'com.guardsquare:proguard-gradle:7.0.0'
@@ -16,15 +16,16 @@ buildscript {
 plugins {
     id 'java'
     id 'maven-publish'
-	id 'application' 
-	id 'war'
-	id 'com.bmuschko.docker-remote-api' version '6.4.0' 
+    id 'application' 
+    id 'war'
+    id 'com.bmuschko.docker-remote-api' version '6.4.0' 
+    id "org.sonarqube" version "3.0"
 }
 
 repositories {
     jcenter()
-	mavenCentral()
-	mavenLocal()
+    mavenCentral()
+    mavenLocal()
     maven {
       url = uri('https://jcenter.bintray.com')
     }
@@ -86,20 +87,20 @@ task war_obf(type: War) {
 }
 
 task buildImage(type: DockerBuildImage) {
-	dependsOn war
-	inputDir = file('.')
-	images.add("docker.io/sebastianrevuelta/chess-game:${project.version}")	
+    dependsOn war
+    inputDir = file('.')
+    images.add("docker.io/sebastianrevuelta/chess-game:${project.version}")	
 }
 
 task buildImageObf(type: DockerBuildImage) {
-	dependsOn war_obf
-	inputDir = file('.')
-	buildArgs = ['OBF_SUFFIX':'_obf']
-	images.add("docker.io/sebastianrevuelta/chess-game:obf-${project.version}")	
+    dependsOn war_obf
+    inputDir = file('.')
+    buildArgs = ['OBF_SUFFIX':'_obf']
+    images.add("docker.io/sebastianrevuelta/chess-game:obf-${project.version}")	
 }
 
 task pushImageObf(type: DockerPushImage, dependsOn: buildImageObf) {
-	dependsOn buildImageObf
+    dependsOn buildImageObf
     images.add("docker.io/sebastianrevuelta/chess-game:obf-${project.version}")
 }
 
