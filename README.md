@@ -1,7 +1,7 @@
-# Chess
+## Vulnerable chess. Web application game
 A simple vulnerable Chess Game
 
-It is a java chess game, you can deploy with docker.
+It is a j2ee chess game, you can deploy with docker.
 
 # Usage:
 gradle buildImage
