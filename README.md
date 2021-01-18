@@ -40,16 +40,17 @@ In order to deploy the application in Microsoft Azure Cloud, we need to follow t
 
 1. Install maven plugin 
 
-    <plugin> 
+       <plugin> 
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
         <version>1.7.0</version>  
-    </plugin>
+       </plugin>
     
 2. Generate azure configuration
     
-    mvn azure-webapp:config
+       mvn azure-webapp:config
     
 3. Deploy the application in azure
 
-    mvn azure-webapp:deploy (you should generate the war file as explained above)
+       mvn azure-webapp:deploy 
+  (you should generate the war file as explained above)
