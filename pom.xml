@@ -89,7 +89,7 @@
                 <version>2.6.1</version>
                 <inherited>false</inherited>
                 <executions>
-                    <execution>
+                    <!-- execution>
                         <id>build-info</id>
                         <goals>
                             <goal>publish</goal>
@@ -117,7 +117,7 @@
                                 <buildUrl>http://build-url.org</buildUrl>
                             </buildInfo>
                         </configuration>
-                    </execution>
+                    </execution-->
                 </executions>
             </plugin>
 	   
