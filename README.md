@@ -1,5 +1,5 @@
 # Vulnerable chess game
-A simple vulnerable Chess Game developed in Java, using also javascript, jsp pages, css and traditional HTTPResquest and HTTPResonse.
+A simple vulnerable Chess Game developed in Java, using also javascript, jsp pages, css and traditional HttpResquest and HttpResonse.
 It uses a mysql database with info of the users.
 
 ## Steps to deploy the application
@@ -9,6 +9,7 @@ It uses a mysql database with info of the users.
 
 You have also the option to generate a image with obfuscated source code, it uses proguard for java as obfuscator.
 To do that, simply run.
+    
     gradle buildImageObf
 
 ### Generating war file with maven
@@ -26,5 +27,9 @@ To do that run:
 
 ** Note: Credentials to atabase should be configured in resources/config.properties file **
 
+You can access to the application through:
+
+    localhost:8087/chess
+
 You can find some SQL Injections, Cross Site Scripting, Path Traversal and so on.
-Some of the most important OWASP TOP 10 vulneraqbilities.
+Some of the most important OWASP TOP 10 vulnerabilities.
