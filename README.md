@@ -28,7 +28,7 @@ To do that run:
 #### Deploying a mysql database with docker
     docker run -d -p 8306:3306 --name mysql-db -e MYSQL_ROOT_PASSWORD={PASSWORD} --mount src=mysql-db-data,dst=/var/lib/mysql mysql
 
-** Note: Credentials, host and port of the database should be configured in resources/config.properties file before war generation**
+**Note: Credentials, host and port of the database should be configured in resources/config.properties file before war generation**
 
 You can access to the application through:
 
@@ -61,5 +61,8 @@ Then you can check the logs as this:
   
       az webapp log tail --name {appName} --resource-group {groupName}
 
+  **Note: You can use a MySQL database as a Azure Service, in any case, you need to configure credentials, host and port of the database in resources/config.properties file before deploying app**
   
-  
+ ## Pending improvements
+ * Extract chess engine as microservice
+
