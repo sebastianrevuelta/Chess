@@ -65,4 +65,5 @@ Then you can check the logs as this:
   
  ## Pending improvements
  * Extract chess engine as microservice
+ * Configuration properties file as environment variables
 
