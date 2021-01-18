@@ -54,3 +54,12 @@ In order to deploy the application in Microsoft Azure Cloud, we need to follow t
 
        mvn azure-webapp:deploy 
   (you should generate the war file as explained above)
+  
+### How to see the logs in Azure
+First of all, you need to download the Axure CLI client.
+Then you can check the logs as this:
+  
+      az webapp log tail --name {appName} --resource-group {groupName}
+
+  
+  
