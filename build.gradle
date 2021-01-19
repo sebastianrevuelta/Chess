@@ -5,8 +5,8 @@
 buildscript {
     repositories {
       jcenter()
-	  google()
-	  mavenCentral()
+      google()
+      mavenCentral()
     }
     dependencies {
       classpath 'com.guardsquare:proguard-gradle:7.0.0'
@@ -16,17 +16,17 @@ buildscript {
 plugins {
     id 'java'
     id 'maven-publish'
-	id 'application' 
-	id 'war'
-	id 'com.bmuschko.docker-remote-api' version '6.4.0' 
+    id 'application' 
+    id 'war'
+    id 'com.bmuschko.docker-remote-api' version '6.4.0' 
 }
 
 repositories {
     jcenter()
-	mavenCentral()
-	mavenLocal()
+    mavenCentral()
+    mavenLocal()
     maven {
-      url = uri('https://jcenter.bintray.com')
+    url = uri('https://jcenter.bintray.com')
     }
 }
 
@@ -63,6 +63,13 @@ jar {
   manifest {
     attributes 'Main-Class': "com.sebas.core.StartGame"
   }
+}
+
+war {
+    manifest {
+        // specify custom attributes
+        attributes('Main-Class': 'com.sebas.core.StartGame')
+    }
 }
 
 //Import task types
