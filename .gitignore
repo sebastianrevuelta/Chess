@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -39,6 +40,11 @@ Icon
 
 # Eclipse Core      
 .project
-
+.settings/
 # JDT-specific (Eclipse Java Development Tools)     
 .classpath
+/build/
+/sh/sonar.sh
+.gradle/
+.settings/org.eclipse.core.resources.prefs
+.settings/org.eclipse.jdt.core.prefs
