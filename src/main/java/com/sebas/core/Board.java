@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
  */
 public class Board {
 
+	private static final String BLACK = "black";
 	protected final static Logger log = Logger.getLogger(Board.class);
 	private Square[][] squares;
 
@@ -73,46 +74,46 @@ public class Board {
 		casillas[7][1] = squareh2;
 
 		//white pieces
-		Square squarea8 = createSquare("black","a","8","tower");
+		Square squarea8 = createSquare(BLACK,"a","8","tower");
 		casillas[0][7] = squarea8;
 
-		Square squareb8 = createSquare("black","b","8","knight");
+		Square squareb8 = createSquare(BLACK,"b","8","knight");
 		casillas[1][7] = squareb8;
 
-		Square squarec8 = createSquare("black","c","8","bishop");
+		Square squarec8 = createSquare(BLACK,"c","8","bishop");
 		casillas[2][7] = squarec8;
 
-		Square squared8 = createSquare("black","d","8","queen");
+		Square squared8 = createSquare(BLACK,"d","8","queen");
 		casillas[3][7] = squared8;
 
-		Square squaree8 = createSquare("black","e","8","king");
+		Square squaree8 = createSquare(BLACK,"e","8","king");
 		casillas[4][7] = squaree8;
 
-		Square squaref8 = createSquare("black","f","8","bishop");
+		Square squaref8 = createSquare(BLACK,"f","8","bishop");
 		casillas[5][7] = squaref8;
 
-		Square squareg8 = createSquare("black","g","8","knight");
+		Square squareg8 = createSquare(BLACK,"g","8","knight");
 		casillas[6][7] = squareg8;
 
-		Square squareh8 = createSquare("black","h","8","tower");
+		Square squareh8 = createSquare(BLACK,"h","8","tower");
 		casillas[7][7] = squareh8;
 
 		//black pawns
-		Square squarea7 = createSquare("black","a","7","pawn");
+		Square squarea7 = createSquare(BLACK,"a","7","pawn");
 		casillas[0][6] = squarea7;
-		Square squareb7 = createSquare("black","b","7","pawn");
+		Square squareb7 = createSquare(BLACK,"b","7","pawn");
 		casillas[1][6] = squareb7;
-		Square squarec7 = createSquare("black","c","7","pawn");
+		Square squarec7 = createSquare(BLACK,"c","7","pawn");
 		casillas[2][6] = squarec7;
-		Square squared7 = createSquare("black","d","7","pawn");
+		Square squared7 = createSquare(BLACK,"d","7","pawn");
 		casillas[3][6] = squared7;
-		Square squaree7 = createSquare("black","e","7","pawn");
+		Square squaree7 = createSquare(BLACK,"e","7","pawn");
 		casillas[4][6] = squaree7;
-		Square squaref7 = createSquare("black","f","7","pawn");
+		Square squaref7 = createSquare(BLACK,"f","7","pawn");
 		casillas[5][6] = squaref7;
-		Square squareg7 = createSquare("black","g","7","pawn");
+		Square squareg7 = createSquare(BLACK,"g","7","pawn");
 		casillas[6][6] = squareg7;
-		Square squareh7 = createSquare("black","h","7","pawn");
+		Square squareh7 = createSquare(BLACK,"h","7","pawn");
 		casillas[7][6] = squareh7;
 
 
@@ -260,7 +261,7 @@ public class Board {
 
 	public void printLine(String content, String color) {
 		System.out.flush();
-		if ("black".equals(color)) {
+		if (BLACK.equals(color)) {
 			log.info(content.toLowerCase());
 		}
 		else {
@@ -316,13 +317,11 @@ public class Board {
 			printLine(" " + calculateVertical(j),"");
 		}
 		System.out.println();
+		System.out.println();
 	}
 
 	public boolean checkMate(Movement m) {
-		if (m.getHeuristicValue() > (double)500) {
-			return true;	
-		}
-		return false;
+		return (m.getHeuristicValue() > (double)500);
 	}
 	public Square getSquare(String destiny) {
 		int v = UtilChess.calculateVertical(destiny);

@@ -7,7 +7,7 @@
                 background-color:white;
                 position: fixed;
                 
-                width: 200px;
+                width: 240px;
                 height: 330px;
                 
                 top: 100px;
@@ -29,13 +29,13 @@
 		 }
 						
 		  #play {
-                margin: 20px;
+                margin: 10px;
                 border: 5px solid #F0F0F0;
                 padding: 10px;
                 background-color:white;
                 position: fixed;
                 
-                width: 50px;
+                width: 60px;
                 height: 20px;
                 
                 top: 460px;
@@ -43,50 +43,50 @@
 		  }
 						
 		  #new {
-                margin: 20px;
+                margin: 10px;
                 border: 5px solid #F0F0F0;
                 padding: 10px;
                 background-color:white;
                 position: fixed;
                 
-                width: 50px;
+                width: 60px;
                 height: 20px;
                 
                 top: 460px;
-                left: 620px;
+                left: 630px;
 			}
 			
 			#load {
-                margin: 20px;
+                margin: 10px;
                 border: 5px solid #F0F0F0;
                 padding: 10px;
                 background-color:white;
                 position: fixed;
                 
-                width: 35px;
+                width: 60px;
                 height: 20px;
                 
                 top: 460px;
-                left: 670px;
+                left: 690px;
 			}
 			
 			#save {
-                margin: 20px;
+                margin: 10px;
                 border: 5px solid #F0F0F0;
                 padding: 10px;
                 background-color:white;
                 position: fixed;
                 
-                width: 50px;
+                width: 60px;
                 height: 20px;
                 
                 top: 460px;
-                left: 720px;
+                left: 770px;
 			}
             
             #message {
                 margin: 20px;
-                border: 5px solid #F0F0F0;
+                border: 0px solid #F0F0F0;
                 padding: 10px;
                 background-color:white;
                 position: fixed;
@@ -100,13 +100,13 @@
 			
 			#move {
                 margin: 20px;
-                border: 5px solid #F0F0F0;
+                border: 0px solid #F0F0F0;
                 padding: 10px;
                 background-color:white;
                 position: fixed;
                 
-                width: 100px;
-                height: 20px;
+                width: 400px;
+                height: 50px;
                 
                 top: 520px;
                 left: 970px;
@@ -119,7 +119,7 @@
                 background-color:white;
                 position: fixed;
                 
-                width: 150px;
+                width: 200px;
                 height: 15px;
                 
                 top: 40px;
@@ -137,7 +137,7 @@
                 height: 15px;
                 
                 top: 40px;
-                left: 300px;
+                left: 350px;
 			}
 			
 			#player2 {
@@ -147,7 +147,7 @@
                 background-color:white;
                 position: fixed;
                 
-                width: 150px;
+                width: 200px;
                 height: 15px;
                 
                 top: 520px;
@@ -165,7 +165,7 @@
                 height: 15px;
                 
                 top: 520px;
-                left: 300px;
+                left: 350px;
 			}
             
             #a8 {

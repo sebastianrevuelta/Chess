@@ -149,14 +149,15 @@ public class MatchServlet extends HttpServlet {
 		}			
 		sb.append("<div id='move'>");
 		sb.append("<form action='./Play' method='GET'>");
-		sb.append("<input id='text' name=''move' value=''>");
+		sb.append("<input id='text' name='movement' value=''>");
 		sb.append("<input id='button' type='submit' value='Play'>");
 		sb.append("</form>");
 		sb.append("</div>");
 		sb.append("<div id='match'>" + history + "</div>");
 		sb.append("<div id='player1'>" + "Player 1: " + match.getPlayer1() + "</div>");
 		sb.append("<div id='player2'>" + "Player 2: " + match.getPlayer2()  + "</div>");
-		sb.append("<div id='timer'>" + "Time: " + match.getTimer()  + "</div>");
+		sb.append("<div id='timer1'>" + "Time: " + match.getTimer() + ":00" + "</div>");
+		sb.append("<div id='timer2'>" + "Time: " + match.getTimer() + ":00" + "</div>");
 		sb.append("<div id='play'> <a href='./Play'>Play</a></div>");
 		sb.append("<div id='new'> <a href='./Game'>New</a></div>");
 		sb.append("<div id='save'> <a href='./Save'>Save</a></div>");

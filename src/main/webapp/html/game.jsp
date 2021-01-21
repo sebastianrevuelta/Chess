@@ -185,7 +185,7 @@
 		%>
 	</div>
 	<div id="play">
-		<a href="./Play">Idea</a>
+		<a href="./Play">Play</a>
 	</div>
 	<div id="new">
 		<a href="./Game">New</a>
@@ -197,13 +197,12 @@
 		<a href="./Save">Save</a>
 	</div>
 	<div id="message">
-		Click Idea button or insert your move as e2e4
+		Click Play button or insert your move as e2e4
 	</div>
 	<div id="move">
 		<form action="/Play">
-		  <label for="move">Move: </label>
-		  <input type="text" id="move" name="move"><br>
-		  <input type="play" value="Play">
+		  <input type="text" name="move"><br>
+		  <input id='button' type='submit' value='Play'>	
 		</form>
 	</div>
 	<table id="table">
