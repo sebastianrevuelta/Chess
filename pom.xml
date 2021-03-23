@@ -10,7 +10,7 @@
   <url>http://maven.apache.org</url>  
   <properties> 
     <p.type>war</p.type>  
-    <java.version>1.8</java.version>  
+    <java.version>1.14</java.version>  
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> 
   </properties>  
