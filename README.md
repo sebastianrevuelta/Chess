@@ -8,6 +8,7 @@ Some of the most important OWASP TOP 10 vulnerabilities.
 ## Steps to deploy the application locally
 
 ### Generating war file with gradle
+    gradle clean
     gradle buildImage
 
 You have also the option to generate a image with obfuscated source code, it uses proguard for java as obfuscator.
@@ -26,10 +27,19 @@ To do that run:
     docker run -d --name chess -p 8087:8080 sebastianrevuelta/chess-game:2.3
 
 #### Deploying a mysql database with docker
-    docker run -d -p 8306:3306 --name mysql-db -e MYSQL_ROOT_PASSWORD={PASSWORD} --mount src=mysql-db-data,dst=/var/lib/mysql mysql
+    docker run -d -p 8306:3306 --name mysql_db -e MYSQL_ROOT_PASSWORD={PASSWORD} --mount src=mysql-db-data,dst=/var/lib/mysql mysql
 
 **Note: Credentials, host and port of the database should be configured in resources/config.properties file before war generation**
 
+### Deploying the application with Docker Compose
+After building the image (gradle buildImage command) then you can deploy with docker-compose as follow:
+    
+    docker-compose up -d
+
+### Populate database
+
+    docker exec -i mysql_db sh -c 'exec mysql -uroot -p{password}' < ./sql/chess_db.sql
+    
 You can access to the application through:
 
     localhost:8087/chess
