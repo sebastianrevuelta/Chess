@@ -19,7 +19,7 @@ INSERT INTO `user` (username,password) values ("revuelta","revuelta");
 
 DROP TABLE IF EXISTS `secure_user`;
 CREATE TABLE secure_user (
-	`username` varchar(60) NOT NULL,
+    `username` varchar(60) NOT NULL,
     `password` varchar(60) NOT NULL,
     PRIMARY KEY (`username`)
 );
@@ -27,5 +27,5 @@ INSERT INTO secure_user (username, password) VALUES ('sebastianrevuelta@gmail.co
 INSERT INTO secure_user (username, password) VALUES ('a', SHA1('a'));
 
 -- create read user
-CREATE USER 'chess'@'%' IDENTIFIED BY 'checkMate$_@76';
-GRANT SELECT ON chess.* TO chess@'%';
+-- CREATE USER 'chess'@'%' IDENTIFIED BY 'checkMate$_@76';
+-- GRANT SELECT ON chess.* TO chess@'%';
