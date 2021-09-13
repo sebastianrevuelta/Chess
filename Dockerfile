@@ -1,5 +1,5 @@
 FROM davidcaste/alpine-tomcat:tomcat8
-ARG VERSION=2.3
+ARG VERSION=2.4
 ARG OBF_SUFFIX=""
 LABEL maintainer="sebastianrevuelta@gmail.com"
 LABEL name="chess vulnerable game"
