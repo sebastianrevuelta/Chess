@@ -27,7 +27,7 @@ To do that run:
     docker run -d --name chess -p 8087:8080 sebastianrevuelta/chess-game:2.3
 
 #### Deploying a mysql database with docker
-    docker run -d -p 8306:3306 --name mysql_db -e MYSQL_ROOT_PASSWORD={PASSWORD} --mount src=mysql-db-data,dst=/var/lib/mysql mysql
+    docker run -d -p 3306:3306 --name mysql_db -e MYSQL_ROOT_PASSWORD={PASSWORD} --mount src=mysql-db-data,dst=/var/lib/mysql mysql
 
 **Note: Credentials, host and port of the database should be configured in resources/config.properties file before war generation**
 
