@@ -27,3 +27,8 @@ jobs:
         inputSarifFile: semgrep.sarif
         outputSarifFile: semgrep.processed.sarif
         githubToken: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload SCW Report 
+      uses: actions/upload-artifact@v3
+      with:
+        name: scw_report
+        path: semgrep.processed.sarif
