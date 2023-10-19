@@ -3,7 +3,6 @@ on:
   pull_request: {}
   push:
     branches:
-    - main
     - master
     paths:
     - .github/workflows/semgrep.yml
@@ -21,4 +20,10 @@ jobs:
       image: returntocorp/semgrep
     steps:
     - uses: actions/checkout@v3
-    - run: semgrep ci
+    - run: semgrep ci --sarif --output semgrep.sarif
+    - name: Add SCW Training
+      uses: SecureCodeWarrior/github-action-add-sarif-contextual-training@v1
+      with:
+        inputSarifFile: semgrep.sarif
+        outputSarifFile: semgrep.processed.sarif
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
