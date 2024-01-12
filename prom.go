@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/rand"
 	// ruleid: math-random-used
+	// new line here
 	mrand "math/rand"
 )
 
