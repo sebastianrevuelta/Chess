@@ -1,15 +1,16 @@
+name: Semgrep
 on:
   workflow_dispatch: {}
   pull_request: {}
   push:
     branches:
-    - master
+      - main
+      - master
     paths:
-    - .github/workflows/semgrep.yml
+      - .github/workflows/semgrep.yml
   schedule:
-  # random HH:MM to avoid a load spike on GitHub Actions at 00:00
-  - cron: '53 21 * * *'
-name: Semgrep
+    # random HH:MM to avoid a load spike on GitHub Actions at 00:00
+    - cron: '18 21 * * *'
 jobs:
   semgrep:
     name: semgrep/ci
@@ -18,17 +19,7 @@ jobs:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
     container:
       image: returntocorp/semgrep
+    if: (github.actor != 'dependabot[bot]')
     steps:
-    - uses: actions/checkout@v3
-    - run: semgrep ci --sarif --output semgrep.sarif
-    - name: Add SCW Training
-      uses: SecureCodeWarrior/github-action-add-sarif-contextual-training@v1
-      with:
-        inputSarifFile: semgrep.sarif
-        outputSarifFile: semgrep.processed.sarif
-        githubToken: ${{ secrets.GITHUB_TOKEN }}
-    - name: Upload SCW Report 
-      uses: actions/upload-artifact@v3
-      with:
-        name: scw_report
-        path: semgrep.processed.sarif
+      - uses: actions/checkout@v3
+      - run: semgrep ci
